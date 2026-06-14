@@ -189,6 +189,14 @@
         /* VENTES DETAIL BADGE */
         .sold-models-detail { font-size:12px; color:#6b7280; margin-top:4px; line-height:1.5; }
         .sold-model-tag { display:inline-block; background:#eff6ff; color:#1d4ed8; border-radius:4px; padding:1px 7px; margin:1px 3px 1px 0; font-size:11.5px; font-weight:600; }
+
+        /* NOTES */
+        textarea { width:100%; padding:10px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; font-family:inherit; resize:vertical; }
+        textarea:focus { outline:none; border-color:var(--primary); }
+        .note-item { background:var(--light); border-radius:8px; padding:14px 16px; margin-bottom:10px; }
+        .note-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:12px; color:var(--gray); }
+        .note-author { color:var(--primary); font-weight:700; }
+        .note-text { font-size:14px; color:var(--dark); white-space:pre-wrap; word-break:break-word; }
     </style>
 </head>
 <body>
@@ -234,6 +242,7 @@
         <button id="tab1Btn" class="tab-btn active">📦 Stock & Modèles</button>
         <button id="tab2Btn" class="tab-btn">🛒 Ventes & Retours</button>
         <button id="tab3Btn" class="tab-btn">📊 Comptabilité</button>
+        <button id="tab4Btn" class="tab-btn">📝 Notes</button>
     </nav>
 
     <!-- TAB 1 -->
@@ -390,8 +399,8 @@
             </div>
             <div style="overflow-x:auto;">
                 <table>
-                    <thead><tr><th>Date</th><th>Modèle</th><th>Couleur</th><th>Pointure</th><th>Prix vente</th><th>Livraison</th><th>Total</th><th>Statut</th><th>Action</th></tr></thead>
-                    <tbody id="shippedBody"><tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr></tbody>
+                    <thead><tr><th>Date</th><th>Modèle</th><th>Couleur</th><th>Pointure</th><th>Réf. Commande</th><th>Prix vente</th><th>Livraison</th><th>Total</th><th>Statut</th><th>Action</th></tr></thead>
+                    <tbody id="shippedBody"><tr><td colspan="10" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr></tbody>
                 </table>
             </div>
         </div>
@@ -510,6 +519,32 @@
             </div>
         </div>
     </div>
+
+    <!-- TAB 4 -->
+    <div id="tab4" class="tab-panel">
+        <div class="card">
+            <h3>📝 Laisser une note pour l'équipe</h3>
+            <div class="search-grid">
+                <div class="form-group">
+                    <label>Votre nom</label>
+                    <input type="text" id="noteAuthor" placeholder="Ex: Safwann">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea id="noteText" rows="4" placeholder="Écrivez ici un message pour vos collègues (rupture à signaler, consigne du jour, rappel...)"></textarea>
+            </div>
+            <button id="addNoteBtn" class="btn btn-primary">➕ Publier la note</button>
+        </div>
+
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="margin-bottom:0;">🗒️ Notes de l'équipe</h3>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllNotes()">🗑️ Tout supprimer</button>
+            </div>
+            <div id="notesContainer"><div class="empty-state"><div class="icon">📝</div><h3>Aucune note pour le moment</h3><p>Les notes laissées ici sont visibles par tous les collègues.</p></div></div>
+        </div>
+    </div>
 </div>
 
 <div id="toastContainer"></div>
@@ -534,7 +569,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 
-let models = [], stock = [], orders = [], dailySheets = {}, salesHistory = [];
+let models = [], stock = [], orders = [], dailySheets = {}, salesHistory = [], notes = [];
 let currentUser = null, isRegisterMode = false;
 let selectedExistingModelId = null;
 
@@ -552,6 +587,9 @@ function formatCurrency(v) { return new Intl.NumberFormat('fr-FR').format(v || 0
 function getTodayString() {
     const now = new Date();
     return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+}
+function escapeHtml(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 // ============ SOLD MODELS DETAIL HELPER ============
@@ -649,6 +687,7 @@ function loadAllData() {
     onValue(ref(db, 'orders'), (s) => { orders = s.val() || []; renderPendingOrders(); renderDepositOrders(); renderShippedTable(); calculateDailySheet(); });
     onValue(ref(db, 'dailySheets'), (s) => { dailySheets = s.val() || {}; renderDailyHistory(); calculateDailySheet(); });
     onValue(ref(db, 'salesHistory'), (s) => { salesHistory = s.val() || []; calculateDailySheet(); });
+    onValue(ref(db, 'notes'), (s) => { notes = s.val() || []; renderNotes(); });
 }
 
 async function saveToFirebase() {
@@ -657,6 +696,7 @@ async function saveToFirebase() {
     await set(ref(db, 'orders'), orders);
     await set(ref(db, 'dailySheets'), dailySheets);
     await set(ref(db, 'salesHistory'), salesHistory);
+    await set(ref(db, 'notes'), notes);
 }
 
 // ============ RESET AUTO 5H00 ============
@@ -703,6 +743,7 @@ function switchTab(id) {
 document.getElementById('tab1Btn').addEventListener('click', () => switchTab('tab1'));
 document.getElementById('tab2Btn').addEventListener('click', () => switchTab('tab2'));
 document.getElementById('tab3Btn').addEventListener('click', () => switchTab('tab3'));
+document.getElementById('tab4Btn').addEventListener('click', () => switchTab('tab4'));
 
 // ============ AUTOCOMPLETE MODÈLE ============
 document.getElementById('modelName').addEventListener('input', function () {
@@ -1183,13 +1224,18 @@ document.getElementById('searchProductBtn').addEventListener('click', () => {
                 <input type="number" id="negotiatedPrice" value="${item.sellPrice}" placeholder="${item.sellPrice}">
                 <p style="font-size:12px;color:var(--gray);margin-top:4px;">Prix standard: ${formatCurrency(item.sellPrice)} DA — Modifiez si négociation</p>
             </div>
+            <div class="form-group" style="margin-top:14px;">
+                <label>📝 Numéro de commande / Nom du client</label>
+                <input type="text" id="orderRefInput" placeholder="Ex: CMD-1023 ou Yacine Boudiaf">
+            </div>
             <button class="btn btn-success" id="sellBtn" style="margin-top:10px;">✅ Valider la commande</button>`;
         document.getElementById('sellBtn').addEventListener('click', async () => {
             const negotiatedPrice=parseFloat(document.getElementById('negotiatedPrice').value)||item.sellPrice;
+            const orderRef=document.getElementById('orderRefInput').value.trim();
             item.quantity--;
             const orderId='or_'+Date.now();
-            orders.push({ id:orderId, modelId:mId, modelName:item.modelName, color:item.color, size:item.size, salePrice:negotiatedPrice, standardPrice:item.sellPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, status:'pending', date:getTodayString() });
-            salesHistory.push({ date:getTodayString(), salePrice:negotiatedPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, modelName:item.modelName });
+            orders.push({ id:orderId, modelId:mId, modelName:item.modelName, color:item.color, size:item.size, salePrice:negotiatedPrice, standardPrice:item.sellPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, status:'pending', date:getTodayString(), clientRef:orderRef });
+            salesHistory.push({ date:getTodayString(), salePrice:negotiatedPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, modelName:item.modelName, clientRef:orderRef });
             await saveToFirebase();
             showToast('Commande validée ! Colis à préparer.');
             cont.innerHTML=''; res.classList.add('hidden');
@@ -1226,6 +1272,7 @@ function renderPendingOrders() {
             <div class="order-info">
                 <strong>${o.modelName}</strong> — ${o.color} (${o.size})
                 <div style="font-size:13px;color:var(--gray);margin-top:4px;">Prix: ${formatCurrency(o.salePrice)} DA ${o.salePrice!==o.standardPrice?'<span style="color:var(--warning);">(Négocié)</span>':''}</div>
+                ${o.clientRef ? `<div style="font-size:13px;color:var(--primary);margin-top:4px;">📝 ${escapeHtml(o.clientRef)}</div>` : ''}
             </div>
             <div class="order-actions">
                 <button class="btn btn-primary btn-sm" id="ship_${o.id}">📦 Expédier</button>
@@ -1261,6 +1308,7 @@ function renderDepositOrders(){
                 <strong>${o.modelName}</strong> — ${o.color} (${o.size})
                 <div style="font-size:13px;color:var(--gray);margin-top:4px;">Vente: ${formatCurrency(o.salePrice)} DA | Livraison: ${formatCurrency(o.deliveryFee)} DA</div>
                 <div style="font-size:12px;color:var(--primary);margin-top:4px;">🚚 Expédié le ${o.date}</div>
+                ${o.clientRef ? `<div style="font-size:13px;color:var(--primary);margin-top:4px;">📝 ${escapeHtml(o.clientRef)}</div>` : ''}
             </div>
             <div class="order-actions">
                 <button class="btn btn-success btn-sm" id="sell_${o.id}">💰 Vendu</button>
@@ -1281,10 +1329,10 @@ window.confirmResetAllDeposit=function(){
 function renderShippedTable(){
     const b=document.getElementById('shippedBody');b.innerHTML='';
     const shipped=orders.filter(o=>o.status==='shipped'||o.status==='sold');
-    if(shipped.length===0){b.innerHTML=`<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr>`;return;}
+    if(shipped.length===0){b.innerHTML=`<tr><td colspan="10" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr>`;return;}
     shipped.forEach(o=>{
         const badge=o.status==='sold'?'<span class="order-status-sold">VENDU</span>':'<span class="order-status-shipped">EN ATTENTE PAIEMENT</span>';
-        b.innerHTML+=`<tr><td>${o.date}</td><td>${o.modelName}</td><td>${o.color}</td><td>${o.size}</td><td>${formatCurrency(o.salePrice)} DA</td><td>${formatCurrency(o.deliveryFee)} DA</td><td>${formatCurrency(o.salePrice+o.deliveryFee)} DA</td><td>${badge}</td><td class="action-cell"><button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button></td></tr>`;
+        b.innerHTML+=`<tr><td>${o.date}</td><td>${o.modelName}</td><td>${o.color}</td><td>${o.size}</td><td>${o.clientRef?escapeHtml(o.clientRef):'-'}</td><td>${formatCurrency(o.salePrice)} DA</td><td>${formatCurrency(o.deliveryFee)} DA</td><td>${formatCurrency(o.salePrice+o.deliveryFee)} DA</td><td>${badge}</td><td class="action-cell"><button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button></td></tr>`;
     });
 }
 window.deleteShippedOrder=async function(orderId){
@@ -1334,6 +1382,55 @@ document.getElementById('processReturnBtn').addEventListener('click',async()=>{
     if(item){item.quantity++;await saveToFirebase();showToast('Produit réintégré au stock ! (+1)');}
     else alert('Variante introuvable.');
 });
+
+// ============ NOTES D'ÉQUIPE ============
+function renderNotes() {
+    const c = document.getElementById('notesContainer'); c.innerHTML = '';
+    if (notes.length === 0) {
+        c.innerHTML = `<div class="empty-state"><div class="icon">📝</div><h3>Aucune note pour le moment</h3><p>Les notes laissées ici sont visibles par tous les collègues.</p></div>`;
+        return;
+    }
+    notes.forEach(n => {
+        c.innerHTML += `
+            <div class="note-item">
+                <div class="note-meta">
+                    <span><span class="note-author">${escapeHtml(n.author)}</span> — ${escapeHtml(n.date)}</span>
+                    <button class="btn-icon btn-delete" onclick="window.deleteNote('${n.id}')" title="Supprimer">🗑️</button>
+                </div>
+                <div class="note-text">${escapeHtml(n.text)}</div>
+            </div>`;
+    });
+}
+
+document.getElementById('addNoteBtn').addEventListener('click', async () => {
+    const author = document.getElementById('noteAuthor').value.trim();
+    const text = document.getElementById('noteText').value.trim();
+    if (!text) { alert('Écrivez un message avant de publier la note.'); return; }
+    const now = new Date();
+    notes.unshift({
+        id: 'note_' + Date.now(),
+        author: author || 'Anonyme',
+        text,
+        date: now.toLocaleString('fr-FR')
+    });
+    await saveToFirebase();
+    document.getElementById('noteText').value = '';
+    showToast('Note publiée pour l\'équipe !');
+});
+
+window.deleteNote = async function (noteId) {
+    if (!confirm('Supprimer cette note ?')) return;
+    notes = notes.filter(n => n.id !== noteId);
+    await saveToFirebase();
+    showToast('Note supprimée !');
+};
+
+window.confirmResetAllNotes = function () {
+    if (!confirm('⚠️ Supprimer TOUTES les notes ?')) return;
+    notes = [];
+    saveToFirebase();
+    showToast('Toutes les notes supprimées !');
+};
 
 // ============ COMPTABILITÉ ============
 function setToday(){document.getElementById('dailyDate').value=getTodayString();window.loadDailySheet();}
