@@ -17,352 +17,148 @@
             --white: #ffffff;
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
             --radius: 12px;
+            --violet: #7c3aed;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         body { background: #f8fafc; color: var(--dark); line-height: 1.6; }
 
-        /* AUTH */
-        .auth-screen {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-        }
-        .auth-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 420px;
-        }
-        .auth-card h2 { text-align: center; margin-bottom: 24px; color: var(--dark); }
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; margin-bottom: 6px; font-weight: 500; font-size: 14px; }
-        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: border-color 0.2s;
-        }
-        .form-group input:focus { outline: none; border-color: var(--primary); }
+        .auth-screen { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); padding:20px; }
+        .auth-card { background:var(--white); padding:40px; border-radius:var(--radius); box-shadow:var(--shadow); width:100%; max-width:420px; }
+        .auth-card h2 { text-align:center; margin-bottom:24px; color:var(--dark); }
+        .form-group { margin-bottom:16px; }
+        .form-group label { display:block; margin-bottom:6px; font-weight:500; font-size:14px; }
+        .form-group input { width:100%; padding:12px 16px; border:1px solid #d1d5db; border-radius:8px; font-size:15px; transition:border-color 0.2s; }
+        .form-group input:focus { outline:none; border-color:var(--primary); }
 
-        /* BUTTONS */
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .btn-primary { background: var(--primary); color: white; width: 100%; }
-        .btn-primary:hover { background: var(--primary-dark); }
-        .btn-success { background: var(--success); color: white; }
-        .btn-danger { background: var(--danger); color: white; }
-        .btn-warning { background: var(--warning); color: white; }
-        .btn-secondary { background: #e5e7eb; color: var(--dark); }
-        .btn-sm { padding: 8px 16px; font-size: 13px; }
-        .btn-icon {
-            padding: 8px;
-            border-radius: 6px;
-            cursor: pointer;
-            border: none;
-            font-size: 16px;
-            transition: all 0.2s;
-        }
-        .btn-delete { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-        .btn-delete:hover { background: #dc2626; color: white; }
-        .btn-reset { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
-        .btn-reset:hover { background: #c2410c; color: white; }
-        .google-btn {
-            width: 100%;
-            background: var(--white);
-            color: var(--dark);
-            border: 1px solid #d1d5db;
-            margin-top: 12px;
-        }
-        .google-btn:hover { background: #f9fafb; }
+        .btn { padding:12px 24px; border:none; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; transition:all 0.2s; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+        .btn-primary { background:var(--primary); color:white; width:100%; }
+        .btn-primary:hover { background:var(--primary-dark); }
+        .btn-success { background:var(--success); color:white; }
+        .btn-danger { background:var(--danger); color:white; }
+        .btn-warning { background:var(--warning); color:white; }
+        .btn-secondary { background:#e5e7eb; color:var(--dark); }
+        .btn-sm { padding:8px 16px; font-size:13px; }
+        .btn-icon { padding:8px; border-radius:6px; cursor:pointer; border:none; font-size:16px; transition:all 0.2s; }
+        .btn-delete { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+        .btn-delete:hover { background:#dc2626; color:white; }
+        .btn-reset { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+        .btn-reset:hover { background:#c2410c; color:white; }
+        .btn-zero { background:#f3f4f6; color:#374151; border:1px solid #d1d5db; }
+        .btn-zero:hover { background:#374151; color:white; }
+        .google-btn { width:100%; background:var(--white); color:var(--dark); border:1px solid #d1d5db; margin-top:12px; }
+        .google-btn:hover { background:#f9fafb; }
 
-        /* AUTH EXTRAS */
-        .auth-toggle { text-align: center; margin-top: 16px; font-size: 14px; color: var(--gray); }
-        .auth-toggle a { color: var(--primary); cursor: pointer; font-weight: 600; }
-        .hidden { display: none !important; }
-        .error-msg {
-            background: #fef2f2;
-            color: var(--danger);
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            margin-bottom: 16px;
-            border-left: 3px solid var(--danger);
-        }
+        .auth-toggle { text-align:center; margin-top:16px; font-size:14px; color:var(--gray); }
+        .auth-toggle a { color:var(--primary); cursor:pointer; font-weight:600; }
+        .hidden { display:none !important; }
+        .error-msg { background:#fef2f2; color:var(--danger); padding:10px 16px; border-radius:8px; font-size:14px; margin-bottom:16px; border-left:3px solid var(--danger); }
 
-        /* APP LAYOUT */
-        .main-app { min-height: 100vh; }
-        .app-header {
-            background: var(--white);
-            padding: 16px 24px;
-            box-shadow: var(--shadow);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .app-header h1 { font-size: 20px; color: var(--primary); }
-        .user-info { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--gray); }
+        .main-app { min-height:100vh; }
+        .app-header { background:var(--white); padding:16px 24px; box-shadow:var(--shadow); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+        .app-header h1 { font-size:20px; color:var(--primary); }
+        .user-info { display:flex; align-items:center; gap:12px; font-size:14px; color:var(--gray); }
 
-        /* TABS */
-        .tabs-nav {
-            display: flex;
-            gap: 4px;
-            padding: 16px 24px 0;
-            background: var(--white);
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .tab-btn {
-            padding: 12px 20px;
-            background: none;
-            border: none;
-            border-bottom: 3px solid transparent;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--gray);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-        .tab-btn:hover { color: var(--primary-dark); }
-        .tab-panel { display: none; padding: 24px; max-width: 1200px; margin: 0 auto; }
-        .tab-panel.active { display: block; }
+        .tabs-nav { display:flex; gap:4px; padding:16px 24px 0; background:var(--white); border-bottom:1px solid #e5e7eb; }
+        .tab-btn { padding:12px 20px; background:none; border:none; border-bottom:3px solid transparent; font-size:14px; font-weight:600; color:var(--gray); cursor:pointer; transition:all 0.2s; }
+        .tab-btn.active { color:var(--primary); border-bottom-color:var(--primary); }
+        .tab-btn:hover { color:var(--primary-dark); }
+        .tab-panel { display:none; padding:24px; max-width:1400px; margin:0 auto; }
+        .tab-panel.active { display:block; }
 
-        /* CARDS */
-        .card {
-            background: var(--white);
-            border-radius: var(--radius);
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-        }
-        .card h3 { font-size: 18px; margin-bottom: 16px; color: var(--dark); }
+        .card { background:var(--white); border-radius:var(--radius); padding:24px; margin-bottom:20px; box-shadow:var(--shadow); }
+        .card h3 { font-size:18px; margin-bottom:16px; color:var(--dark); }
 
-        /* STEPS */
-        .steps-indicator {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-        .step-dot {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--gray);
-        }
-        .step-dot.active { background: var(--primary); color: white; }
-        .step-section { margin-bottom: 20px; }
-        .dynamic-input-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-        .index-badge {
-            width: 28px;
-            height: 28px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
+        .steps-indicator { display:flex; justify-content:center; gap:8px; margin-bottom:24px; }
+        .step-dot { width:36px; height:36px; border-radius:50%; background:#e5e7eb; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:var(--gray); }
+        .step-dot.active { background:var(--primary); color:white; }
+        .step-section { margin-bottom:20px; }
+        .dynamic-input-item { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+        .index-badge { width:28px; height:28px; background:var(--primary); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
 
-        /* TABLES */
-        table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; }
-        th { background: #f9fafb; font-weight: 600; color: var(--gray); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-        tr:hover { background: #f9fafb; }
+        table { width:100%; border-collapse:collapse; font-size:14px; }
+        th, td { padding:12px 16px; text-align:left; border-bottom:1px solid #e5e7eb; }
+        th { background:#f9fafb; font-weight:600; color:var(--gray); font-size:12px; text-transform:uppercase; letter-spacing:0.5px; }
+        tr:hover { background:#f9fafb; }
 
-        /* FORMS */
-        .search-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-        select, input[type="number"], input[type="date"], input[type="text"] {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        select:focus, input:focus { outline: none; border-color: var(--primary); }
+        .search-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:20px; }
+        select, input[type="number"], input[type="date"], input[type="text"] { width:100%; padding:10px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; }
+        select:focus, input:focus { outline:none; border-color:var(--primary); }
 
-        /* ORDERS */
-        .order-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px;
-            background: var(--light);
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        .order-info { font-size: 15px; }
-        .order-actions { display: flex; gap: 8px; }
+        /* Autocomplete */
+        .autocomplete-wrapper { position:relative; }
+        .autocomplete-list { position:absolute; top:100%; left:0; right:0; background:white; border:1px solid #d1d5db; border-top:none; border-radius:0 0 8px 8px; max-height:200px; overflow-y:auto; z-index:200; box-shadow:var(--shadow); display:none; }
+        .autocomplete-item { padding:10px 14px; cursor:pointer; font-size:14px; border-bottom:1px solid #f3f4f6; }
+        .autocomplete-item:hover { background:#eff6ff; color:var(--primary); }
+        .autocomplete-item.existing { background:#f0fdf4; color:var(--success); font-weight:600; }
+        .autocomplete-item.existing::after { content:" ← Ajouter à ce modèle"; font-size:12px; font-weight:400; }
 
-        /* STATS */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .stat-card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-        .stat-value { font-size: 28px; font-weight: 700; color: var(--primary); margin: 8px 0; }
-        .stat-label { font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+        /* Ajout dans modèle existant */
+        .existing-model-banner { background:#f0fdf4; border:2px solid var(--success); border-radius:8px; padding:14px 16px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+        .existing-model-banner strong { color:var(--success); }
 
-        /* EMPTY STATE */
-        .empty-state { text-align: center; padding: 48px 20px; color: var(--gray); }
-        .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
-        .empty-state h3 { font-size: 18px; margin-bottom: 8px; color: var(--dark); }
+        .order-item { display:flex; justify-content:space-between; align-items:center; padding:16px; background:var(--light); border-radius:8px; margin-bottom:10px; }
+        .order-info { font-size:15px; }
+        .order-actions { display:flex; gap:8px; }
 
-        /* TOAST */
-        #toastContainer {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .toast {
-            padding: 14px 20px;
-            border-radius: 8px;
-            color: white;
-            font-weight: 500;
-            box-shadow: var(--shadow);
-            animation: slideIn 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .toast-success { background: var(--success); }
-        .toast-error { background: var(--danger); }
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+        .stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:24px; }
+        .stat-card { background:var(--white); padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; }
+        .stat-value { font-size:28px; font-weight:700; color:var(--primary); margin:8px 0; }
+        .stat-label { font-size:13px; color:var(--gray); text-transform:uppercase; letter-spacing:0.5px; }
 
-        /* MODEL LIST */
-        .model-list-item {
-            padding: 14px 16px;
-            background: var(--light);
-            border-radius: 8px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .model-list-item span { color: var(--gray); font-size: 13px; }
+        .empty-state { text-align:center; padding:48px 20px; color:var(--gray); }
+        .empty-state .icon { font-size:48px; margin-bottom:12px; }
+        .empty-state h3 { font-size:18px; margin-bottom:8px; color:var(--dark); }
 
-        /* STOCK ALERTS */
-        .stock-alert-orange { background: #fff7ed !important; color: #c2410c !important; font-weight: 700; }
-        .stock-alert-red { background: #fef2f2 !important; color: #dc2626 !important; font-weight: 700; }
+        #toastContainer { position:fixed; top:20px; right:20px; z-index:1000; display:flex; flex-direction:column; gap:8px; }
+        .toast { padding:14px 20px; border-radius:8px; color:white; font-weight:500; box-shadow:var(--shadow); animation:slideIn 0.3s ease; display:flex; align-items:center; gap:10px; }
+        .toast-success { background:var(--success); }
+        .toast-error { background:var(--danger); }
+        @keyframes slideIn { from{transform:translateX(100%);opacity:0;} to{transform:translateX(0);opacity:1;} }
 
-        /* AMOUNTS */
-        .amount-positive { color: #16a34a; font-weight: 700; }
-        .amount-negative { color: #dc2626; font-weight: 700; }
-        .amount-ca { color: #d97706; font-weight: 700; }
+        .model-list-item { padding:14px 16px; background:var(--light); border-radius:8px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+        .model-list-item span { color:var(--gray); font-size:13px; }
 
-        /* ORDER STATUS BADGES */
-        .order-status-pending { background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-        .order-status-shipped { background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-        .order-status-sold { background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-        .action-cell { display: flex; gap: 6px; justify-content: flex-end; }
+        .stock-alert-orange { background:#fff7ed !important; color:#c2410c !important; font-weight:700; }
+        .stock-alert-red { background:#fef2f2 !important; color:#dc2626 !important; font-weight:700; }
 
-        /* SEARCH RESULT EXTRAS */
-        .rupture-alert {
-            background: #fef2f2;
-            border: 2px solid #dc2626;
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 12px;
-            color: #dc2626;
-            font-weight: 700;
-            font-size: 16px;
-            text-align: center;
-        }
-        .alternatives-list { margin-top: 12px; padding: 12px; background: #fffbeb; border-radius: 8px; border: 1px solid #f59e0b; }
-        .alternative-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background: white;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .alternative-item:last-child { margin-bottom: 0; }
-        .price-negociation {
-            margin-top: 16px;
-            padding: 16px;
-            background: #eff6ff;
-            border-radius: 8px;
-            border: 1px solid #3b82f6;
-        }
-        .price-negociation label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e40af; }
-        .price-negociation input { width: 100%; padding: 10px; border: 2px solid #3b82f6; border-radius: 6px; font-size: 16px; font-weight: 600; }
+        /* COULEURS STATS */
+        .amount-positive { color:#16a34a; font-weight:700; }
+        .amount-negative { color:#dc2626; font-weight:700; }
+        .amount-ca { color:var(--violet); font-weight:700; }
+        .amount-black { color:var(--dark); font-weight:700; }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .tabs-nav { overflow-x: auto; padding: 12px; }
-            .tab-btn { white-space: nowrap; padding: 10px 14px; font-size: 13px; }
-            .app-header { flex-direction: column; gap: 10px; text-align: center; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .search-grid { grid-template-columns: 1fr; }
-            th, td { padding: 10px 12px; font-size: 13px; }
+        .order-status-pending { background:#dbeafe; color:#1e40af; padding:4px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+        .order-status-shipped { background:#fef3c7; color:#92400e; padding:4px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+        .order-status-sold { background:#d1fae5; color:#065f46; padding:4px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+        .action-cell { display:flex; gap:6px; justify-content:flex-end; }
+
+        .rupture-alert { background:#fef2f2; border:2px solid #dc2626; border-radius:8px; padding:16px; margin-top:12px; color:#dc2626; font-weight:700; font-size:16px; text-align:center; }
+        .alternative-item { display:flex; justify-content:space-between; align-items:center; padding:10px; background:white; border-radius:6px; margin-bottom:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
+        .alternative-item:last-child { margin-bottom:0; }
+        .price-negociation { margin-top:16px; padding:16px; background:#eff6ff; border-radius:8px; border:1px solid #3b82f6; }
+        .price-negociation label { display:block; margin-bottom:8px; font-weight:600; color:#1e40af; }
+        .price-negociation input { width:100%; padding:10px; border:2px solid #3b82f6; border-radius:6px; font-size:16px; font-weight:600; }
+
+        /* Reset timer banner */
+        .reset-timer-info { background:#eff6ff; border:1px solid #3b82f6; border-radius:8px; padding:10px 16px; font-size:13px; color:#1e40af; display:flex; align-items:center; gap:8px; margin-bottom:16px; }
+
+        @media (max-width:768px) {
+            .tabs-nav { overflow-x:auto; padding:12px; }
+            .tab-btn { white-space:nowrap; padding:10px 14px; font-size:13px; }
+            .app-header { flex-direction:column; gap:10px; text-align:center; }
+            .stats-grid { grid-template-columns:1fr; }
+            .search-grid { grid-template-columns:1fr; }
+            th, td { padding:10px 12px; font-size:13px; }
         }
     </style>
 </head>
 <body>
 
-<!-- AUTH SCREEN -->
+<!-- AUTH -->
 <div id="authScreen" class="auth-screen">
     <div class="auth-card">
         <h2>🔐 NLS Logistique</h2>
         <div id="authError" class="error-msg hidden"></div>
-
         <div id="authNameGroup" class="form-group hidden">
             <label>Nom complet</label>
             <input type="text" id="authName" placeholder="Votre nom">
@@ -375,19 +171,19 @@
             <label>Mot de passe</label>
             <input type="password" id="authPassword" placeholder="••••••••">
         </div>
-
         <button id="authSubmitBtn" class="btn btn-primary">Se connecter</button>
         <button id="googleSignInBtn" class="btn google-btn">🔑 Connexion avec Google</button>
-
         <div id="authToggleText" class="auth-toggle">
             Pas encore de compte ? <a onclick="window.toggleAuthMode()">S'inscrire</a>
+        </div>
+        <div style="text-align:center;margin-top:24px;font-size:11px;color:#9ca3af;letter-spacing:0.3px;">
+            developed by <em>Safwann Naït-chabane</em>
         </div>
     </div>
 </div>
 
 <!-- MAIN APP -->
 <div id="mainApp" class="main-app hidden">
-
     <header class="app-header">
         <h1>📦 NLS Logistique</h1>
         <div class="user-info">
@@ -395,16 +191,14 @@
             <button id="logoutBtn" class="btn btn-secondary btn-sm">Déconnexion</button>
         </div>
     </header>
-
     <nav class="tabs-nav">
         <button id="tab1Btn" class="tab-btn active">📦 Stock & Modèles</button>
         <button id="tab2Btn" class="tab-btn">🛒 Ventes & Retours</button>
         <button id="tab3Btn" class="tab-btn">📊 Comptabilité</button>
     </nav>
 
-    <!-- ========== TAB 1: STOCK & MODÈLES ========== -->
+    <!-- TAB 1 -->
     <div id="tab1" class="tab-panel active">
-
         <div class="card">
             <h3>➕ Ajouter un nouveau modèle</h3>
             <div class="steps-indicator">
@@ -416,9 +210,16 @@
 
             <!-- Étape 1 -->
             <div id="step1" class="step-section">
+                <div id="existingModelBanner" class="existing-model-banner hidden">
+                    ✅ <span>Ajout dans le modèle existant : <strong id="existingModelName"></strong></span>
+                    <button class="btn btn-secondary btn-sm" onclick="window.clearExistingModel()" style="margin-left:auto;">Créer nouveau</button>
+                </div>
                 <div class="form-group">
                     <label>Nom du modèle</label>
-                    <input type="text" id="modelName" placeholder="Ex: Nike Air Max">
+                    <div class="autocomplete-wrapper">
+                        <input type="text" id="modelName" placeholder="Ex: Nike Air Max" autocomplete="off">
+                        <div id="modelNameAutocomplete" class="autocomplete-list"></div>
+                    </div>
                 </div>
                 <div class="search-grid">
                     <div class="form-group">
@@ -472,10 +273,11 @@
                 <h4 style="margin-bottom:16px;">📋 Récapitulatif</h4>
                 <table>
                     <tr><td><strong>Modèle</strong></td><td id="summaryModel">-</td></tr>
+                    <tr><td><strong>Action</strong></td><td id="summaryAction">-</td></tr>
                     <tr><td><strong>Couleurs</strong></td><td id="summaryColors">-</td></tr>
                     <tr><td><strong>Pointures</strong></td><td id="summarySizes">-</td></tr>
                     <tr><td><strong>Qté/variante</strong></td><td id="summaryUnits">-</td></tr>
-                    <tr><td><strong>Total paires</strong></td><td id="summaryTotal">-</td></tr>
+                    <tr><td><strong>Total paires ajoutées</strong></td><td id="summaryTotal">-</td></tr>
                 </table>
                 <div style="display:flex;gap:10px;margin-top:20px;">
                     <button id="backToStep3Btn" class="btn btn-secondary">← Retour</button>
@@ -484,22 +286,18 @@
             </div>
         </div>
 
-        <!-- Liste des modèles -->
+        <!-- Mes modèles -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                 <h3 style="margin-bottom:0;">📋 Mes modèles</h3>
                 <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllModels()">🗑️ Tout supprimer</button>
             </div>
             <div id="modelsListContainer">
-                <div class="empty-state">
-                    <div class="icon">📦</div>
-                    <h3>Aucun modèle enregistré</h3>
-                    <p>Créez votre premier modèle en utilisant le formulaire ci-dessus.</p>
-                </div>
+                <div class="empty-state"><div class="icon">📦</div><h3>Aucun modèle enregistré</h3><p>Créez votre premier modèle ci-dessus.</p></div>
             </div>
         </div>
 
-        <!-- Détail du stock -->
+        <!-- Stock -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                 <h3 style="margin-bottom:0;">📊 Détail du stock</h3>
@@ -507,84 +305,45 @@
             </div>
             <div style="overflow-x:auto;">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Modèle</th>
-                            <th>Couleur</th>
-                            <th>Pointure</th>
-                            <th>Qté</th>
-                            <th>Prix achat</th>
-                            <th>Prix vente</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="stockDetailBody">
-                        <tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>
-                    </tbody>
+                    <thead><tr><th>Modèle</th><th>Couleur</th><th>Pointure</th><th>Qté</th><th>Prix achat</th><th>Prix vente</th><th>Actions</th></tr></thead>
+                    <tbody id="stockDetailBody"><tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr></tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- ========== TAB 2: VENTES & RETOURS ========== -->
+    <!-- TAB 2 -->
     <div id="tab2" class="tab-panel">
-
-        <!-- Recherche & Vente -->
         <div class="card">
             <h3>🔍 Rechercher & Vendre</h3>
             <div class="search-grid">
-                <div class="form-group">
-                    <label>Modèle</label>
-                    <select id="searchModel"><option value="">-- Choisir un modèle --</option></select>
-                </div>
-                <div class="form-group">
-                    <label>Couleur</label>
-                    <select id="searchColor"><option value="">-- Choisir une couleur --</option></select>
-                </div>
-                <div class="form-group">
-                    <label>Pointure</label>
-                    <select id="searchSize"><option value="">-- Choisir une pointure --</option></select>
-                </div>
+                <div class="form-group"><label>Modèle</label><select id="searchModel"><option value="">-- Choisir un modèle --</option></select></div>
+                <div class="form-group"><label>Couleur</label><select id="searchColor"><option value="">-- Choisir une couleur --</option></select></div>
+                <div class="form-group"><label>Pointure</label><select id="searchSize"><option value="">-- Choisir une pointure --</option></select></div>
             </div>
             <button id="searchProductBtn" class="btn btn-primary">Rechercher</button>
-
             <div id="searchResult" class="hidden" style="margin-top:20px;">
                 <div id="searchResultContent"></div>
                 <div id="alternativesContainer" class="hidden"></div>
             </div>
         </div>
 
-        <!-- Commandes en attente -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                <h3 style="margin-bottom:0;">📦 Colis à préparer (En attente d'expédition)</h3>
+                <h3 style="margin-bottom:0;">📦 Colis à préparer</h3>
                 <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllPending()">🗑️ Tout annuler</button>
             </div>
-            <div id="pendingOrdersContainer">
-                <div class="empty-state">
-                    <div class="icon">📦</div>
-                    <h3>Aucun colis en attente</h3>
-                    <p>Les commandes validées apparaîtront ici.</p>
-                </div>
-            </div>
+            <div id="pendingOrdersContainer"><div class="empty-state"><div class="icon">📦</div><h3>Aucun colis en attente</h3></div></div>
         </div>
 
-        <!-- Suivi du Dépôt -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                <h3 style="margin-bottom:0;">💰 Suivi du Dépôt - Colis Vendus</h3>
+                <h3 style="margin-bottom:0;">💰 Suivi du Dépôt - En attente paiement</h3>
                 <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllDeposit()">🗑️ Tout annuler</button>
             </div>
-            <div id="depositContainer">
-                <div class="empty-state">
-                    <div class="icon">💰</div>
-                    <h3>Aucun colis en attente de récupération</h3>
-                    <p>Les colis expédiés en attente de paiement apparaîtront ici.</p>
-                </div>
-            </div>
+            <div id="depositContainer"><div class="empty-state"><div class="icon">💰</div><h3>Aucun colis en attente</h3></div></div>
         </div>
 
-        <!-- Historique des expéditions -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                 <h3 style="margin-bottom:0;">🚚 Historique des expéditions</h3>
@@ -592,89 +351,47 @@
             </div>
             <div style="overflow-x:auto;">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Modèle</th>
-                            <th>Couleur</th>
-                            <th>Pointure</th>
-                            <th>Prix vente</th>
-                            <th>Livraison</th>
-                            <th>Total</th>
-                            <th>Statut</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="shippedBody">
-                        <tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition enregistrée</td></tr>
-                    </tbody>
+                    <thead><tr><th>Date</th><th>Modèle</th><th>Couleur</th><th>Pointure</th><th>Prix vente</th><th>Livraison</th><th>Total</th><th>Statut</th><th>Action</th></tr></thead>
+                    <tbody id="shippedBody"><tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Retours -->
         <div class="card">
             <h3>↩️ Réintégrer un Retour</h3>
             <div class="search-grid">
-                <div class="form-group">
-                    <label>Modèle</label>
-                    <select id="returnModel"><option value="">-- Modèle --</option></select>
-                </div>
-                <div class="form-group">
-                    <label>Couleur</label>
-                    <select id="returnColor"><option value="">-- Couleur --</option></select>
-                </div>
-                <div class="form-group">
-                    <label>Pointure</label>
-                    <select id="returnSize"><option value="">-- Pointure --</option></select>
-                </div>
+                <div class="form-group"><label>Modèle</label><select id="returnModel"><option value="">-- Modèle --</option></select></div>
+                <div class="form-group"><label>Couleur</label><select id="returnColor"><option value="">-- Couleur --</option></select></div>
+                <div class="form-group"><label>Pointure</label><select id="returnSize"><option value="">-- Pointure --</option></select></div>
             </div>
             <button id="processReturnBtn" class="btn btn-warning">Réintégrer au stock (+1)</button>
         </div>
     </div>
 
-    <!-- ========== TAB 3: COMPTABILITÉ ========== -->
+    <!-- TAB 3 -->
     <div id="tab3" class="tab-panel">
-
         <div class="card">
             <h3>📅 Fiche journalière</h3>
+            <div id="resetTimerInfo" class="reset-timer-info">⏰ Réinitialisation automatique à 5h00 du matin — Prochain reset dans : <strong id="nextResetCountdown">--:--:--</strong></div>
             <div class="search-grid">
-                <div class="form-group">
-                    <label>Date</label>
-                    <input type="date" id="dailyDate">
-                </div>
-                <div class="form-group" style="display:flex;align-items:flex-end;">
-                    <button id="setTodayBtn" class="btn btn-secondary">Aujourd'hui</button>
-                </div>
+                <div class="form-group"><label>Date</label><input type="date" id="dailyDate"></div>
+                <div class="form-group" style="display:flex;align-items:flex-end;"><button id="setTodayBtn" class="btn btn-secondary">Aujourd'hui</button></div>
             </div>
-
             <div class="search-grid" style="margin-top:16px;">
-                <div class="form-group">
-                    <label>Budget Pub ($)</label>
-                    <input type="number" id="adBudget" placeholder="0">
-                </div>
-                <div class="form-group">
-                    <label>Taux de change (DA/$)</label>
-                    <input type="number" id="exchangeRate" placeholder="0">
-                </div>
-                <div class="form-group">
-                    <label>Dépenses imprévues (DA)</label>
-                    <input type="number" id="unexpectedExpenses" placeholder="0">
-                </div>
-                <div class="form-group">
-                    <label>Gains supplémentaires (DA)</label>
-                    <input type="number" id="extraGains" placeholder="0">
-                </div>
+                <div class="form-group"><label>Budget Pub ($)</label><input type="number" id="adBudget" placeholder="0"></div>
+                <div class="form-group"><label>Taux de change (DA/$)</label><input type="number" id="exchangeRate" placeholder="0"></div>
+                <div class="form-group"><label>Dépenses imprévues (DA)</label><input type="number" id="unexpectedExpenses" placeholder="0"></div>
+                <div class="form-group"><label>Gains supplémentaires (DA)</label><input type="number" id="extraGains" placeholder="0"></div>
             </div>
-
             <div class="form-group">
                 <label>Mémo dépenses imprévues</label>
                 <input type="text" id="unexpectedMemo" placeholder="Détail des dépenses...">
             </div>
-
-            <div style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                 <button id="saveDailySheetBtn" class="btn btn-success">💾 Sauvegarder la fiche</button>
-                <button class="btn btn-reset btn-sm" onclick="window.confirmResetDailySheet()">🗑️ Réinitialiser</button>
+                <button class="btn btn-primary btn-sm" onclick="window.exportDailySheetPDF()" style="background:#7c3aed;width:auto;">📄 Exporter PDF journée</button>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetDailySheet()">🗑️ Réinitialiser fiche</button>
+                <button class="btn btn-danger btn-sm" onclick="window.confirmResetStats()">🔄 Réinitialiser les stats</button>
             </div>
         </div>
 
@@ -706,15 +423,15 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Prix moyen de vente</div>
-                <div class="stat-value amount-ca" id="avgSalePrice">0 DA</div>
+                <div class="stat-value amount-black" id="avgSalePrice">0 DA</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Marge moyenne / paire</div>
-                <div class="stat-value amount-positive" id="avgMargin">0 DA</div>
+                <div class="stat-value amount-black" id="avgMargin">0 DA</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Taux de marge</div>
-                <div class="stat-value amount-positive" id="marginRate">0%</div>
+                <div class="stat-value amount-black" id="marginRate">0%</div>
             </div>
         </div>
 
@@ -723,39 +440,37 @@
             <h3>📋 Résumé détaillé de la journée</h3>
             <div style="overflow-x:auto;">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Poste</th>
-                            <th>Montant</th>
-                            <th>Détail</th>
-                        </tr>
-                    </thead>
-                    <tbody id="dailySummaryTable">
-                        <tr><td colspan="3" style="text-align:center;color:var(--gray);">Aucune donnée pour cette date</td></tr>
-                    </tbody>
+                    <thead><tr><th>Poste</th><th>Montant</th><th>Détail</th></tr></thead>
+                    <tbody id="dailySummaryTable"><tr><td colspan="3" style="text-align:center;color:var(--gray);">Aucune donnée pour cette date</td></tr></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Historique des fiches -->
+        <!-- Historique fiches -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                 <h3 style="margin-bottom:0;">🗂️ Historique des fiches</h3>
-                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllHistory()">🗑️ Tout supprimer</button>
+                <div style="display:flex;gap:8px;">
+                    <button class="btn btn-sm" onclick="window.exportHistoryPDF()" style="background:#7c3aed;color:white;width:auto;">📄 Enregistrer PDF</button>
+                    <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllHistory()">🗑️ Tout supprimer</button>
+                </div>
             </div>
             <div style="overflow-x:auto;">
                 <table>
                     <thead>
                         <tr>
                             <th>Date</th>
+                            <th>CA</th>
                             <th>Budget Pub</th>
+                            <th>Coût stock</th>
                             <th>Dép. imprévues</th>
+                            <th>Gains supp.</th>
+                            <th>Bénéfice net</th>
+                            <th>Paires</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="dailyHistoryTable">
-                        <tr><td colspan="4" style="text-align:center;color:var(--gray);">Aucune fiche enregistrée</td></tr>
-                    </tbody>
+                    <tbody id="dailyHistoryTable"><tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune fiche enregistrée</td></tr></tbody>
                 </table>
             </div>
         </div>
@@ -765,9 +480,6 @@
 <div id="toastContainer"></div>
 
 <script type="module">
-// ============================================
-// FIREBASE
-// ============================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
@@ -787,17 +499,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 
-let models = [];
-let stock = [];
-let orders = [];
-let dailySheets = {};
-let salesHistory = [];
-let currentUser = null;
-let isRegisterMode = false;
+let models = [], stock = [], orders = [], dailySheets = {}, salesHistory = [];
+let currentUser = null, isRegisterMode = false;
+let selectedExistingModelId = null; // Pour l'ajout dans modèle existant
 
-// ============================================
-// UTILS
-// ============================================
+// ============ UTILS ============
 function showToast(m, type = 'success') {
     const c = document.getElementById('toastContainer');
     if (!c) return;
@@ -807,13 +513,16 @@ function showToast(m, type = 'success') {
     c.appendChild(t);
     setTimeout(() => t.remove(), 3000);
 }
-
 function formatCurrency(v) { return new Intl.NumberFormat('fr-FR').format(v || 0); }
-function getTodayString() { return new Date().toISOString().split('T')[0]; }
+function getTodayString() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const mo = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    return y + '-' + mo + '-' + d;
+}
 
-// ============================================
-// AUTH
-// ============================================
+// ============ AUTH ============
 window.toggleAuthMode = function () {
     isRegisterMode = !isRegisterMode;
     const btn = document.getElementById('authSubmitBtn');
@@ -839,7 +548,6 @@ document.getElementById('googleSignInBtn').addEventListener('click', async () =>
         const result = await signInWithPopup(auth, provider);
         if (result.user) showToast('Connexion Google réussie !');
     } catch (error) {
-        console.error("Erreur Google Auth:", error);
         errorDiv.textContent = "Erreur Google : " + error.message;
         errorDiv.classList.remove('hidden');
     }
@@ -850,23 +558,11 @@ document.getElementById('authSubmitBtn').addEventListener('click', async () => {
     const password = document.getElementById('authPassword').value;
     const errorDiv = document.getElementById('authError');
     errorDiv.classList.add('hidden');
-    if (!email || !password) {
-        errorDiv.textContent = 'Remplissez tous les champs';
-        errorDiv.classList.remove('hidden');
-        return;
-    }
+    if (!email || !password) { errorDiv.textContent = 'Remplissez tous les champs'; errorDiv.classList.remove('hidden'); return; }
     try {
-        if (isRegisterMode) {
-            await createUserWithEmailAndPassword(auth, email, password);
-            showToast('Compte créé !');
-        } else {
-            await signInWithEmailAndPassword(auth, email, password);
-            showToast('Connecté !');
-        }
-    } catch (e) {
-        errorDiv.textContent = e.message;
-        errorDiv.classList.remove('hidden');
-    }
+        if (isRegisterMode) { await createUserWithEmailAndPassword(auth, email, password); showToast('Compte créé !'); }
+        else { await signInWithEmailAndPassword(auth, email, password); showToast('Connecté !'); }
+    } catch (e) { errorDiv.textContent = e.message; errorDiv.classList.remove('hidden'); }
 });
 
 document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
@@ -878,6 +574,8 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById('mainApp').classList.remove('hidden');
         document.getElementById('userEmail').textContent = user.email || 'Utilisateur';
         loadAllData();
+        startResetCountdown();
+        scheduleMidnightReset();
     } else {
         currentUser = null;
         document.getElementById('authScreen').classList.remove('hidden');
@@ -885,38 +583,13 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// ============================================
-// FIREBASE DATA
-// ============================================
+// ============ FIREBASE ============
 function loadAllData() {
-    onValue(ref(db, 'models'), (snapshot) => {
-        models = snapshot.val() || [];
-        renderModelsList();
-        updateSearchDropdowns();
-        updateReturnDropdowns();
-    });
-    onValue(ref(db, 'stock'), (snapshot) => {
-        stock = snapshot.val() || [];
-        renderStockDetailTable();
-        updateSearchDropdowns();
-        updateReturnDropdowns();
-    });
-    onValue(ref(db, 'orders'), (snapshot) => {
-        orders = snapshot.val() || [];
-        renderPendingOrders();
-        renderDepositOrders();
-        renderShippedTable();
-        calculateDailySheet();
-    });
-    onValue(ref(db, 'dailySheets'), (snapshot) => {
-        dailySheets = snapshot.val() || {};
-        renderDailyHistory();
-        calculateDailySheet();
-    });
-    onValue(ref(db, 'salesHistory'), (snapshot) => {
-        salesHistory = snapshot.val() || [];
-        calculateDailySheet();
-    });
+    onValue(ref(db, 'models'), (s) => { models = s.val() || []; renderModelsList(); updateSearchDropdowns(); updateReturnDropdowns(); });
+    onValue(ref(db, 'stock'), (s) => { stock = s.val() || []; renderStockDetailTable(); updateSearchDropdowns(); updateReturnDropdowns(); });
+    onValue(ref(db, 'orders'), (s) => { orders = s.val() || []; renderPendingOrders(); renderDepositOrders(); renderShippedTable(); calculateDailySheet(); });
+    onValue(ref(db, 'dailySheets'), (s) => { dailySheets = s.val() || {}; renderDailyHistory(); calculateDailySheet(); });
+    onValue(ref(db, 'salesHistory'), (s) => { salesHistory = s.val() || []; calculateDailySheet(); });
 }
 
 async function saveToFirebase() {
@@ -927,9 +600,56 @@ async function saveToFirebase() {
     await set(ref(db, 'salesHistory'), salesHistory);
 }
 
-// ============================================
-// TABS
-// ============================================
+// ============ RESET AUTOMATIQUE À 5H00 ============
+function scheduleMidnightReset() {
+    checkAndPerformReset();
+    setInterval(checkAndPerformReset, 60000); // Vérifie chaque minute
+}
+
+function checkAndPerformReset() {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    // À 5h00 exactement (fenêtre de 1 minute)
+    if (h === 5 && m === 0) {
+        const lastReset = localStorage.getItem('nls_last_reset');
+        const today = getTodayString();
+        if (lastReset !== today) {
+            localStorage.setItem('nls_last_reset', today);
+            performDailyReset();
+        }
+    }
+}
+
+function performDailyReset() {
+    // Sauvegarder la fiche du jour avant reset
+    const yesterday = getTodayString();
+    // Réinitialiser les champs de la fiche
+    ['adBudget', 'exchangeRate', 'unexpectedExpenses', 'extraGains', 'unexpectedMemo'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
+    // Remettre la date à aujourd'hui
+    setToday();
+    showToast('🌅 Réinitialisation automatique 5h00 effectuée !');
+}
+
+function startResetCountdown() {
+    setInterval(() => {
+        const now = new Date();
+        let next5h = new Date();
+        next5h.setHours(5, 0, 0, 0);
+        if (now >= next5h) next5h.setDate(next5h.getDate() + 1);
+        const diff = next5h - now;
+        const hh = Math.floor(diff / 3600000);
+        const mm = Math.floor((diff % 3600000) / 60000);
+        const ss = Math.floor((diff % 60000) / 1000);
+        const el = document.getElementById('nextResetCountdown');
+        if (el) el.textContent = `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
+    }, 1000);
+}
+
+// ============ TABS ============
 function switchTab(id) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -941,9 +661,50 @@ document.getElementById('tab1Btn').addEventListener('click', () => switchTab('ta
 document.getElementById('tab2Btn').addEventListener('click', () => switchTab('tab2'));
 document.getElementById('tab3Btn').addEventListener('click', () => switchTab('tab3'));
 
-// ============================================
-// ÉTAPES FORMULAIRE MODÈLE
-// ============================================
+// ============ AUTOCOMPLETE MODÈLE ============
+document.getElementById('modelName').addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    const container = document.getElementById('modelNameAutocomplete');
+    container.innerHTML = '';
+
+    if (val.length < 1) { container.style.display = 'none'; return; }
+
+    const matches = models.filter(m => m.name.toLowerCase().includes(val));
+    if (matches.length === 0) { container.style.display = 'none'; return; }
+
+    matches.forEach(m => {
+        const item = document.createElement('div');
+        item.className = 'autocomplete-item existing';
+        item.textContent = m.name;
+        item.addEventListener('click', () => {
+            document.getElementById('modelName').value = m.name;
+            document.getElementById('modelCostPrice').value = m.costPrice;
+            document.getElementById('modelSellPrice').value = m.sellPrice;
+            selectedExistingModelId = m.id;
+            document.getElementById('existingModelBanner').classList.remove('hidden');
+            document.getElementById('existingModelName').textContent = m.name;
+            container.style.display = 'none';
+        });
+        container.appendChild(item);
+    });
+    container.style.display = 'block';
+});
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.autocomplete-wrapper')) {
+        document.getElementById('modelNameAutocomplete').style.display = 'none';
+    }
+});
+
+window.clearExistingModel = function () {
+    selectedExistingModelId = null;
+    document.getElementById('existingModelBanner').classList.add('hidden');
+    document.getElementById('modelName').value = '';
+    document.getElementById('modelCostPrice').value = '';
+    document.getElementById('modelSellPrice').value = '';
+};
+
+// ============ ÉTAPES FORMULAIRE ============
 window.goToStep = function (step) {
     if (step === 2 && (!document.getElementById('modelName').value || !document.getElementById('modelCostPrice').value || !document.getElementById('modelSellPrice').value)) {
         alert("Veuillez remplir tous les champs requis de l'étape 1.");
@@ -951,16 +712,14 @@ window.goToStep = function (step) {
     }
     document.querySelectorAll('.step-section').forEach(s => s.classList.add('hidden'));
     document.getElementById('step' + step).classList.remove('hidden');
-    document.querySelectorAll('.step-dot').forEach((d, i) => {
-        d.classList.remove('active');
-        if (i + 1 === step) d.classList.add('active');
-    });
+    document.querySelectorAll('.step-dot').forEach((d, i) => { d.classList.remove('active'); if (i + 1 === step) d.classList.add('active'); });
     if (step === 4) {
         const name = document.getElementById('modelName').value;
         const units = parseInt(document.getElementById('unitsPerVariant').value) || 0;
         const colorsArr = Array.from(document.querySelectorAll('.color-input')).map(i => i.value.trim()).filter(v => v !== "");
         const sizesArr = Array.from(document.querySelectorAll('.size-input')).map(i => i.value.trim()).filter(v => v !== "");
         document.getElementById('summaryModel').textContent = name;
+        document.getElementById('summaryAction').textContent = selectedExistingModelId ? '➕ Ajout dans modèle existant' : '🆕 Nouveau modèle';
         document.getElementById('summaryColors').textContent = colorsArr.join(', ') || '-';
         document.getElementById('summarySizes').textContent = sizesArr.join(', ') || '-';
         document.getElementById('summaryUnits').textContent = units;
@@ -976,21 +735,15 @@ document.getElementById('toStep4Btn').addEventListener('click', () => window.goT
 document.getElementById('backToStep3Btn').addEventListener('click', () => window.goToStep(3));
 
 document.getElementById('colorCount').addEventListener('input', () => {
-    const c = document.getElementById('colorInputsContainer');
-    c.innerHTML = '';
+    const c = document.getElementById('colorInputsContainer'); c.innerHTML = '';
     const val = parseInt(document.getElementById('colorCount').value) || 0;
-    for (let i = 0; i < val; i++) {
-        c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="color-input" placeholder="Couleur"/></div>`;
-    }
+    for (let i = 0; i < val; i++) c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="color-input" placeholder="Couleur"/></div>`;
 });
 
 document.getElementById('sizeCount').addEventListener('input', () => {
-    const c = document.getElementById('sizeInputsContainer');
-    c.innerHTML = '';
+    const c = document.getElementById('sizeInputsContainer'); c.innerHTML = '';
     const val = parseInt(document.getElementById('sizeCount').value) || 0;
-    for (let i = 0; i < val; i++) {
-        c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="size-input" placeholder="Pointure"/></div>`;
-    }
+    for (let i = 0; i < val; i++) c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="size-input" placeholder="Pointure"/></div>`;
 });
 
 document.getElementById('validateModelBtn').addEventListener('click', async () => {
@@ -998,89 +751,100 @@ document.getElementById('validateModelBtn').addEventListener('click', async () =
     const cost = parseFloat(document.getElementById('modelCostPrice').value) || 0;
     const sell = parseFloat(document.getElementById('modelSellPrice').value) || 0;
     const delivery = parseFloat(document.getElementById('modelDeliveryFee').value) || 0;
-    const mId = 'model_' + Date.now();
     const colors = Array.from(document.querySelectorAll('.color-input')).map(i => i.value.trim()).filter(v => v !== "");
     const sizes = Array.from(document.querySelectorAll('.size-input')).map(i => i.value.trim()).filter(v => v !== "");
     const qty = parseInt(document.getElementById('unitsPerVariant').value) || 0;
 
-    if (!name || colors.length === 0 || sizes.length === 0 || qty === 0) {
-        alert("Données incomplètes.");
-        return;
+    if (!name || colors.length === 0 || sizes.length === 0 || qty === 0) { alert("Données incomplètes."); return; }
+
+    let targetModelId;
+
+    if (selectedExistingModelId) {
+        // Ajout dans modèle existant
+        targetModelId = selectedExistingModelId;
+        const existingModel = models.find(m => m.id === selectedExistingModelId);
+        if (existingModel) {
+            // Mettre à jour les couleurs et pointures du modèle
+            colors.forEach(c => { if (!existingModel.colors.includes(c)) existingModel.colors.push(c); });
+            sizes.forEach(s => { if (!existingModel.sizes.includes(s)) existingModel.sizes.push(s); });
+        }
+    } else {
+        // Nouveau modèle
+        targetModelId = 'model_' + Date.now();
+        models.push({ id: targetModelId, name, costPrice: cost, sellPrice: sell, colors, sizes });
     }
 
-    models.push({ id: mId, name, costPrice: cost, sellPrice: sell, colors, sizes });
+    // Ajouter les variantes de stock
     colors.forEach(c => {
         sizes.forEach(s => {
-            stock.push({
-                id: 'st_' + Date.now() + '_' + Math.floor(Math.random() * 10000),
-                modelId: mId, modelName: name,
-                color: c, size: s, quantity: qty,
-                costPrice: cost, sellPrice: sell, deliveryFee: delivery
-            });
+            // Vérifier si variante existe déjà
+            const existing = stock.find(st => st.modelId === targetModelId && st.color === c && st.size === s);
+            if (existing) {
+                existing.quantity += qty;
+            } else {
+                stock.push({
+                    id: 'st_' + Date.now() + '_' + Math.floor(Math.random() * 100000),
+                    modelId: targetModelId, modelName: name,
+                    color: c, size: s, quantity: qty,
+                    costPrice: cost, sellPrice: sell, deliveryFee: delivery
+                });
+            }
         });
     });
 
     await saveToFirebase();
-    showToast('Stock créé avec succès !');
+    showToast(selectedExistingModelId ? 'Stock ajouté au modèle existant !' : 'Nouveau stock créé !');
 
-    // Reset form
+    // Reset
     ['modelName', 'modelCostPrice', 'modelSellPrice', 'colorCount', 'sizeCount', 'unitsPerVariant'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('modelDeliveryFee').value = '0';
     document.getElementById('colorInputsContainer').innerHTML = '';
     document.getElementById('sizeInputsContainer').innerHTML = '';
+    selectedExistingModelId = null;
+    document.getElementById('existingModelBanner').classList.add('hidden');
     window.goToStep(1);
 });
 
-// ============================================
-// SUPPRESSION - MODÈLES & STOCK
-// ============================================
+// ============ SUPPRESSION MODÈLES / STOCK ============
 window.deleteModel = async function (modelId) {
-    if (!confirm('Supprimer ce modèle et tout son stock associé ?')) return;
+    if (!confirm('Supprimer ce modèle et tout son stock ?')) return;
     models = models.filter(m => m.id !== modelId);
     stock = stock.filter(s => s.modelId !== modelId);
     await saveToFirebase();
     showToast('Modèle supprimé !');
 };
 
-window.deleteStockItem = async function (stockId) {
-    if (!confirm('Supprimer cette variante de stock ?')) return;
-    stock = stock.filter(s => s.id !== stockId);
-    await saveToFirebase();
-    showToast('Variante supprimée !');
+// Mettre la quantité à 0 (au lieu de supprimer)
+window.zeroStockItem = async function (stockId) {
+    if (!confirm('Mettre la quantité de cette variante à 0 ?')) return;
+    const item = stock.find(s => s.id === stockId);
+    if (item) { item.quantity = 0; await saveToFirebase(); showToast('Quantité mise à 0 !'); }
 };
 
 window.confirmResetAllModels = function () {
     if (!confirm('⚠️ Supprimer TOUS les modèles et tout le stock ?')) return;
     if (!confirm('Action irréversible. Confirmer ?')) return;
-    models = [];
-    stock = [];
-    saveToFirebase();
-    showToast('Tous les modèles supprimés !');
+    models = []; stock = [];
+    saveToFirebase(); showToast('Tous les modèles supprimés !');
 };
 
 window.confirmResetAllStock = function () {
     if (!confirm('⚠️ Supprimer TOUT le stock ?')) return;
     stock = [];
-    saveToFirebase();
-    showToast('Stock supprimé !');
+    saveToFirebase(); showToast('Stock supprimé !');
 };
 
-// ============================================
-// RENDER - STOCK & MODÈLES
-// ============================================
+// ============ RENDER STOCK & MODÈLES ============
 function renderModelsList() {
-    const c = document.getElementById('modelsListContainer');
-    c.innerHTML = '';
-    if (models.length === 0) {
-        c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun modèle enregistré</h3><p>Créez votre premier modèle ci-dessus.</p></div>`;
-        return;
-    }
+    const c = document.getElementById('modelsListContainer'); c.innerHTML = '';
+    if (models.length === 0) { c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun modèle enregistré</h3><p>Créez votre premier modèle ci-dessus.</p></div>`; return; }
     models.forEach(m => {
+        const totalStock = stock.filter(s => s.modelId === m.id).reduce((sum, s) => sum + s.quantity, 0);
         c.innerHTML += `
             <div class="model-list-item">
                 <div>
                     <strong>${m.name}</strong>
-                    <span> (${m.colors.length} couleur(s), ${m.sizes.length} pointure(s))</span>
+                    <span> — ${m.colors.length} couleur(s), ${m.sizes.length} pointure(s) — Stock total: <strong>${totalStock}</strong> paires</span>
                 </div>
                 <button class="btn-icon btn-delete" onclick="window.deleteModel('${m.id}')" title="Supprimer">🗑️</button>
             </div>`;
@@ -1088,12 +852,8 @@ function renderModelsList() {
 }
 
 function renderStockDetailTable() {
-    const b = document.getElementById('stockDetailBody');
-    b.innerHTML = '';
-    if (stock.length === 0) {
-        b.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>`;
-        return;
-    }
+    const b = document.getElementById('stockDetailBody'); b.innerHTML = '';
+    if (stock.length === 0) { b.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>`; return; }
     stock.forEach(s => {
         let qtyClass = '';
         if (s.quantity === 0) qtyClass = 'stock-alert-red';
@@ -1107,15 +867,13 @@ function renderStockDetailTable() {
                 <td>${formatCurrency(s.costPrice)} DA</td>
                 <td>${formatCurrency(s.sellPrice)} DA</td>
                 <td class="action-cell">
-                    <button class="btn-icon btn-delete" onclick="window.deleteStockItem('${s.id}')" title="Supprimer">🗑️</button>
+                    <button class="btn-icon btn-zero" onclick="window.zeroStockItem('${s.id}')" title="Mettre à 0">0️⃣</button>
                 </td>
             </tr>`;
     });
 }
 
-// ============================================
-// RECHERCHE & VENTE
-// ============================================
+// ============ RECHERCHE & VENTE ============
 function updateSearchDropdowns() {
     const m = document.getElementById('searchModel');
     const selected = m.value;
@@ -1126,12 +884,10 @@ function updateSearchDropdowns() {
 
 document.getElementById('searchModel').addEventListener('change', () => {
     const mId = document.getElementById('searchModel').value;
-    const col = document.getElementById('searchColor');
-    const s = document.getElementById('searchSize');
+    const col = document.getElementById('searchColor'); const s = document.getElementById('searchSize');
     col.innerHTML = '<option value="">-- Choisir une couleur --</option>';
     s.innerHTML = '<option value="">-- Choisir une pointure --</option>';
-    const addedColors = new Set();
-    const addedSizes = new Set();
+    const addedColors = new Set(); const addedSizes = new Set();
     stock.filter(st => st.modelId === mId).forEach(st => {
         if (!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
         if (!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
@@ -1142,20 +898,13 @@ document.getElementById('searchProductBtn').addEventListener('click', () => {
     const mId = document.getElementById('searchModel').value;
     const color = document.getElementById('searchColor').value;
     const size = document.getElementById('searchSize').value;
-    const res = document.getElementById('searchResult');
-    res.classList.remove('hidden');
+    const res = document.getElementById('searchResult'); res.classList.remove('hidden');
     const cont = document.getElementById('searchResultContent');
-    const altCont = document.getElementById('alternativesContainer');
-    altCont.classList.add('hidden');
-    altCont.innerHTML = '';
+    const altCont = document.getElementById('alternativesContainer'); altCont.classList.add('hidden'); altCont.innerHTML = '';
 
-    if (!mId || !color || !size) {
-        cont.innerHTML = '<span style="color:var(--danger);font-weight:bold;">Sélectionnez un modèle, une couleur et une pointure.</span>';
-        return;
-    }
+    if (!mId || !color || !size) { cont.innerHTML = '<span style="color:var(--danger);font-weight:bold;">Sélectionnez un modèle, une couleur et une pointure.</span>'; return; }
 
     const item = stock.find(st => st.modelId === mId && st.size === size && st.color === color);
-
     if (item && item.quantity > 0) {
         cont.innerHTML = `
             <h4 style="color:var(--success);">✅ Disponible: ${item.quantity} paires</h4>
@@ -1164,235 +913,135 @@ document.getElementById('searchProductBtn').addEventListener('click', () => {
                 <input type="number" id="negotiatedPrice" value="${item.sellPrice}" placeholder="${item.sellPrice}">
                 <p style="font-size:12px;color:var(--gray);margin-top:4px;">Prix standard: ${formatCurrency(item.sellPrice)} DA — Modifiez si négociation</p>
             </div>
-            <button class="btn btn-success" id="sellBtn" style="margin-top:10px;">✅ Valider la commande</button>
-        `;
+            <button class="btn btn-success" id="sellBtn" style="margin-top:10px;">✅ Valider la commande</button>`;
         document.getElementById('sellBtn').addEventListener('click', async () => {
             const negotiatedPrice = parseFloat(document.getElementById('negotiatedPrice').value) || item.sellPrice;
             item.quantity--;
             const orderId = 'or_' + Date.now();
-            orders.push({
-                id: orderId,
-                modelName: item.modelName,
-                color: item.color,
-                size: item.size,
-                salePrice: negotiatedPrice,
-                standardPrice: item.sellPrice,
-                costPrice: item.costPrice,
-                deliveryFee: item.deliveryFee || 0,
-                status: 'pending',
-                date: getTodayString()
-            });
-            salesHistory.push({
-                date: getTodayString(),
-                salePrice: negotiatedPrice,
-                costPrice: item.costPrice,
-                deliveryFee: item.deliveryFee || 0
-            });
+            orders.push({ id: orderId, modelName: item.modelName, color: item.color, size: item.size, salePrice: negotiatedPrice, standardPrice: item.sellPrice, costPrice: item.costPrice, deliveryFee: item.deliveryFee || 0, status: 'pending', date: getTodayString() });
+            salesHistory.push({ date: getTodayString(), salePrice: negotiatedPrice, costPrice: item.costPrice, deliveryFee: item.deliveryFee || 0 });
             await saveToFirebase();
             showToast('Commande validée ! Colis à préparer.');
-            cont.innerHTML = '';
-            res.classList.add('hidden');
+            cont.innerHTML = ''; res.classList.add('hidden');
             document.getElementById('searchModel').value = '';
             document.getElementById('searchColor').innerHTML = '<option value="">-- Choisir une couleur --</option>';
             document.getElementById('searchSize').innerHTML = '<option value="">-- Choisir une pointure --</option>';
         });
     } else {
-        cont.innerHTML = `
-            <div class="rupture-alert">
-                ❌ RUPTURE DE STOCK
-                <p style="font-size:14px;font-weight:normal;margin-top:8px;">Cette variante n'est plus disponible</p>
-            </div>`;
+        cont.innerHTML = `<div class="rupture-alert">❌ RUPTURE DE STOCK<p style="font-size:14px;font-weight:normal;margin-top:8px;">Cette variante n'est plus disponible</p></div>`;
         const alternatives = stock.filter(st => st.modelId === mId && st.size === size && st.color !== color && st.quantity > 0);
         altCont.classList.remove('hidden');
         if (alternatives.length > 0) {
-            altCont.innerHTML = `<h4 style="margin-bottom:12px;color:#d97706;">🎨 Alternatives disponibles pour la pointure ${size}:</h4>`;
+            altCont.innerHTML = `<h4 style="margin-bottom:12px;color:#d97706;">🎨 Alternatives pour la pointure ${size}:</h4>`;
             alternatives.forEach(alt => {
-                const altDiv = document.createElement('div');
-                altDiv.className = 'alternative-item';
-                altDiv.innerHTML = `
-                    <div>
-                        <strong style="color:var(--primary);">${alt.color}</strong>
-                        <span style="color:var(--gray);font-size:13px;"> — ${alt.quantity} paires</span>
-                        <div style="font-size:14px;color:var(--dark);margin-top:4px;">${formatCurrency(alt.sellPrice)} DA</div>
-                    </div>
-                    <button class="btn btn-primary btn-sm" data-alt-id="${alt.id}">Choisir</button>`;
-                altCont.appendChild(altDiv);
-                altDiv.querySelector('button').addEventListener('click', () => {
-                    document.getElementById('searchColor').value = alt.color;
-                    document.getElementById('searchProductBtn').click();
-                });
+                const d = document.createElement('div'); d.className = 'alternative-item';
+                d.innerHTML = `<div><strong style="color:var(--primary);">${alt.color}</strong><span style="color:var(--gray);font-size:13px;"> — ${alt.quantity} paires</span><div style="font-size:14px;margin-top:4px;">${formatCurrency(alt.sellPrice)} DA</div></div><button class="btn btn-primary btn-sm">Choisir</button>`;
+                altCont.appendChild(d);
+                d.querySelector('button').addEventListener('click', () => { document.getElementById('searchColor').value = alt.color; document.getElementById('searchProductBtn').click(); });
             });
         } else {
-            altCont.innerHTML = `<div style="text-align:center;color:var(--gray);padding:12px;">Aucune alternative disponible pour cette pointure</div>`;
+            altCont.innerHTML = `<div style="text-align:center;color:var(--gray);padding:12px;">Aucune alternative pour cette pointure</div>`;
         }
     }
 });
 
-// ============================================
-// COMMANDES EN ATTENTE
-// ============================================
+// ============ COMMANDES EN ATTENTE ============
 function renderPendingOrders() {
-    const c = document.getElementById('pendingOrdersContainer');
-    c.innerHTML = '';
+    const c = document.getElementById('pendingOrdersContainer'); c.innerHTML = '';
     const pending = orders.filter(o => o.status === 'pending');
-    if (pending.length === 0) {
-        c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun colis en attente</h3><p>Les commandes validées apparaîtront ici.</p></div>`;
-        return;
-    }
+    if (pending.length === 0) { c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun colis en attente</h3></div>`; return; }
     pending.forEach(o => {
-        const div = document.createElement('div');
-        div.className = 'order-item';
+        const div = document.createElement('div'); div.className = 'order-item';
         div.innerHTML = `
             <div class="order-info">
                 <strong>${o.modelName}</strong> — ${o.color} (${o.size})
-                <div style="font-size:13px;color:var(--gray);margin-top:4px;">
-                    Prix: ${formatCurrency(o.salePrice)} DA
-                    ${o.salePrice !== o.standardPrice ? '<span style="color:var(--warning);margin-left:6px;">(Négocié)</span>' : ''}
-                </div>
+                <div style="font-size:13px;color:var(--gray);margin-top:4px;">Prix: ${formatCurrency(o.salePrice)} DA ${o.salePrice !== o.standardPrice ? '<span style="color:var(--warning);">(Négocié)</span>' : ''}</div>
             </div>
             <div class="order-actions">
                 <button class="btn btn-primary btn-sm" id="ship_${o.id}">📦 Expédier</button>
-                <button class="btn-icon btn-delete" onclick="window.deletePendingOrder('${o.id}')" title="Annuler">🗑️</button>
+                <button class="btn-icon btn-delete" onclick="window.deletePendingOrder('${o.id}')">🗑️</button>
             </div>`;
         c.appendChild(div);
-        document.getElementById(`ship_${o.id}`).addEventListener('click', async () => {
-            o.status = 'shipped';
-            await saveToFirebase();
-            showToast('Colis expédié ! En attente de paiement.');
-        });
+        document.getElementById(`ship_${o.id}`).addEventListener('click', async () => { o.status = 'shipped'; await saveToFirebase(); showToast('Colis expédié !'); });
     });
 }
 
 window.deletePendingOrder = async function (orderId) {
-    if (!confirm('Annuler cette commande et réintégrer le stock ?')) return;
+    if (!confirm('Annuler cette commande ?')) return;
     const order = orders.find(o => o.id === orderId);
-    if (order) {
-        const stockItem = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size);
-        if (stockItem) stockItem.quantity++;
-    }
+    if (order) { const si = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size); if (si) si.quantity++; }
     orders = orders.filter(o => o.id !== orderId);
-    await saveToFirebase();
-    showToast('Commande annulée, stock réintégré !');
+    await saveToFirebase(); showToast('Commande annulée, stock réintégré !');
 };
 
 window.confirmResetAllPending = function () {
-    if (!confirm('⚠️ Annuler TOUTES les commandes en attente ? Le stock sera réintégré.')) return;
-    orders.filter(o => o.status === 'pending').forEach(o => {
-        const stockItem = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
-        if (stockItem) stockItem.quantity++;
-    });
+    if (!confirm('⚠️ Annuler TOUTES les commandes en attente ?')) return;
+    orders.filter(o => o.status === 'pending').forEach(o => { const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size); if (si) si.quantity++; });
     orders = orders.filter(o => o.status !== 'pending');
-    saveToFirebase();
-    showToast('Toutes les commandes en attente annulées !');
+    saveToFirebase(); showToast('Toutes annulées !');
 };
 
-// ============================================
-// DÉPÔT (EN ATTENTE PAIEMENT)
-// ============================================
+// ============ DÉPÔT ============
 function renderDepositOrders() {
-    const c = document.getElementById('depositContainer');
-    c.innerHTML = '';
+    const c = document.getElementById('depositContainer'); c.innerHTML = '';
     const deposit = orders.filter(o => o.status === 'shipped');
-    if (deposit.length === 0) {
-        c.innerHTML = `<div class="empty-state"><div class="icon">💰</div><h3>Aucun colis en attente de récupération</h3><p>Les colis expédiés apparaîtront ici.</p></div>`;
-        return;
-    }
+    if (deposit.length === 0) { c.innerHTML = `<div class="empty-state"><div class="icon">💰</div><h3>Aucun colis en attente</h3></div>`; return; }
     deposit.forEach(o => {
-        const div = document.createElement('div');
-        div.className = 'order-item';
-        div.style.background = '#eff6ff';
+        const div = document.createElement('div'); div.className = 'order-item'; div.style.background = '#eff6ff';
         div.innerHTML = `
             <div class="order-info">
                 <strong>${o.modelName}</strong> — ${o.color} (${o.size})
-                <div style="font-size:13px;color:var(--gray);margin-top:4px;">
-                    Vente: ${formatCurrency(o.salePrice)} DA | Livraison: ${formatCurrency(o.deliveryFee)} DA
-                </div>
+                <div style="font-size:13px;color:var(--gray);margin-top:4px;">Vente: ${formatCurrency(o.salePrice)} DA | Livraison: ${formatCurrency(o.deliveryFee)} DA</div>
                 <div style="font-size:12px;color:var(--primary);margin-top:4px;">🚚 Expédié le ${o.date}</div>
             </div>
             <div class="order-actions">
                 <button class="btn btn-success btn-sm" id="sell_${o.id}">💰 Vendu</button>
-                <button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')" title="Annuler">🗑️</button>
+                <button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button>
             </div>`;
         c.appendChild(div);
-        document.getElementById(`sell_${o.id}`).addEventListener('click', async () => {
-            o.status = 'sold';
-            await saveToFirebase();
-            showToast('Vente confirmée ! Argent récupéré.');
-        });
+        document.getElementById(`sell_${o.id}`).addEventListener('click', async () => { o.status = 'sold'; await saveToFirebase(); showToast('Vente confirmée !'); });
     });
 }
 
 window.confirmResetAllDeposit = function () {
-    if (!confirm('⚠️ Annuler TOUTES les commandes en dépôt ? Le stock sera réintégré.')) return;
-    orders.filter(o => o.status === 'shipped').forEach(o => {
-        const stockItem = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
-        if (stockItem) stockItem.quantity++;
-    });
+    if (!confirm('⚠️ Annuler TOUTES les commandes en dépôt ?')) return;
+    orders.filter(o => o.status === 'shipped').forEach(o => { const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size); if (si) si.quantity++; });
     orders = orders.filter(o => o.status !== 'shipped');
-    saveToFirebase();
-    showToast('Toutes les commandes en dépôt annulées !');
+    saveToFirebase(); showToast('Toutes annulées !');
 };
 
-// ============================================
-// EXPÉDITIONS
-// ============================================
+// ============ EXPÉDITIONS ============
 function renderShippedTable() {
-    const b = document.getElementById('shippedBody');
-    b.innerHTML = '';
+    const b = document.getElementById('shippedBody'); b.innerHTML = '';
     const shipped = orders.filter(o => o.status === 'shipped' || o.status === 'sold');
-    if (shipped.length === 0) {
-        b.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition enregistrée</td></tr>`;
-        return;
-    }
+    if (shipped.length === 0) { b.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr>`; return; }
     shipped.forEach(o => {
-        const statusBadge = o.status === 'sold'
-            ? '<span class="order-status-sold">VENDU</span>'
-            : '<span class="order-status-shipped">EN ATTENTE PAIEMENT</span>';
-        b.innerHTML += `
-            <tr>
-                <td>${o.date}</td>
-                <td>${o.modelName}</td>
-                <td>${o.color}</td>
-                <td>${o.size}</td>
-                <td>${formatCurrency(o.salePrice)} DA</td>
-                <td>${formatCurrency(o.deliveryFee)} DA</td>
-                <td>${formatCurrency(o.salePrice + o.deliveryFee)} DA</td>
-                <td>${statusBadge}</td>
-                <td class="action-cell">
-                    <button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')" title="Annuler">🗑️</button>
-                </td>
-            </tr>`;
+        const badge = o.status === 'sold' ? '<span class="order-status-sold">VENDU</span>' : '<span class="order-status-shipped">EN ATTENTE PAIEMENT</span>';
+        b.innerHTML += `<tr><td>${o.date}</td><td>${o.modelName}</td><td>${o.color}</td><td>${o.size}</td><td>${formatCurrency(o.salePrice)} DA</td><td>${formatCurrency(o.deliveryFee)} DA</td><td>${formatCurrency(o.salePrice + o.deliveryFee)} DA</td><td>${badge}</td><td class="action-cell"><button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button></td></tr>`;
     });
 }
 
 window.deleteShippedOrder = async function (orderId) {
-    if (!confirm('Annuler cette expédition et réintégrer le stock ?')) return;
+    if (!confirm('Annuler cette expédition ?')) return;
     const order = orders.find(o => o.id === orderId);
     if (order) {
-        const stockItem = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size);
-        if (stockItem) stockItem.quantity++;
+        const si = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size);
+        if (si) si.quantity++;
         salesHistory = salesHistory.filter(sh => !(sh.date === order.date && sh.salePrice === order.salePrice && sh.costPrice === order.costPrice));
     }
     orders = orders.filter(o => o.id !== orderId);
-    await saveToFirebase();
-    showToast('Expédition annulée, stock réintégré !');
+    await saveToFirebase(); showToast('Expédition annulée, stock réintégré !');
 };
 
 window.confirmResetAllShipped = function () {
-    if (!confirm('⚠️ Supprimer TOUTES les expéditions ? Le stock sera réintégré et l\'historique effacé.')) return;
-    orders.filter(o => o.status === 'shipped' || o.status === 'sold').forEach(o => {
-        const stockItem = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
-        if (stockItem) stockItem.quantity++;
-    });
+    if (!confirm('⚠️ Supprimer TOUTES les expéditions ?')) return;
+    orders.filter(o => o.status === 'shipped' || o.status === 'sold').forEach(o => { const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size); if (si) si.quantity++; });
     salesHistory = [];
     orders = orders.filter(o => o.status !== 'shipped' && o.status !== 'sold');
-    saveToFirebase();
-    showToast('Toutes les expéditions supprimées !');
+    saveToFirebase(); showToast('Toutes les expéditions supprimées !');
 };
 
-// ============================================
-// RETOURS
-// ============================================
+// ============ RETOURS ============
 function updateReturnDropdowns() {
     const m = document.getElementById('returnModel');
     const selected = m.value;
@@ -1400,49 +1049,34 @@ function updateReturnDropdowns() {
     models.forEach(mod => m.innerHTML += `<option value="${mod.id}">${mod.name}</option>`);
     if (selected) m.value = selected;
 }
-
 document.getElementById('returnModel').addEventListener('change', () => {
     const mId = document.getElementById('returnModel').value;
-    const col = document.getElementById('returnColor');
-    const s = document.getElementById('returnSize');
+    const col = document.getElementById('returnColor'); const s = document.getElementById('returnSize');
     col.innerHTML = '<option value="">-- Couleur --</option>';
     s.innerHTML = '<option value="">-- Pointure --</option>';
-    const addedColors = new Set();
-    const addedSizes = new Set();
+    const addedColors = new Set(); const addedSizes = new Set();
     stock.filter(st => st.modelId === mId).forEach(st => {
         if (!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
         if (!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
     });
 });
-
 document.getElementById('processReturnBtn').addEventListener('click', async () => {
     const mId = document.getElementById('returnModel').value;
     const color = document.getElementById('returnColor').value;
     const size = document.getElementById('returnSize').value;
-    if (!mId || !color || !size) { alert('Veuillez remplir tous les critères de retour.'); return; }
+    if (!mId || !color || !size) { alert('Remplissez tous les critères.'); return; }
     const item = stock.find(st => st.modelId === mId && st.size === size && st.color === color);
-    if (item) {
-        item.quantity++;
-        await saveToFirebase();
-        showToast('Produit réintégré au stock ! (+1)');
-    } else {
-        alert('Variante introuvable.');
-    }
+    if (item) { item.quantity++; await saveToFirebase(); showToast('Produit réintégré au stock ! (+1)'); }
+    else alert('Variante introuvable.');
 });
 
-// ============================================
-// COMPTABILITÉ
-// ============================================
-function setToday() {
-    document.getElementById('dailyDate').value = getTodayString();
-    loadDailySheet();
-}
+// ============ COMPTABILITÉ ============
+function setToday() { document.getElementById('dailyDate').value = getTodayString(); window.loadDailySheet(); }
 document.getElementById('setTodayBtn').addEventListener('click', setToday);
-document.getElementById('dailyDate').addEventListener('change', loadDailySheet);
+document.getElementById('dailyDate').addEventListener('change', () => window.loadDailySheet());
 
-function loadDailySheet() {
-    const d = document.getElementById('dailyDate').value;
-    if (!d) return;
+window.loadDailySheet = function loadDailySheet() {
+    const d = document.getElementById('dailyDate').value; if (!d) return;
     const s = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0, unexpectedMemo: '' };
     document.getElementById('adBudget').value = s.adBudget;
     document.getElementById('exchangeRate').value = s.exchangeRate;
@@ -1453,8 +1087,7 @@ function loadDailySheet() {
 }
 
 document.getElementById('saveDailySheetBtn').addEventListener('click', async () => {
-    const d = document.getElementById('dailyDate').value;
-    if (!d) return;
+    const d = document.getElementById('dailyDate').value; if (!d) return;
     dailySheets[d] = {
         adBudget: parseFloat(document.getElementById('adBudget').value) || 0,
         exchangeRate: parseFloat(document.getElementById('exchangeRate').value) || 0,
@@ -1462,24 +1095,42 @@ document.getElementById('saveDailySheetBtn').addEventListener('click', async () 
         extraGains: parseFloat(document.getElementById('extraGains').value) || 0,
         unexpectedMemo: document.getElementById('unexpectedMemo').value
     };
-    await saveToFirebase();
-    showToast('Fiche sauvegardée !');
+    await saveToFirebase(); showToast('Fiche sauvegardée !');
 });
 
-function calculateDailySheet() {
+// RÉINITIALISER LES STATS (ventes du jour)
+window.confirmResetStats = function () {
     const d = document.getElementById('dailyDate').value;
-    if (!d) return;
-    const currentSheet = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0 };
+    if (!d) { alert('Sélectionnez une date.'); return; }
+    if (!confirm(`⚠️ Réinitialiser les statistiques du ${d} ?\nCela supprimera toutes les ventes enregistrées pour cette journée et réintégrera le stock.`)) return;
 
+    // Récupérer les commandes du jour
+    const dayOrders = orders.filter(o => o.date === d);
+    // Réintégrer le stock pour toutes ces commandes
+    dayOrders.forEach(o => {
+        const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
+        if (si) si.quantity++;
+    });
+
+    // Supprimer les commandes du jour
+    orders = orders.filter(o => o.date !== d);
+    // Supprimer l'historique de ventes du jour
+    salesHistory = salesHistory.filter(sh => sh.date !== d);
+
+    saveToFirebase();
+    showToast('Stats du jour réinitialisées !');
+};
+
+function calculateDailySheet() {
+    const d = document.getElementById('dailyDate').value; if (!d) return;
+    const currentSheet = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0 };
     const daySales = salesHistory.filter(sh => sh.date === d);
     const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
     const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
-
     const adBudgetInput = parseFloat(document.getElementById('adBudget').value) || currentSheet.adBudget || 0;
     const exchangeRateInput = parseFloat(document.getElementById('exchangeRate').value) || currentSheet.exchangeRate || 0;
     const unexp = parseFloat(document.getElementById('unexpectedExpenses').value) || currentSheet.unexpectedExpenses || 0;
     const extra = parseFloat(document.getElementById('extraGains').value) || currentSheet.extraGains || 0;
-
     const adCostDA = adBudgetInput * exchangeRateInput;
     const totalExp = cost + adCostDA + unexp;
     const net = ca - totalExp + extra;
@@ -1499,7 +1150,7 @@ function calculateDailySheet() {
     document.getElementById('dailySummaryTable').innerHTML = `
         <tr><td>Ventes Chaussures (CA)</td><td class="amount-ca">+ ${formatCurrency(ca)} DA</td><td>${daySales.length} paires vendues</td></tr>
         <tr><td>Coût d'achat du stock vendu</td><td class="amount-negative">- ${formatCurrency(cost)} DA</td><td>Prix de revient usine</td></tr>
-        <tr><td>Budget Publicitaire Facebook/TikTok</td><td class="amount-negative">- ${formatCurrency(adCostDA)} DA</td><td>${adBudgetInput}$ × ${exchangeRateInput} DA/$</td></tr>
+        <tr><td>Budget Publicitaire</td><td class="amount-negative">- ${formatCurrency(adCostDA)} DA</td><td>${adBudgetInput}$ × ${exchangeRateInput} DA/$</td></tr>
         <tr><td>Dépenses Imprévues</td><td class="amount-negative">- ${formatCurrency(unexp)} DA</td><td>${document.getElementById('unexpectedMemo').value || 'Aucun détail'}</td></tr>
         <tr><td>Gains Supplémentaires</td><td class="amount-positive">+ ${formatCurrency(extra)} DA</td><td>Entrées annexes</td></tr>
         <tr style="border-top:2px solid #e5e7eb;font-weight:700;">
@@ -1517,23 +1168,34 @@ function calculateDailySheet() {
     document.getElementById('marginRate').textContent = marginRate.toFixed(1) + "%";
 }
 
+// ============ HISTORIQUE FICHES (toutes variables) ============
 function renderDailyHistory() {
-    const b = document.getElementById('dailyHistoryTable');
-    b.innerHTML = '';
+    const b = document.getElementById('dailyHistoryTable'); b.innerHTML = '';
     const keys = Object.keys(dailySheets).sort().reverse();
-    if (keys.length === 0) {
-        b.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--gray);">Aucune fiche enregistrée</td></tr>`;
-        return;
-    }
+    if (keys.length === 0) { b.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune fiche enregistrée</td></tr>`; return; }
+
     keys.forEach(k => {
+        const sheet = dailySheets[k];
+        const daySales = salesHistory.filter(sh => sh.date === k);
+        const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
+        const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
+        const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
+        const totalExp = cost + adCostDA + (sheet.unexpectedExpenses || 0);
+        const net = ca - totalExp + (sheet.extraGains || 0);
+
         b.innerHTML += `
             <tr>
-                <td>${k}</td>
-                <td>${dailySheets[k].adBudget} $</td>
-                <td class="amount-negative">${formatCurrency(dailySheets[k].unexpectedExpenses)} DA</td>
+                <td><strong>${k}</strong></td>
+                <td class="amount-ca">${formatCurrency(ca)} DA</td>
+                <td class="amount-negative">${sheet.adBudget || 0} $ (${formatCurrency(adCostDA)} DA)</td>
+                <td class="amount-negative">${formatCurrency(cost)} DA</td>
+                <td class="amount-negative">${formatCurrency(sheet.unexpectedExpenses || 0)} DA</td>
+                <td class="amount-positive">${formatCurrency(sheet.extraGains || 0)} DA</td>
+                <td class="${net >= 0 ? 'amount-positive' : 'amount-negative'}">${net >= 0 ? '+' : ''}${formatCurrency(net)} DA</td>
+                <td>${daySales.length}</td>
                 <td class="action-cell">
-                    <button class="btn btn-secondary btn-sm" onclick="document.getElementById('dailyDate').value='${k}'; document.getElementById('dailyDate').dispatchEvent(new Event('change'));">Ouvrir</button>
-                    <button class="btn-icon btn-delete" onclick="window.deleteDailySheet('${k}')" title="Supprimer">🗑️</button>
+                    <button class="btn btn-sm" onclick="window.exportSingleDayPDF('${k}')" style="background:#7c3aed;color:white;width:auto;">📄 PDF</button>
+                    <button class="btn-icon btn-delete" onclick="window.deleteDailySheet('${k}')">🗑️</button>
                 </td>
             </tr>`;
     });
@@ -1542,28 +1204,274 @@ function renderDailyHistory() {
 window.deleteDailySheet = async function (date) {
     if (!confirm(`Supprimer la fiche du ${date} ?`)) return;
     delete dailySheets[date];
-    await saveToFirebase();
-    showToast('Fiche journalière supprimée !');
+    await saveToFirebase(); showToast('Fiche supprimée !');
 };
 
 window.confirmResetDailySheet = function () {
     const d = document.getElementById('dailyDate').value;
-    if (!d) { alert('Veuillez sélectionner une date.'); return; }
+    if (!d) { alert('Sélectionnez une date.'); return; }
     if (!confirm(`Réinitialiser la fiche du ${d} ?`)) return;
     delete dailySheets[d];
     ['adBudget', 'exchangeRate', 'unexpectedExpenses', 'extraGains', 'unexpectedMemo'].forEach(id => document.getElementById(id).value = '');
-    saveToFirebase();
-    showToast('Fiche réinitialisée !');
+    saveToFirebase(); showToast('Fiche réinitialisée !');
 };
 
 window.confirmResetAllHistory = function () {
-    if (!confirm('⚠️ Supprimer TOUT l\'historique des fiches journalières ?')) return;
-    if (!confirm('Êtes-vous vraiment sûr ? Action irréversible.')) return;
+    if (!confirm('⚠️ Supprimer TOUT l\'historique des fiches ?')) return;
+    if (!confirm('Action irréversible. Confirmer ?')) return;
     dailySheets = {};
-    saveToFirebase();
-    showToast('Historique supprimé !');
+    saveToFirebase(); showToast('Historique supprimé !');
+};
+
+// ============ PDF HELPERS ============
+function loadJsPDF() {
+    return new Promise((resolve, reject) => {
+        if (window.jspdf && window.jspdf.jsPDF) { resolve(window.jspdf.jsPDF); return; }
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+        script.onload = () => resolve(window.jspdf.jsPDF);
+        script.onerror = () => reject(new Error('Impossible de charger jsPDF'));
+        document.head.appendChild(script);
+    });
+}
+
+function loadAutoTable(jsPDF) {
+    return new Promise((resolve, reject) => {
+        if (typeof jsPDF.API.autoTable === 'function') { resolve(); return; }
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js';
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('Impossible de charger autoTable'));
+        document.head.appendChild(script);
+    });
+}
+
+// ========== PDF FICHE JOURNALIÈRE ==========
+window.exportDailySheetPDF = async function () {
+    const d = document.getElementById('dailyDate').value;
+    if (!d) { alert('Sélectionnez une date d\'abord.'); return; }
+
+    try {
+        showToast('Génération du PDF en cours...');
+        const JsPDF = await loadJsPDF();
+        const doc = new JsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        await loadAutoTable(JsPDF);
+
+        const sheet = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0, unexpectedMemo: '' };
+        const daySales = salesHistory.filter(sh => sh.date === d);
+        const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
+        const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
+        const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
+        const unexp = sheet.unexpectedExpenses || 0;
+        const extra = sheet.extraGains || 0;
+        const totalExp = cost + adCostDA + unexp;
+        const net = ca - totalExp + extra;
+        const avgSale = daySales.length > 0 ? ca / daySales.length : 0;
+        const avgMargin = daySales.length > 0 ? (ca - cost) / daySales.length : 0;
+        const marginRate = ca > 0 ? ((ca - cost) / ca * 100) : 0;
+
+        // En-tête
+        doc.setFillColor(124, 58, 237);
+        doc.rect(0, 0, 210, 28, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(18);
+        doc.setFont('helvetica', 'bold');
+        doc.text('NLS Logistique', 14, 12);
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Fiche journaliere — ${d} — Généré le ${new Date().toLocaleDateString('fr-FR')}`, 14, 22);
+        doc.setTextColor(40, 40, 40);
+
+        let y = 36;
+
+        // Résumé financier
+        doc.setFontSize(13);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Résumé financier', 14, y);
+        y += 2;
+
+        doc.autoTable({
+            startY: y + 2,
+            head: [['Poste', 'Montant (DA)', 'Détail']],
+            body: [
+                ['Ventes / Chiffre d\'affaires', `+ ${formatCurrency(ca)} DA`, `${daySales.length} paires vendues`],
+                ['Coût d\'achat du stock vendu', `- ${formatCurrency(cost)} DA`, 'Prix de revient usine'],
+                ['Budget Publicitaire', `- ${formatCurrency(adCostDA)} DA`, `${sheet.adBudget || 0}$ x ${sheet.exchangeRate || 0} DA/$`],
+                ['Dépenses imprévues', `- ${formatCurrency(unexp)} DA`, sheet.unexpectedMemo || 'Aucun détail'],
+                ['Gains supplémentaires', `+ ${formatCurrency(extra)} DA`, 'Entrées annexes'],
+                ['BÉNÉFICE NET', `${net >= 0 ? '+' : ''}${formatCurrency(net)} DA`, net >= 0 ? 'Bénéfice' : 'Perte'],
+            ],
+            styles: { fontSize: 10, cellPadding: 3 },
+            headStyles: { fillColor: [124, 58, 237], textColor: 255, fontStyle: 'bold' },
+            bodyStyles: { textColor: [40, 40, 40] },
+            didParseCell: (data) => {
+                if (data.row.index === 5) {
+                    data.cell.styles.fontStyle = 'bold';
+                    data.cell.styles.fillColor = net >= 0 ? [209, 250, 229] : [254, 226, 226];
+                    data.cell.styles.textColor = net >= 0 ? [6, 95, 70] : [220, 38, 38];
+                }
+            },
+        });
+
+        y = doc.lastAutoTable.finalY + 10;
+
+        // Indicateurs clés
+        doc.setFontSize(13);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Indicateurs clés', 14, y);
+
+        doc.autoTable({
+            startY: y + 4,
+            head: [['Indicateur', 'Valeur']],
+            body: [
+                ['Prix moyen de vente', `${formatCurrency(avgSale)} DA`],
+                ['Marge moyenne / paire', `${formatCurrency(avgMargin)} DA`],
+                ['Taux de marge', `${marginRate.toFixed(1)}%`],
+                ['Paires vendues', `${daySales.length} unités`],
+            ],
+            styles: { fontSize: 10, cellPadding: 3 },
+            headStyles: { fillColor: [37, 99, 235], textColor: 255, fontStyle: 'bold' },
+        });
+
+        // Pied de page
+        const pageCount = doc.internal.getNumberOfPages();
+        for (let i = 1; i <= pageCount; i++) {
+            doc.setPage(i);
+            doc.setFontSize(8);
+            doc.setTextColor(150, 150, 150);
+            doc.text(`NLS Logistique — Fiche du ${d} — developed by Safwann Naït-chabane`, 14, 290);
+            doc.text(`Page ${i}/${pageCount}`, 190, 290, { align: 'right' });
+        }
+
+        doc.save(`fiche NLS_Logistique by Safwann Naït-chabane.pdf`);
+        showToast('PDF de la fiche téléchargé !');
+    } catch (err) {
+        console.error(err);
+        showToast('Erreur lors de la génération du PDF', 'error');
+    }
+};
+
+// ========== PDF HISTORIQUE COMPLET ==========
+window.exportHistoryPDF = async function () {
+    const keys = Object.keys(dailySheets).sort().reverse();
+    if (keys.length === 0) { alert('Aucune fiche à exporter.'); return; }
+
+    try {
+        showToast('Génération du PDF historique...');
+        const JsPDF = await loadJsPDF();
+        const doc = new JsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+        await loadAutoTable(JsPDF);
+
+        // En-tête
+        doc.setFillColor(124, 58, 237);
+        doc.rect(0, 0, 297, 28, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(18);
+        doc.setFont('helvetica', 'bold');
+        doc.text('NLS Logistique', 14, 12);
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Historique complet — ${keys.length} fiche(s) — Généré le ${new Date().toLocaleDateString('fr-FR')} — developed by Safwann Naït-chabane`, 14, 22);
+        doc.setTextColor(40, 40, 40);
+
+        const rows = keys.map(k => {
+            const sheet = dailySheets[k];
+            const daySales = salesHistory.filter(sh => sh.date === k);
+            const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
+            const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
+            const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
+            const totalExp = cost + adCostDA + (sheet.unexpectedExpenses || 0);
+            const net = ca - totalExp + (sheet.extraGains || 0);
+            // Format date as DD/MM/YYYY
+            const parts = k.split('-');
+            const dateFormatted = parts.length === 3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : k;
+            return [
+                dateFormatted,
+                `${formatCurrency(ca)} DA`,
+                `${sheet.adBudget || 0}$ (${formatCurrency(adCostDA)} DA)`,
+                `${formatCurrency(cost)} DA`,
+                `${formatCurrency(sheet.unexpectedExpenses || 0)} DA`,
+                `${formatCurrency(sheet.extraGains || 0)} DA`,
+                `${net >= 0 ? '+' : ''}${formatCurrency(net)} DA`,
+                `${daySales.length}`,
+            ];
+        });
+
+        doc.autoTable({
+            startY: 34,
+            head: [['Date', 'CA', 'Budget Pub', 'Coût stock', 'Dép. imprévues', 'Gains supp.', 'Bénéfice net', 'Paires']],
+            body: rows,
+            styles: { fontSize: 9, cellPadding: 3 },
+            headStyles: { fillColor: [124, 58, 237], textColor: 255, fontStyle: 'bold' },
+            didParseCell: (data) => {
+                if (data.section === 'body' && data.column.index === 6) {
+                    const val = data.cell.raw || '';
+                    if (val.startsWith('+')) {
+                        data.cell.styles.textColor = [6, 95, 70];
+                        data.cell.styles.fontStyle = 'bold';
+                    } else if (val.startsWith('-') || (val !== '' && !val.startsWith('+'))) {
+                        // check if negative number (no + sign)
+                        const num = parseFloat(val.replace(/[^0-9.-]/g, ''));
+                        if (!isNaN(num) && num < 0) {
+                            data.cell.styles.textColor = [220, 38, 38];
+                            data.cell.styles.fontStyle = 'bold';
+                        }
+                    }
+                }
+            },
+            alternateRowStyles: { fillColor: [248, 250, 252] },
+        });
+
+        // Totaux
+        const totalCA = keys.reduce((sum, k) => {
+            const ds = salesHistory.filter(sh => sh.date === k);
+            return sum + ds.reduce((s, h) => s + h.salePrice, 0);
+        }, 0);
+        const totalNet = keys.reduce((sum, k) => {
+            const sheet = dailySheets[k];
+            const ds = salesHistory.filter(sh => sh.date === k);
+            const ca = ds.reduce((s, h) => s + h.salePrice, 0);
+            const cost = ds.reduce((s, h) => s + h.costPrice, 0);
+            const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
+            const totalExp = cost + adCostDA + (sheet.unexpectedExpenses || 0);
+            return sum + (ca - totalExp + (sheet.extraGains || 0));
+        }, 0);
+        const totalPairs = keys.reduce((sum, k) => sum + salesHistory.filter(sh => sh.date === k).length, 0);
+
+        let yFinal = doc.lastAutoTable.finalY + 8;
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.setFillColor(240, 240, 255);
+        doc.rect(14, yFinal - 5, 268, 10, 'F');
+        doc.setTextColor(40, 40, 40);
+        doc.text(`TOTAUX — CA: ${formatCurrency(totalCA)} DA   |   Bénéfice net: ${totalNet >= 0 ? '+' : ''}${formatCurrency(totalNet)} DA   |   Total paires: ${totalPairs}`, 16, yFinal + 1);
+
+        // Pied de page
+        const pageCount = doc.internal.getNumberOfPages();
+        for (let i = 1; i <= pageCount; i++) {
+            doc.setPage(i);
+            doc.setFontSize(8);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(150, 150, 150);
+            doc.text(`NLS Logistique — Historique des fiches — developed by Safwann Naït-chabane`, 14, 205);
+            doc.text(`Page ${i}/${pageCount}`, 283, 205, { align: 'right' });
+        }
+
+        doc.save(`historique NLS_Logistique by Safwann Naït-chabane.pdf`);
+        showToast('PDF historique complet téléchargé !');
+    } catch (err) {
+        console.error(err);
+        showToast('Erreur lors de la génération du PDF', 'error');
+    }
+};
+
+// ========== PDF D'UNE SEULE JOURNÉE DEPUIS L'HISTORIQUE ==========
+window.exportSingleDayPDF = async function (date) {
+    // Charger la date dans la fiche puis exporter
+    document.getElementById('dailyDate').value = date;
+    window.loadDailySheet();
+    await window.exportDailySheetPDF();
 };
 </script>
-
 </body>
 </html>
