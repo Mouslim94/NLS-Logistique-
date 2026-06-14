@@ -92,7 +92,6 @@
         .autocomplete-item.existing { background:#f0fdf4; color:var(--success); font-weight:600; }
         .autocomplete-item.existing::after { content:" ← Ajouter à ce modèle"; font-size:12px; font-weight:400; }
 
-        /* Ajout dans modèle existant */
         .existing-model-banner { background:#f0fdf4; border:2px solid var(--success); border-radius:8px; padding:14px 16px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
         .existing-model-banner strong { color:var(--success); }
 
@@ -121,7 +120,6 @@
         .stock-alert-orange { background:#fff7ed !important; color:#c2410c !important; font-weight:700; }
         .stock-alert-red { background:#fef2f2 !important; color:#dc2626 !important; font-weight:700; }
 
-        /* COULEURS STATS */
         .amount-positive { color:#16a34a; font-weight:700; }
         .amount-negative { color:#dc2626; font-weight:700; }
         .amount-ca { color:var(--violet); font-weight:700; }
@@ -134,12 +132,10 @@
 
         .rupture-alert { background:#fef2f2; border:2px solid #dc2626; border-radius:8px; padding:16px; margin-top:12px; color:#dc2626; font-weight:700; font-size:16px; text-align:center; }
         .alternative-item { display:flex; justify-content:space-between; align-items:center; padding:10px; background:white; border-radius:6px; margin-bottom:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
-        .alternative-item:last-child { margin-bottom:0; }
         .price-negociation { margin-top:16px; padding:16px; background:#eff6ff; border-radius:8px; border:1px solid #3b82f6; }
         .price-negociation label { display:block; margin-bottom:8px; font-weight:600; color:#1e40af; }
         .price-negociation input { width:100%; padding:10px; border:2px solid #3b82f6; border-radius:6px; font-size:16px; font-weight:600; }
 
-        /* Reset timer banner */
         .reset-timer-info { background:#eff6ff; border:1px solid #3b82f6; border-radius:8px; padding:10px 16px; font-size:13px; color:#1e40af; display:flex; align-items:center; gap:8px; margin-bottom:16px; }
 
         @media (max-width:768px) {
@@ -150,6 +146,49 @@
             .search-grid { grid-template-columns:1fr; }
             th, td { padding:10px 12px; font-size:13px; }
         }
+
+        /* ====== COLOR PICKER ====== */
+        .color-picker-wrapper { position:relative; }
+        .color-picker-input { width:100%; padding:10px 14px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; cursor:pointer; background:white; display:flex; align-items:center; gap:8px; user-select:none; }
+        .color-picker-input:hover { border-color:#9ca3af; }
+        .color-picker-dropdown { position:absolute; top:calc(100% + 4px); left:0; min-width:340px; background:white; border:1px solid #d1d5db; border-radius:12px; box-shadow:0 12px 36px rgba(0,0,0,0.18); z-index:400; display:none; padding:14px; }
+        .color-picker-dropdown.open { display:block; }
+        .color-grid { display:grid; grid-template-columns:repeat(9,1fr); gap:5px; margin-bottom:12px; }
+        .color-swatch { width:30px; height:30px; border-radius:7px; cursor:pointer; border:2.5px solid transparent; transition:all 0.13s; display:flex; align-items:center; justify-content:center; position:relative; }
+        .color-swatch:hover { transform:scale(1.18); box-shadow:0 2px 8px rgba(0,0,0,0.22); border-color:#374151; }
+        .color-swatch.selected { border-color:#2563eb; box-shadow:0 0 0 2px #2563eb44; transform:scale(1.13); }
+        .color-swatch .checkmark { display:none; font-size:13px; color:white; text-shadow:0 1px 3px rgba(0,0,0,0.7); }
+        .color-swatch.selected .checkmark { display:block; }
+        .cp-separator { border:none; border-top:1px solid #e5e7eb; margin:10px 0; }
+        .cp-custom-row { display:flex; gap:8px; align-items:center; }
+        .color-custom-input { flex:1; padding:9px 12px; border:1.5px solid #d1d5db; border-radius:8px; font-size:13px; }
+        .color-custom-input:focus { outline:none; border-color:var(--primary); }
+        .cp-add-btn { padding:9px 14px; background:var(--primary); color:white; border:none; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; }
+        .color-preview-dot { width:16px; height:16px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,0.2); margin-right:4px; flex-shrink:0; vertical-align:middle; }
+
+        /* STOCK TABLE */
+        .stock-model-header td { background:#dde3ef !important; font-weight:800 !important; font-size:13.5px !important; color:#1e293b !important; padding:9px 16px !important; border-top:2px solid #b0b9cc !important; border-bottom:2px solid #b0b9cc !important; letter-spacing:0.2px; }
+        .stock-model-header:hover { background:#dde3ef !important; }
+        .stock-row-child td { background:#f8fafc; }
+
+        /* QUICK ADD BUTTON */
+        .btn-add-stock { background:#dcfce7; color:#16a34a; border:1px solid #86efac; padding:7px 13px; border-radius:7px; font-size:14px; cursor:pointer; font-weight:700; transition:all 0.18s; }
+        .btn-add-stock:hover { background:#16a34a; color:white; border-color:#16a34a; }
+        .btn-remove-stock { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; padding:7px 13px; border-radius:7px; font-size:14px; cursor:pointer; font-weight:700; transition:all 0.18s; }
+        .btn-remove-stock:hover { background:#dc2626; color:white; border-color:#dc2626; }
+
+        /* QUICK ADD MODAL */
+        .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:500; display:flex; align-items:center; justify-content:center; }
+        .modal-card { background:white; border-radius:18px; padding:30px 28px 24px; width:90%; max-width:340px; box-shadow:0 24px 60px rgba(0,0,0,0.32); }
+        .modal-card h4 { font-size:18px; font-weight:800; margin-bottom:6px; }
+        .modal-card p { font-size:13px; color:#6b7280; margin-bottom:20px; }
+        .qty-input-big { width:100%; font-size:36px; font-weight:800; text-align:center; padding:18px; border:2.5px solid #3b82f6; border-radius:14px; margin-bottom:18px; color:#1e40af; background:#eff6ff; letter-spacing:2px; }
+        .qty-input-big:focus { outline:none; border-color:#2563eb; }
+        .modal-actions { display:flex; gap:10px; }
+
+        /* VENTES DETAIL BADGE */
+        .sold-models-detail { font-size:12px; color:#6b7280; margin-top:4px; line-height:1.5; }
+        .sold-model-tag { display:inline-block; background:#eff6ff; color:#1d4ed8; border-radius:4px; padding:1px 7px; margin:1px 3px 1px 0; font-size:11.5px; font-weight:600; }
     </style>
 </head>
 <body>
@@ -395,7 +434,6 @@
             </div>
         </div>
 
-        <!-- Stats principales -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Chiffre d'affaires</div>
@@ -419,7 +457,6 @@
             </div>
         </div>
 
-        <!-- Indicateurs -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Prix moyen de vente</div>
@@ -435,7 +472,6 @@
             </div>
         </div>
 
-        <!-- Résumé détaillé -->
         <div class="card">
             <h3>📋 Résumé détaillé de la journée</h3>
             <div style="overflow-x:auto;">
@@ -446,7 +482,6 @@
             </div>
         </div>
 
-        <!-- Historique fiches -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                 <h3 style="margin-bottom:0;">🗂️ Historique des fiches</h3>
@@ -466,7 +501,7 @@
                             <th>Dép. imprévues</th>
                             <th>Gains supp.</th>
                             <th>Bénéfice net</th>
-                            <th>Paires</th>
+                            <th>Paires vendues</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -501,7 +536,7 @@ const db = getDatabase(app);
 
 let models = [], stock = [], orders = [], dailySheets = {}, salesHistory = [];
 let currentUser = null, isRegisterMode = false;
-let selectedExistingModelId = null; // Pour l'ajout dans modèle existant
+let selectedExistingModelId = null;
 
 // ============ UTILS ============
 function showToast(m, type = 'success') {
@@ -516,10 +551,34 @@ function showToast(m, type = 'success') {
 function formatCurrency(v) { return new Intl.NumberFormat('fr-FR').format(v || 0); }
 function getTodayString() {
     const now = new Date();
-    const y = now.getFullYear();
-    const mo = String(now.getMonth() + 1).padStart(2, '0');
-    const d = String(now.getDate()).padStart(2, '0');
-    return y + '-' + mo + '-' + d;
+    return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+}
+
+// ============ SOLD MODELS DETAIL HELPER ============
+// Returns a string like "3 paires — 2× Nike Air Max, 1× Reef"
+function getSoldModelsDetail(daySales) {
+    if (!daySales || daySales.length === 0) return '';
+    const counts = {};
+    daySales.forEach(s => {
+        const name = s.modelName || 'Inconnu';
+        counts[name] = (counts[name] || 0) + 1;
+    });
+    const total = daySales.length;
+    const parts = Object.entries(counts).map(([name, cnt]) => `${cnt}× ${name}`);
+    return `${total} paire${total > 1 ? 's' : ''} — ${parts.join(', ')}`;
+}
+
+// Returns HTML tags for sold models
+function getSoldModelsHTML(daySales) {
+    if (!daySales || daySales.length === 0) return '<em style="color:#9ca3af;">Aucune vente</em>';
+    const counts = {};
+    daySales.forEach(s => {
+        const name = s.modelName || 'Inconnu';
+        counts[name] = (counts[name] || 0) + 1;
+    });
+    return Object.entries(counts).map(([name, cnt]) =>
+        `<span class="sold-model-tag">${cnt}× ${name}</span>`
+    ).join('');
 }
 
 // ============ AUTH ============
@@ -600,18 +659,14 @@ async function saveToFirebase() {
     await set(ref(db, 'salesHistory'), salesHistory);
 }
 
-// ============ RESET AUTOMATIQUE À 5H00 ============
+// ============ RESET AUTO 5H00 ============
 function scheduleMidnightReset() {
     checkAndPerformReset();
-    setInterval(checkAndPerformReset, 60000); // Vérifie chaque minute
+    setInterval(checkAndPerformReset, 60000);
 }
-
 function checkAndPerformReset() {
     const now = new Date();
-    const h = now.getHours();
-    const m = now.getMinutes();
-    // À 5h00 exactement (fenêtre de 1 minute)
-    if (h === 5 && m === 0) {
+    if (now.getHours() === 5 && now.getMinutes() === 0) {
         const lastReset = localStorage.getItem('nls_last_reset');
         const today = getTodayString();
         if (lastReset !== today) {
@@ -620,30 +675,18 @@ function checkAndPerformReset() {
         }
     }
 }
-
 function performDailyReset() {
-    // Sauvegarder la fiche du jour avant reset
-    const yesterday = getTodayString();
-    // Réinitialiser les champs de la fiche
-    ['adBudget', 'exchangeRate', 'unexpectedExpenses', 'extraGains', 'unexpectedMemo'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
-    });
-    // Remettre la date à aujourd'hui
+    ['adBudget','exchangeRate','unexpectedExpenses','extraGains','unexpectedMemo'].forEach(id => { const el = document.getElementById(id); if (el) el.value=''; });
     setToday();
     showToast('🌅 Réinitialisation automatique 5h00 effectuée !');
 }
-
 function startResetCountdown() {
     setInterval(() => {
         const now = new Date();
-        let next5h = new Date();
-        next5h.setHours(5, 0, 0, 0);
-        if (now >= next5h) next5h.setDate(next5h.getDate() + 1);
+        let next5h = new Date(); next5h.setHours(5,0,0,0);
+        if (now >= next5h) next5h.setDate(next5h.getDate()+1);
         const diff = next5h - now;
-        const hh = Math.floor(diff / 3600000);
-        const mm = Math.floor((diff % 3600000) / 60000);
-        const ss = Math.floor((diff % 60000) / 1000);
+        const hh = Math.floor(diff/3600000), mm = Math.floor((diff%3600000)/60000), ss = Math.floor((diff%60000)/1000);
         const el = document.getElementById('nextResetCountdown');
         if (el) el.textContent = `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
     }, 1000);
@@ -654,7 +697,7 @@ function switchTab(id) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    document.getElementById(id + 'Btn').classList.add('active');
+    document.getElementById(id+'Btn').classList.add('active');
     if (id === 'tab3') setToday();
 }
 document.getElementById('tab1Btn').addEventListener('click', () => switchTab('tab1'));
@@ -666,12 +709,9 @@ document.getElementById('modelName').addEventListener('input', function () {
     const val = this.value.trim().toLowerCase();
     const container = document.getElementById('modelNameAutocomplete');
     container.innerHTML = '';
-
-    if (val.length < 1) { container.style.display = 'none'; return; }
-
+    if (val.length < 1) { container.style.display='none'; return; }
     const matches = models.filter(m => m.name.toLowerCase().includes(val));
-    if (matches.length === 0) { container.style.display = 'none'; return; }
-
+    if (matches.length === 0) { container.style.display='none'; return; }
     matches.forEach(m => {
         const item = document.createElement('div');
         item.className = 'autocomplete-item existing';
@@ -683,50 +723,44 @@ document.getElementById('modelName').addEventListener('input', function () {
             selectedExistingModelId = m.id;
             document.getElementById('existingModelBanner').classList.remove('hidden');
             document.getElementById('existingModelName').textContent = m.name;
-            container.style.display = 'none';
+            container.style.display='none';
         });
         container.appendChild(item);
     });
-    container.style.display = 'block';
+    container.style.display='block';
 });
-
 document.addEventListener('click', (e) => {
-    if (!e.target.closest('.autocomplete-wrapper')) {
-        document.getElementById('modelNameAutocomplete').style.display = 'none';
-    }
+    if (!e.target.closest('.autocomplete-wrapper')) document.getElementById('modelNameAutocomplete').style.display='none';
 });
-
 window.clearExistingModel = function () {
     selectedExistingModelId = null;
     document.getElementById('existingModelBanner').classList.add('hidden');
-    document.getElementById('modelName').value = '';
-    document.getElementById('modelCostPrice').value = '';
-    document.getElementById('modelSellPrice').value = '';
+    document.getElementById('modelName').value='';
+    document.getElementById('modelCostPrice').value='';
+    document.getElementById('modelSellPrice').value='';
 };
 
 // ============ ÉTAPES FORMULAIRE ============
 window.goToStep = function (step) {
-    if (step === 2 && (!document.getElementById('modelName').value || !document.getElementById('modelCostPrice').value || !document.getElementById('modelSellPrice').value)) {
-        alert("Veuillez remplir tous les champs requis de l'étape 1.");
-        return;
+    if (step===2 && (!document.getElementById('modelName').value || !document.getElementById('modelCostPrice').value || !document.getElementById('modelSellPrice').value)) {
+        alert("Veuillez remplir tous les champs requis de l'étape 1."); return;
     }
     document.querySelectorAll('.step-section').forEach(s => s.classList.add('hidden'));
-    document.getElementById('step' + step).classList.remove('hidden');
-    document.querySelectorAll('.step-dot').forEach((d, i) => { d.classList.remove('active'); if (i + 1 === step) d.classList.add('active'); });
-    if (step === 4) {
+    document.getElementById('step'+step).classList.remove('hidden');
+    document.querySelectorAll('.step-dot').forEach((d,i)=>{ d.classList.remove('active'); if(i+1===step) d.classList.add('active'); });
+    if (step===4) {
         const name = document.getElementById('modelName').value;
-        const units = parseInt(document.getElementById('unitsPerVariant').value) || 0;
-        const colorsArr = Array.from(document.querySelectorAll('.color-input')).map(i => i.value.trim()).filter(v => v !== "");
-        const sizesArr = Array.from(document.querySelectorAll('.size-input')).map(i => i.value.trim()).filter(v => v !== "");
+        const units = parseInt(document.getElementById('unitsPerVariant').value)||0;
+        const colorsArr = getSelectedColors();
+        const sizesArr = Array.from(document.querySelectorAll('.size-input')).map(i=>i.value.trim()).filter(v=>v!=='');
         document.getElementById('summaryModel').textContent = name;
         document.getElementById('summaryAction').textContent = selectedExistingModelId ? '➕ Ajout dans modèle existant' : '🆕 Nouveau modèle';
-        document.getElementById('summaryColors').textContent = colorsArr.join(', ') || '-';
-        document.getElementById('summarySizes').textContent = sizesArr.join(', ') || '-';
+        document.getElementById('summaryColors').textContent = colorsArr.join(', ')||'-';
+        document.getElementById('summarySizes').textContent = sizesArr.join(', ')||'-';
         document.getElementById('summaryUnits').textContent = units;
         document.getElementById('summaryTotal').textContent = (colorsArr.length * sizesArr.length * units) + " paires";
     }
 };
-
 document.getElementById('toStep2Btn').addEventListener('click', () => window.goToStep(2));
 document.getElementById('backToStep1Btn').addEventListener('click', () => window.goToStep(1));
 document.getElementById('toStep3Btn').addEventListener('click', () => window.goToStep(3));
@@ -734,60 +768,230 @@ document.getElementById('backToStep2Btn').addEventListener('click', () => window
 document.getElementById('toStep4Btn').addEventListener('click', () => window.goToStep(4));
 document.getElementById('backToStep3Btn').addEventListener('click', () => window.goToStep(3));
 
+// ============ COLOUR PALETTE ============
+const PALETTE = [
+    { name:'Blanc', hex:'#FFFFFF' },       { name:'Crème', hex:'#FFFDD0' },
+    { name:'Beige', hex:'#F5F5DC' },       { name:'Sable', hex:'#C2B280' },
+    { name:'Lavande', hex:'#E6E6FA' },     { name:'Rose pâle', hex:'#FFC0CB' },
+    { name:'Jaune clair', hex:'#FEF08A' }, { name:'Menthe', hex:'#98FF98' },
+    { name:'Bleu ciel', hex:'#7DD3FC' },   { name:'Argent', hex:'#C0C0C0' },
+    { name:'Gris', hex:'#9CA3AF' },        { name:'Gris foncé', hex:'#4B5563' },
+    { name:'Rose', hex:'#F472B6' },        { name:'Saumon', hex:'#FA8072' },
+    { name:'Corail', hex:'#FF6B6B' },      { name:'Orange', hex:'#F97316' },
+    { name:'Jaune', hex:'#FACC15' },       { name:'Vert', hex:'#22C55E' },
+    { name:'Turquoise', hex:'#40E0D0' },   { name:'Cyan', hex:'#06B6D4' },
+    { name:'Bleu', hex:'#3B82F6' },        { name:'Indigo', hex:'#4F46E5' },
+    { name:'Violet', hex:'#8B5CF6' },      { name:'Lilas', hex:'#C084FC' },
+    { name:'Caramel', hex:'#C68642' },     { name:'Or', hex:'#FFD700' },
+    { name:'Marron clair', hex:'#A0522D' },{ name:'Marron', hex:'#8B4513' },
+    { name:'Orange foncé', hex:'#C2410C' },{ name:'Rouge', hex:'#EF4444' },
+    { name:'Rouge foncé', hex:'#991B1B' }, { name:'Bordeaux', hex:'#800020' },
+    { name:'Vert foncé', hex:'#166534' },  { name:'Vert olive', hex:'#6B7280' },
+    { name:'Kaki', hex:'#6B6B47' },        { name:'Bleu marine', hex:'#1E3A5F' },
+    { name:'Bleu foncé', hex:'#1D4ED8' },  { name:'Violet foncé', hex:'#6D28D9' },
+    { name:'Noir', hex:'#111111' },
+    { name:'Multicolore', hex:'linear-gradient(135deg,#f00,#ff0,#0f0,#00f,#f0f)' },
+];
+
+const LIGHT_COLORS = new Set(['#FFFFFF','#FFFDD0','#F5F5DC','#FEF08A','#FFC0CB','#E6E6FA','#C0C0C0','#7DD3FC','#98FF98']);
+
+function getColorHex(colorName) {
+    const c = PALETTE.find(p => p.name.toLowerCase() === colorName.toLowerCase());
+    return c ? c.hex : null;
+}
+
+function colorDot(colorName, size=14) {
+    const hex = getColorHex(colorName);
+    if (!hex) return `<span style="display:inline-block;width:${size}px;height:${size}px;border-radius:50%;background:#e5e7eb;border:1px solid #d1d5db;margin-right:5px;vertical-align:middle;flex-shrink:0;"></span>`;
+    const bg = hex.startsWith('linear') ? 'linear-gradient(135deg,#f00,#ff0,#0f0,#00f,#f0f)' : hex;
+    const border = LIGHT_COLORS.has(hex) ? '1px solid #d1d5db' : '1px solid rgba(0,0,0,0.15)';
+    return `<span style="display:inline-block;width:${size}px;height:${size}px;border-radius:50%;background:${bg};border:${border};margin-right:5px;vertical-align:middle;flex-shrink:0;"></span>`;
+}
+
+// ============ COLOR PICKER COMPONENT ============
+// Each picker stores selected color name in dataset.colorname
+function createColorPicker(index) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'dynamic-input-item';
+
+    const pickerDiv = document.createElement('div');
+    pickerDiv.style.cssText = 'flex:1;position:relative;';
+
+    // The visible input row
+    const inputRow = document.createElement('div');
+    inputRow.className = 'color-picker-input';
+    inputRow.id = `cpInput_${index}`;
+    inputRow.dataset.colorname = '';
+    inputRow.innerHTML = `
+        <span id="cpDot_${index}" style="display:inline-block;width:20px;height:20px;border-radius:50%;background:#e5e7eb;border:1px solid #d1d5db;flex-shrink:0;"></span>
+        <span id="cpLabel_${index}" style="color:#9ca3af;font-size:14px;">Choisir une couleur...</span>
+        <span style="margin-left:auto;color:#9ca3af;font-size:12px;">▼</span>
+    `;
+
+    // The dropdown
+    const drop = document.createElement('div');
+    drop.className = 'color-picker-dropdown';
+    drop.id = `cpDrop_${index}`;
+
+    // Grid
+    const grid = document.createElement('div');
+    grid.className = 'color-grid';
+    grid.id = `cpGrid_${index}`;
+
+    PALETTE.forEach(col => {
+        const sw = document.createElement('div');
+        sw.className = 'color-swatch';
+        sw.title = col.name;
+        if (col.hex.startsWith('linear')) {
+            sw.style.background = 'linear-gradient(135deg,#f00,#ff0,#0f0,#00f,#f0f)';
+        } else {
+            sw.style.background = col.hex;
+            if (LIGHT_COLORS.has(col.hex)) sw.style.border = '2px solid #d1d5db';
+        }
+        sw.innerHTML = '<span class="checkmark">✓</span>';
+        sw.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectColorForPicker(index, col.name, col.hex);
+            drop.classList.remove('open');
+        });
+        grid.appendChild(sw);
+    });
+
+    const sep = document.createElement('hr');
+    sep.className = 'cp-separator';
+
+    const customRow = document.createElement('div');
+    customRow.className = 'cp-custom-row';
+
+    const customInput = document.createElement('input');
+    customInput.type = 'text';
+    customInput.className = 'color-custom-input';
+    customInput.id = `cpCustom_${index}`;
+    customInput.placeholder = 'Couleur personnalisée...';
+    customInput.addEventListener('click', e => e.stopPropagation());
+
+    const addBtn = document.createElement('button');
+    addBtn.className = 'cp-add-btn';
+    addBtn.textContent = '+ Ajouter';
+    addBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const val = customInput.value.trim();
+        if (!val) return;
+        selectColorForPicker(index, val, null);
+        customInput.value = '';
+        drop.classList.remove('open');
+    });
+
+    customRow.appendChild(customInput);
+    customRow.appendChild(addBtn);
+
+    drop.appendChild(grid);
+    drop.appendChild(sep);
+    drop.appendChild(customRow);
+
+    pickerDiv.appendChild(inputRow);
+    pickerDiv.appendChild(drop);
+
+    // Toggle
+    inputRow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.color-picker-dropdown.open').forEach(d => { if (d !== drop) d.classList.remove('open'); });
+        drop.classList.toggle('open');
+    });
+
+    const badge = document.createElement('span');
+    badge.className = 'index-badge';
+    badge.textContent = index + 1;
+
+    wrapper.appendChild(badge);
+    wrapper.appendChild(pickerDiv);
+    return wrapper;
+}
+
+function selectColorForPicker(index, name, hex) {
+    const dot = document.getElementById(`cpDot_${index}`);
+    const label = document.getElementById(`cpLabel_${index}`);
+    const inputRow = document.getElementById(`cpInput_${index}`);
+    const grid = document.getElementById(`cpGrid_${index}`);
+
+    const resolvedHex = hex || getColorHex(name);
+    const bg = resolvedHex
+        ? (resolvedHex.startsWith('linear') ? 'linear-gradient(135deg,#f00,#ff0,#0f0,#00f,#f0f)' : resolvedHex)
+        : '#6b7280';
+
+    if (dot) {
+        dot.style.background = bg;
+        dot.style.border = LIGHT_COLORS.has(resolvedHex) ? '1px solid #d1d5db' : '1px solid rgba(0,0,0,0.18)';
+    }
+    if (label) { label.textContent = name; label.style.color = '#1f2937'; }
+    if (inputRow) inputRow.dataset.colorname = name;
+
+    // Update checkmarks
+    if (grid) {
+        grid.querySelectorAll('.color-swatch').forEach(sw => {
+            sw.classList.remove('selected');
+            if (sw.title === name) sw.classList.add('selected');
+        });
+    }
+}
+
+function getSelectedColors() {
+    const inputs = document.querySelectorAll('[id^="cpInput_"]');
+    const result = [];
+    inputs.forEach(inp => {
+        const name = inp.dataset.colorname;
+        if (name && name.trim() !== '') result.push(name.trim());
+    });
+    return result;
+}
+
 document.getElementById('colorCount').addEventListener('input', () => {
-    const c = document.getElementById('colorInputsContainer'); c.innerHTML = '';
-    const val = parseInt(document.getElementById('colorCount').value) || 0;
-    for (let i = 0; i < val; i++) c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="color-input" placeholder="Couleur"/></div>`;
+    const c = document.getElementById('colorInputsContainer'); c.innerHTML='';
+    const val = parseInt(document.getElementById('colorCount').value)||0;
+    for (let i=0; i<val; i++) c.appendChild(createColorPicker(i));
 });
 
 document.getElementById('sizeCount').addEventListener('input', () => {
-    const c = document.getElementById('sizeInputsContainer'); c.innerHTML = '';
-    const val = parseInt(document.getElementById('sizeCount').value) || 0;
-    for (let i = 0; i < val; i++) c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="size-input" placeholder="Pointure"/></div>`;
+    const c = document.getElementById('sizeInputsContainer'); c.innerHTML='';
+    const val = parseInt(document.getElementById('sizeCount').value)||0;
+    for (let i=0; i<val; i++) c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i+1}</span><input type="text" class="size-input" placeholder="Pointure"/></div>`;
+});
+
+// Close all dropdowns on outside click
+document.addEventListener('click', () => {
+    document.querySelectorAll('.color-picker-dropdown.open').forEach(d => d.classList.remove('open'));
 });
 
 document.getElementById('validateModelBtn').addEventListener('click', async () => {
     const name = document.getElementById('modelName').value.trim();
-    const cost = parseFloat(document.getElementById('modelCostPrice').value) || 0;
-    const sell = parseFloat(document.getElementById('modelSellPrice').value) || 0;
-    const delivery = parseFloat(document.getElementById('modelDeliveryFee').value) || 0;
-    const colors = Array.from(document.querySelectorAll('.color-input')).map(i => i.value.trim()).filter(v => v !== "");
-    const sizes = Array.from(document.querySelectorAll('.size-input')).map(i => i.value.trim()).filter(v => v !== "");
-    const qty = parseInt(document.getElementById('unitsPerVariant').value) || 0;
+    const cost = parseFloat(document.getElementById('modelCostPrice').value)||0;
+    const sell = parseFloat(document.getElementById('modelSellPrice').value)||0;
+    const delivery = parseFloat(document.getElementById('modelDeliveryFee').value)||0;
+    const colors = getSelectedColors();
+    const sizes = Array.from(document.querySelectorAll('.size-input')).map(i=>i.value.trim()).filter(v=>v!=='');
+    const qty = parseInt(document.getElementById('unitsPerVariant').value)||0;
 
-    if (!name || colors.length === 0 || sizes.length === 0 || qty === 0) { alert("Données incomplètes."); return; }
+    if (!name || colors.length===0 || sizes.length===0 || qty===0) { alert("Données incomplètes."); return; }
 
     let targetModelId;
-
     if (selectedExistingModelId) {
-        // Ajout dans modèle existant
         targetModelId = selectedExistingModelId;
         const existingModel = models.find(m => m.id === selectedExistingModelId);
         if (existingModel) {
-            // Mettre à jour les couleurs et pointures du modèle
             colors.forEach(c => { if (!existingModel.colors.includes(c)) existingModel.colors.push(c); });
             sizes.forEach(s => { if (!existingModel.sizes.includes(s)) existingModel.sizes.push(s); });
         }
     } else {
-        // Nouveau modèle
         targetModelId = 'model_' + Date.now();
-        models.push({ id: targetModelId, name, costPrice: cost, sellPrice: sell, colors, sizes });
+        models.push({ id:targetModelId, name, costPrice:cost, sellPrice:sell, colors, sizes });
     }
 
-    // Ajouter les variantes de stock
     colors.forEach(c => {
         sizes.forEach(s => {
-            // Vérifier si variante existe déjà
-            const existing = stock.find(st => st.modelId === targetModelId && st.color === c && st.size === s);
-            if (existing) {
-                existing.quantity += qty;
-            } else {
-                stock.push({
-                    id: 'st_' + Date.now() + '_' + Math.floor(Math.random() * 100000),
-                    modelId: targetModelId, modelName: name,
-                    color: c, size: s, quantity: qty,
-                    costPrice: cost, sellPrice: sell, deliveryFee: delivery
-                });
+            const existing = stock.find(st => st.modelId===targetModelId && st.color===c && st.size===s);
+            if (existing) { existing.quantity += qty; }
+            else {
+                stock.push({ id:'st_'+Date.now()+'_'+Math.floor(Math.random()*100000), modelId:targetModelId, modelName:name, color:c, size:s, quantity:qty, costPrice:cost, sellPrice:sell, deliveryFee:delivery });
             }
         });
     });
@@ -795,51 +999,108 @@ document.getElementById('validateModelBtn').addEventListener('click', async () =
     await saveToFirebase();
     showToast(selectedExistingModelId ? 'Stock ajouté au modèle existant !' : 'Nouveau stock créé !');
 
-    // Reset
-    ['modelName', 'modelCostPrice', 'modelSellPrice', 'colorCount', 'sizeCount', 'unitsPerVariant'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('modelDeliveryFee').value = '0';
-    document.getElementById('colorInputsContainer').innerHTML = '';
-    document.getElementById('sizeInputsContainer').innerHTML = '';
-    selectedExistingModelId = null;
+    ['modelName','modelCostPrice','modelSellPrice','colorCount','sizeCount','unitsPerVariant'].forEach(id => document.getElementById(id).value='');
+    document.getElementById('modelDeliveryFee').value='0';
+    document.getElementById('colorInputsContainer').innerHTML='';
+    document.getElementById('sizeInputsContainer').innerHTML='';
+    selectedExistingModelId=null;
     document.getElementById('existingModelBanner').classList.add('hidden');
     window.goToStep(1);
 });
 
-// ============ SUPPRESSION MODÈLES / STOCK ============
+// ============ SUPPRESSION ============
 window.deleteModel = async function (modelId) {
     if (!confirm('Supprimer ce modèle et tout son stock ?')) return;
-    models = models.filter(m => m.id !== modelId);
-    stock = stock.filter(s => s.modelId !== modelId);
-    await saveToFirebase();
-    showToast('Modèle supprimé !');
+    models = models.filter(m => m.id!==modelId);
+    stock = stock.filter(s => s.modelId!==modelId);
+    await saveToFirebase(); showToast('Modèle supprimé !');
 };
 
-// Mettre la quantité à 0 (au lieu de supprimer)
-window.zeroStockItem = async function (stockId) {
-    if (!confirm('Mettre la quantité de cette variante à 0 ?')) return;
-    const item = stock.find(s => s.id === stockId);
-    if (item) { item.quantity = 0; await saveToFirebase(); showToast('Quantité mise à 0 !'); }
+// ============ QUICK ADD STOCK MODAL ============
+window.quickAddStock = function (stockId) {
+    const item = stock.find(s => s.id===stockId);
+    if (!item) return;
+    const existing = document.getElementById('quickAddModal');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'quickAddModal';
+    modal.className = 'modal-overlay';
+    modal.innerHTML = `
+        <div class="modal-card">
+            <h4>➕ Ajouter du stock</h4>
+            <p>${item.modelName} — ${item.color} (Pointure ${item.size})<br>Stock actuel : <strong>${item.quantity}</strong> paire${item.quantity!==1?'s':''}</p>
+            <input type="number" id="quickAddQty" class="qty-input-big" placeholder="0" min="1" inputmode="numeric">
+            <div class="modal-actions">
+                <button class="btn btn-secondary" style="flex:1;" onclick="document.getElementById('quickAddModal').remove()">Annuler</button>
+                <button class="btn btn-success" style="flex:2;" onclick="window.confirmQuickAdd('${stockId}')">✅ Confirmer</button>
+            </div>
+        </div>`;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => { if(e.target===modal) modal.remove(); });
+    setTimeout(() => { const inp=document.getElementById('quickAddQty'); if(inp) inp.focus(); }, 80);
+};
+
+window.confirmQuickAdd = async function (stockId) {
+    const qty = parseInt(document.getElementById('quickAddQty').value)||0;
+    if (qty<=0) { alert('Entrez une quantité valide.'); return; }
+    const item = stock.find(s => s.id===stockId);
+    if (item) { item.quantity+=qty; await saveToFirebase(); showToast('Stock mis à jour : +'+qty+' paire(s) !'); }
+    document.getElementById('quickAddModal').remove();
+};
+
+window.quickRemoveStock = function (stockId) {
+    const item = stock.find(s => s.id===stockId);
+    if (!item) return;
+    const existing = document.getElementById('quickAddModal');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'quickAddModal';
+    modal.className = 'modal-overlay';
+    modal.innerHTML = `
+        <div class="modal-card">
+            <h4>➖ Retirer du stock</h4>
+            <p>${item.modelName} — ${item.color} (Pointure ${item.size})<br>Stock actuel : <strong>${item.quantity}</strong> paire${item.quantity!==1?'s':''}</p>
+            <input type="number" id="quickAddQty" class="qty-input-big" style="border-color:#dc2626;color:#dc2626;background:#fef2f2;" placeholder="0" min="1" max="${item.quantity}" inputmode="numeric">
+            <div class="modal-actions">
+                <button class="btn btn-secondary" style="flex:1;" onclick="document.getElementById('quickAddModal').remove()">Annuler</button>
+                <button class="btn btn-danger" style="flex:2;" onclick="window.confirmQuickRemove('${stockId}')">➖ Confirmer</button>
+            </div>
+        </div>`;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => { if(e.target===modal) modal.remove(); });
+    setTimeout(() => { const inp=document.getElementById('quickAddQty'); if(inp) inp.focus(); }, 80);
+};
+
+window.confirmQuickRemove = async function (stockId) {
+    const qty = parseInt(document.getElementById('quickAddQty').value)||0;
+    if (qty<=0) { alert('Entrez une quantité valide.'); return; }
+    const item = stock.find(s => s.id===stockId);
+    if (!item) return;
+    if (qty > item.quantity) { alert(`Stock insuffisant. Maximum : ${item.quantity} paire(s).`); return; }
+    item.quantity -= qty;
+    await saveToFirebase();
+    showToast('Stock mis à jour : -'+qty+' paire(s) !');
+    document.getElementById('quickAddModal').remove();
 };
 
 window.confirmResetAllModels = function () {
     if (!confirm('⚠️ Supprimer TOUS les modèles et tout le stock ?')) return;
     if (!confirm('Action irréversible. Confirmer ?')) return;
-    models = []; stock = [];
-    saveToFirebase(); showToast('Tous les modèles supprimés !');
+    models=[]; stock=[]; saveToFirebase(); showToast('Tous les modèles supprimés !');
 };
-
 window.confirmResetAllStock = function () {
     if (!confirm('⚠️ Supprimer TOUT le stock ?')) return;
-    stock = [];
-    saveToFirebase(); showToast('Stock supprimé !');
+    stock=[]; saveToFirebase(); showToast('Stock supprimé !');
 };
 
 // ============ RENDER STOCK & MODÈLES ============
 function renderModelsList() {
-    const c = document.getElementById('modelsListContainer'); c.innerHTML = '';
-    if (models.length === 0) { c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun modèle enregistré</h3><p>Créez votre premier modèle ci-dessus.</p></div>`; return; }
+    const c = document.getElementById('modelsListContainer'); c.innerHTML='';
+    if (models.length===0) { c.innerHTML=`<div class="empty-state"><div class="icon">📦</div><h3>Aucun modèle enregistré</h3><p>Créez votre premier modèle ci-dessus.</p></div>`; return; }
     models.forEach(m => {
-        const totalStock = stock.filter(s => s.modelId === m.id).reduce((sum, s) => sum + s.quantity, 0);
+        const totalStock = stock.filter(s => s.modelId===m.id).reduce((sum,s)=>sum+s.quantity,0);
         c.innerHTML += `
             <div class="model-list-item">
                 <div>
@@ -852,22 +1113,31 @@ function renderModelsList() {
 }
 
 function renderStockDetailTable() {
-    const b = document.getElementById('stockDetailBody'); b.innerHTML = '';
-    if (stock.length === 0) { b.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>`; return; }
+    const b = document.getElementById('stockDetailBody'); b.innerHTML='';
+    if (stock.length===0) { b.innerHTML=`<tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>`; return; }
+    let lastModelId=null;
     stock.forEach(s => {
+        if (s.modelId!==lastModelId) {
+            lastModelId=s.modelId;
+            const totalForModel = stock.filter(st=>st.modelId===s.modelId).reduce((sum,st)=>sum+st.quantity,0);
+            b.innerHTML += `<tr class="stock-model-header"><td colspan="7">📦 ${s.modelName} &nbsp;—&nbsp; Stock total : <strong>${totalForModel}</strong> paires</td></tr>`;
+        }
         let qtyClass = '';
-        if (s.quantity === 0) qtyClass = 'stock-alert-red';
-        else if (s.quantity <= 3) qtyClass = 'stock-alert-orange';
+        if (s.quantity===0) qtyClass='stock-alert-red';
+        else if (s.quantity<=3) qtyClass='stock-alert-orange';
+
+        const dotHtml = colorDot(s.color, 14);
         b.innerHTML += `
             <tr class="${qtyClass}">
-                <td>${s.modelName}</td>
-                <td>${s.color}</td>
+                <td style="padding-left:28px;color:#6b7280;font-size:13px;">↳</td>
+                <td><span style="display:flex;align-items:center;">${dotHtml}${s.color}</span></td>
                 <td>${s.size}</td>
                 <td><strong>${s.quantity}</strong></td>
                 <td>${formatCurrency(s.costPrice)} DA</td>
                 <td>${formatCurrency(s.sellPrice)} DA</td>
                 <td class="action-cell">
-                    <button class="btn-icon btn-zero" onclick="window.zeroStockItem('${s.id}')" title="Mettre à 0">0️⃣</button>
+                    <button class="btn-remove-stock" onclick="window.quickRemoveStock('${s.id}')" title="Retirer du stock">➖ Retirer</button>
+                    <button class="btn-add-stock" onclick="window.quickAddStock('${s.id}')" title="Ajouter du stock">➕ Ajouter</button>
                 </td>
             </tr>`;
     });
@@ -877,36 +1147,36 @@ function renderStockDetailTable() {
 function updateSearchDropdowns() {
     const m = document.getElementById('searchModel');
     const selected = m.value;
-    m.innerHTML = '<option value="">-- Choisir un modèle --</option>';
+    m.innerHTML='<option value="">-- Choisir un modèle --</option>';
     models.forEach(mod => m.innerHTML += `<option value="${mod.id}">${mod.name}</option>`);
-    if (selected) m.value = selected;
+    if (selected) m.value=selected;
 }
 
 document.getElementById('searchModel').addEventListener('change', () => {
-    const mId = document.getElementById('searchModel').value;
-    const col = document.getElementById('searchColor'); const s = document.getElementById('searchSize');
-    col.innerHTML = '<option value="">-- Choisir une couleur --</option>';
-    s.innerHTML = '<option value="">-- Choisir une pointure --</option>';
-    const addedColors = new Set(); const addedSizes = new Set();
-    stock.filter(st => st.modelId === mId).forEach(st => {
-        if (!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
-        if (!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
+    const mId=document.getElementById('searchModel').value;
+    const col=document.getElementById('searchColor'); const s=document.getElementById('searchSize');
+    col.innerHTML='<option value="">-- Choisir une couleur --</option>';
+    s.innerHTML='<option value="">-- Choisir une pointure --</option>';
+    const addedColors=new Set(); const addedSizes=new Set();
+    stock.filter(st=>st.modelId===mId).forEach(st=>{
+        if(!addedColors.has(st.color)){addedColors.add(st.color);col.innerHTML+=`<option value="${st.color}">${st.color}</option>`;}
+        if(!addedSizes.has(st.size)){addedSizes.add(st.size);s.innerHTML+=`<option value="${st.size}">${st.size}</option>`;}
     });
 });
 
 document.getElementById('searchProductBtn').addEventListener('click', () => {
-    const mId = document.getElementById('searchModel').value;
-    const color = document.getElementById('searchColor').value;
-    const size = document.getElementById('searchSize').value;
-    const res = document.getElementById('searchResult'); res.classList.remove('hidden');
-    const cont = document.getElementById('searchResultContent');
-    const altCont = document.getElementById('alternativesContainer'); altCont.classList.add('hidden'); altCont.innerHTML = '';
+    const mId=document.getElementById('searchModel').value;
+    const color=document.getElementById('searchColor').value;
+    const size=document.getElementById('searchSize').value;
+    const res=document.getElementById('searchResult'); res.classList.remove('hidden');
+    const cont=document.getElementById('searchResultContent');
+    const altCont=document.getElementById('alternativesContainer'); altCont.classList.add('hidden'); altCont.innerHTML='';
 
-    if (!mId || !color || !size) { cont.innerHTML = '<span style="color:var(--danger);font-weight:bold;">Sélectionnez un modèle, une couleur et une pointure.</span>'; return; }
+    if (!mId||!color||!size) { cont.innerHTML='<span style="color:var(--danger);font-weight:bold;">Sélectionnez un modèle, une couleur et une pointure.</span>'; return; }
 
-    const item = stock.find(st => st.modelId === mId && st.size === size && st.color === color);
-    if (item && item.quantity > 0) {
-        cont.innerHTML = `
+    const item=stock.find(st=>st.modelId===mId&&st.size===size&&st.color===color);
+    if (item&&item.quantity>0) {
+        cont.innerHTML=`
             <h4 style="color:var(--success);">✅ Disponible: ${item.quantity} paires</h4>
             <div class="price-negociation">
                 <label>💰 Prix de vente réel payé par le client (DA)</label>
@@ -915,80 +1185,78 @@ document.getElementById('searchProductBtn').addEventListener('click', () => {
             </div>
             <button class="btn btn-success" id="sellBtn" style="margin-top:10px;">✅ Valider la commande</button>`;
         document.getElementById('sellBtn').addEventListener('click', async () => {
-            const negotiatedPrice = parseFloat(document.getElementById('negotiatedPrice').value) || item.sellPrice;
+            const negotiatedPrice=parseFloat(document.getElementById('negotiatedPrice').value)||item.sellPrice;
             item.quantity--;
-            const orderId = 'or_' + Date.now();
-            orders.push({ id: orderId, modelName: item.modelName, color: item.color, size: item.size, salePrice: negotiatedPrice, standardPrice: item.sellPrice, costPrice: item.costPrice, deliveryFee: item.deliveryFee || 0, status: 'pending', date: getTodayString() });
-            salesHistory.push({ date: getTodayString(), salePrice: negotiatedPrice, costPrice: item.costPrice, deliveryFee: item.deliveryFee || 0 });
+            const orderId='or_'+Date.now();
+            orders.push({ id:orderId, modelId:mId, modelName:item.modelName, color:item.color, size:item.size, salePrice:negotiatedPrice, standardPrice:item.sellPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, status:'pending', date:getTodayString() });
+            salesHistory.push({ date:getTodayString(), salePrice:negotiatedPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, modelName:item.modelName });
             await saveToFirebase();
             showToast('Commande validée ! Colis à préparer.');
-            cont.innerHTML = ''; res.classList.add('hidden');
-            document.getElementById('searchModel').value = '';
-            document.getElementById('searchColor').innerHTML = '<option value="">-- Choisir une couleur --</option>';
-            document.getElementById('searchSize').innerHTML = '<option value="">-- Choisir une pointure --</option>';
+            cont.innerHTML=''; res.classList.add('hidden');
+            document.getElementById('searchModel').value='';
+            document.getElementById('searchColor').innerHTML='<option value="">-- Choisir une couleur --</option>';
+            document.getElementById('searchSize').innerHTML='<option value="">-- Choisir une pointure --</option>';
         });
     } else {
-        cont.innerHTML = `<div class="rupture-alert">❌ RUPTURE DE STOCK<p style="font-size:14px;font-weight:normal;margin-top:8px;">Cette variante n'est plus disponible</p></div>`;
-        const alternatives = stock.filter(st => st.modelId === mId && st.size === size && st.color !== color && st.quantity > 0);
+        cont.innerHTML=`<div class="rupture-alert">❌ RUPTURE DE STOCK<p style="font-size:14px;font-weight:normal;margin-top:8px;">Cette variante n'est plus disponible</p></div>`;
+        const alternatives=stock.filter(st=>st.modelId===mId&&st.size===size&&st.color!==color&&st.quantity>0);
         altCont.classList.remove('hidden');
-        if (alternatives.length > 0) {
-            altCont.innerHTML = `<h4 style="margin-bottom:12px;color:#d97706;">🎨 Alternatives pour la pointure ${size}:</h4>`;
-            alternatives.forEach(alt => {
-                const d = document.createElement('div'); d.className = 'alternative-item';
-                d.innerHTML = `<div><strong style="color:var(--primary);">${alt.color}</strong><span style="color:var(--gray);font-size:13px;"> — ${alt.quantity} paires</span><div style="font-size:14px;margin-top:4px;">${formatCurrency(alt.sellPrice)} DA</div></div><button class="btn btn-primary btn-sm">Choisir</button>`;
+        if (alternatives.length>0) {
+            altCont.innerHTML=`<h4 style="margin-bottom:12px;color:#d97706;">🎨 Alternatives pour la pointure ${size}:</h4>`;
+            alternatives.forEach(alt=>{
+                const d=document.createElement('div'); d.className='alternative-item';
+                d.innerHTML=`<div><strong style="color:var(--primary);">${alt.color}</strong><span style="color:var(--gray);font-size:13px;"> — ${alt.quantity} paires</span><div style="font-size:14px;margin-top:4px;">${formatCurrency(alt.sellPrice)} DA</div></div><button class="btn btn-primary btn-sm">Choisir</button>`;
                 altCont.appendChild(d);
-                d.querySelector('button').addEventListener('click', () => { document.getElementById('searchColor').value = alt.color; document.getElementById('searchProductBtn').click(); });
+                d.querySelector('button').addEventListener('click',()=>{ document.getElementById('searchColor').value=alt.color; document.getElementById('searchProductBtn').click(); });
             });
         } else {
-            altCont.innerHTML = `<div style="text-align:center;color:var(--gray);padding:12px;">Aucune alternative pour cette pointure</div>`;
+            altCont.innerHTML=`<div style="text-align:center;color:var(--gray);padding:12px;">Aucune alternative pour cette pointure</div>`;
         }
     }
 });
 
 // ============ COMMANDES EN ATTENTE ============
 function renderPendingOrders() {
-    const c = document.getElementById('pendingOrdersContainer'); c.innerHTML = '';
-    const pending = orders.filter(o => o.status === 'pending');
-    if (pending.length === 0) { c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun colis en attente</h3></div>`; return; }
-    pending.forEach(o => {
-        const div = document.createElement('div'); div.className = 'order-item';
-        div.innerHTML = `
+    const c=document.getElementById('pendingOrdersContainer'); c.innerHTML='';
+    const pending=orders.filter(o=>o.status==='pending');
+    if (pending.length===0) { c.innerHTML=`<div class="empty-state"><div class="icon">📦</div><h3>Aucun colis en attente</h3></div>`; return; }
+    pending.forEach(o=>{
+        const div=document.createElement('div'); div.className='order-item';
+        div.innerHTML=`
             <div class="order-info">
                 <strong>${o.modelName}</strong> — ${o.color} (${o.size})
-                <div style="font-size:13px;color:var(--gray);margin-top:4px;">Prix: ${formatCurrency(o.salePrice)} DA ${o.salePrice !== o.standardPrice ? '<span style="color:var(--warning);">(Négocié)</span>' : ''}</div>
+                <div style="font-size:13px;color:var(--gray);margin-top:4px;">Prix: ${formatCurrency(o.salePrice)} DA ${o.salePrice!==o.standardPrice?'<span style="color:var(--warning);">(Négocié)</span>':''}</div>
             </div>
             <div class="order-actions">
                 <button class="btn btn-primary btn-sm" id="ship_${o.id}">📦 Expédier</button>
                 <button class="btn-icon btn-delete" onclick="window.deletePendingOrder('${o.id}')">🗑️</button>
             </div>`;
         c.appendChild(div);
-        document.getElementById(`ship_${o.id}`).addEventListener('click', async () => { o.status = 'shipped'; await saveToFirebase(); showToast('Colis expédié !'); });
+        document.getElementById(`ship_${o.id}`).addEventListener('click', async ()=>{ o.status='shipped'; await saveToFirebase(); showToast('Colis expédié !'); });
     });
 }
-
-window.deletePendingOrder = async function (orderId) {
-    if (!confirm('Annuler cette commande ?')) return;
-    const order = orders.find(o => o.id === orderId);
-    if (order) { const si = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size); if (si) si.quantity++; }
-    orders = orders.filter(o => o.id !== orderId);
+window.deletePendingOrder=async function(orderId){
+    if(!confirm('Annuler cette commande ?'))return;
+    const order=orders.find(o=>o.id===orderId);
+    if(order){const si=stock.find(s=>s.modelName===order.modelName&&s.color===order.color&&s.size===order.size);if(si)si.quantity++;}
+    orders=orders.filter(o=>o.id!==orderId);
     await saveToFirebase(); showToast('Commande annulée, stock réintégré !');
 };
-
-window.confirmResetAllPending = function () {
-    if (!confirm('⚠️ Annuler TOUTES les commandes en attente ?')) return;
-    orders.filter(o => o.status === 'pending').forEach(o => { const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size); if (si) si.quantity++; });
-    orders = orders.filter(o => o.status !== 'pending');
+window.confirmResetAllPending=function(){
+    if(!confirm('⚠️ Annuler TOUTES les commandes en attente ?'))return;
+    orders.filter(o=>o.status==='pending').forEach(o=>{const si=stock.find(s=>s.modelName===o.modelName&&s.color===o.color&&s.size===o.size);if(si)si.quantity++;});
+    orders=orders.filter(o=>o.status!=='pending');
     saveToFirebase(); showToast('Toutes annulées !');
 };
 
 // ============ DÉPÔT ============
-function renderDepositOrders() {
-    const c = document.getElementById('depositContainer'); c.innerHTML = '';
-    const deposit = orders.filter(o => o.status === 'shipped');
-    if (deposit.length === 0) { c.innerHTML = `<div class="empty-state"><div class="icon">💰</div><h3>Aucun colis en attente</h3></div>`; return; }
-    deposit.forEach(o => {
-        const div = document.createElement('div'); div.className = 'order-item'; div.style.background = '#eff6ff';
-        div.innerHTML = `
+function renderDepositOrders(){
+    const c=document.getElementById('depositContainer'); c.innerHTML='';
+    const deposit=orders.filter(o=>o.status==='shipped');
+    if(deposit.length===0){c.innerHTML=`<div class="empty-state"><div class="icon">💰</div><h3>Aucun colis en attente</h3></div>`;return;}
+    deposit.forEach(o=>{
+        const div=document.createElement('div');div.className='order-item';div.style.background='#eff6ff';
+        div.innerHTML=`
             <div class="order-info">
                 <strong>${o.modelName}</strong> — ${o.color} (${o.size})
                 <div style="font-size:13px;color:var(--gray);margin-top:4px;">Vente: ${formatCurrency(o.salePrice)} DA | Livraison: ${formatCurrency(o.deliveryFee)} DA</div>
@@ -999,200 +1267,192 @@ function renderDepositOrders() {
                 <button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button>
             </div>`;
         c.appendChild(div);
-        document.getElementById(`sell_${o.id}`).addEventListener('click', async () => { o.status = 'sold'; await saveToFirebase(); showToast('Vente confirmée !'); });
+        document.getElementById(`sell_${o.id}`).addEventListener('click',async()=>{o.status='sold';await saveToFirebase();showToast('Vente confirmée !');});
     });
 }
-
-window.confirmResetAllDeposit = function () {
-    if (!confirm('⚠️ Annuler TOUTES les commandes en dépôt ?')) return;
-    orders.filter(o => o.status === 'shipped').forEach(o => { const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size); if (si) si.quantity++; });
-    orders = orders.filter(o => o.status !== 'shipped');
-    saveToFirebase(); showToast('Toutes annulées !');
+window.confirmResetAllDeposit=function(){
+    if(!confirm('⚠️ Annuler TOUTES les commandes en dépôt ?'))return;
+    orders.filter(o=>o.status==='shipped').forEach(o=>{const si=stock.find(s=>s.modelName===o.modelName&&s.color===o.color&&s.size===o.size);if(si)si.quantity++;});
+    orders=orders.filter(o=>o.status!=='shipped');
+    saveToFirebase();showToast('Toutes annulées !');
 };
 
 // ============ EXPÉDITIONS ============
-function renderShippedTable() {
-    const b = document.getElementById('shippedBody'); b.innerHTML = '';
-    const shipped = orders.filter(o => o.status === 'shipped' || o.status === 'sold');
-    if (shipped.length === 0) { b.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr>`; return; }
-    shipped.forEach(o => {
-        const badge = o.status === 'sold' ? '<span class="order-status-sold">VENDU</span>' : '<span class="order-status-shipped">EN ATTENTE PAIEMENT</span>';
-        b.innerHTML += `<tr><td>${o.date}</td><td>${o.modelName}</td><td>${o.color}</td><td>${o.size}</td><td>${formatCurrency(o.salePrice)} DA</td><td>${formatCurrency(o.deliveryFee)} DA</td><td>${formatCurrency(o.salePrice + o.deliveryFee)} DA</td><td>${badge}</td><td class="action-cell"><button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button></td></tr>`;
+function renderShippedTable(){
+    const b=document.getElementById('shippedBody');b.innerHTML='';
+    const shipped=orders.filter(o=>o.status==='shipped'||o.status==='sold');
+    if(shipped.length===0){b.innerHTML=`<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition</td></tr>`;return;}
+    shipped.forEach(o=>{
+        const badge=o.status==='sold'?'<span class="order-status-sold">VENDU</span>':'<span class="order-status-shipped">EN ATTENTE PAIEMENT</span>';
+        b.innerHTML+=`<tr><td>${o.date}</td><td>${o.modelName}</td><td>${o.color}</td><td>${o.size}</td><td>${formatCurrency(o.salePrice)} DA</td><td>${formatCurrency(o.deliveryFee)} DA</td><td>${formatCurrency(o.salePrice+o.deliveryFee)} DA</td><td>${badge}</td><td class="action-cell"><button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button></td></tr>`;
     });
 }
-
-window.deleteShippedOrder = async function (orderId) {
-    if (!confirm('Annuler cette expédition ?')) return;
-    const order = orders.find(o => o.id === orderId);
-    if (order) {
-        const si = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size);
-        if (si) si.quantity++;
-        salesHistory = salesHistory.filter(sh => !(sh.date === order.date && sh.salePrice === order.salePrice && sh.costPrice === order.costPrice));
+window.deleteShippedOrder=async function(orderId){
+    if(!confirm('Annuler cette expédition ?'))return;
+    const order=orders.find(o=>o.id===orderId);
+    if(order){
+        const si=stock.find(s=>s.modelName===order.modelName&&s.color===order.color&&s.size===order.size);
+        if(si)si.quantity++;
+        salesHistory=salesHistory.filter(sh=>!(sh.date===order.date&&sh.salePrice===order.salePrice&&sh.costPrice===order.costPrice));
     }
-    orders = orders.filter(o => o.id !== orderId);
-    await saveToFirebase(); showToast('Expédition annulée, stock réintégré !');
+    orders=orders.filter(o=>o.id!==orderId);
+    await saveToFirebase();showToast('Expédition annulée, stock réintégré !');
 };
-
-window.confirmResetAllShipped = function () {
-    if (!confirm('⚠️ Supprimer TOUTES les expéditions ?')) return;
-    orders.filter(o => o.status === 'shipped' || o.status === 'sold').forEach(o => { const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size); if (si) si.quantity++; });
-    salesHistory = [];
-    orders = orders.filter(o => o.status !== 'shipped' && o.status !== 'sold');
-    saveToFirebase(); showToast('Toutes les expéditions supprimées !');
+window.confirmResetAllShipped=function(){
+    if(!confirm('⚠️ Supprimer TOUTES les expéditions ?'))return;
+    orders.filter(o=>o.status==='shipped'||o.status==='sold').forEach(o=>{const si=stock.find(s=>s.modelName===o.modelName&&s.color===o.color&&s.size===o.size);if(si)si.quantity++;});
+    salesHistory=[];
+    orders=orders.filter(o=>o.status!=='shipped'&&o.status!=='sold');
+    saveToFirebase();showToast('Toutes les expéditions supprimées !');
 };
 
 // ============ RETOURS ============
-function updateReturnDropdowns() {
-    const m = document.getElementById('returnModel');
-    const selected = m.value;
-    m.innerHTML = '<option value="">-- Modèle --</option>';
-    models.forEach(mod => m.innerHTML += `<option value="${mod.id}">${mod.name}</option>`);
-    if (selected) m.value = selected;
+function updateReturnDropdowns(){
+    const m=document.getElementById('returnModel');
+    const selected=m.value;
+    m.innerHTML='<option value="">-- Modèle --</option>';
+    models.forEach(mod=>m.innerHTML+=`<option value="${mod.id}">${mod.name}</option>`);
+    if(selected)m.value=selected;
 }
-document.getElementById('returnModel').addEventListener('change', () => {
-    const mId = document.getElementById('returnModel').value;
-    const col = document.getElementById('returnColor'); const s = document.getElementById('returnSize');
-    col.innerHTML = '<option value="">-- Couleur --</option>';
-    s.innerHTML = '<option value="">-- Pointure --</option>';
-    const addedColors = new Set(); const addedSizes = new Set();
-    stock.filter(st => st.modelId === mId).forEach(st => {
-        if (!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
-        if (!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
+document.getElementById('returnModel').addEventListener('change',()=>{
+    const mId=document.getElementById('returnModel').value;
+    const col=document.getElementById('returnColor');const s=document.getElementById('returnSize');
+    col.innerHTML='<option value="">-- Couleur --</option>';
+    s.innerHTML='<option value="">-- Pointure --</option>';
+    const addedColors=new Set();const addedSizes=new Set();
+    stock.filter(st=>st.modelId===mId).forEach(st=>{
+        if(!addedColors.has(st.color)){addedColors.add(st.color);col.innerHTML+=`<option value="${st.color}">${st.color}</option>`;}
+        if(!addedSizes.has(st.size)){addedSizes.add(st.size);s.innerHTML+=`<option value="${st.size}">${st.size}</option>`;}
     });
 });
-document.getElementById('processReturnBtn').addEventListener('click', async () => {
-    const mId = document.getElementById('returnModel').value;
-    const color = document.getElementById('returnColor').value;
-    const size = document.getElementById('returnSize').value;
-    if (!mId || !color || !size) { alert('Remplissez tous les critères.'); return; }
-    const item = stock.find(st => st.modelId === mId && st.size === size && st.color === color);
-    if (item) { item.quantity++; await saveToFirebase(); showToast('Produit réintégré au stock ! (+1)'); }
+document.getElementById('processReturnBtn').addEventListener('click',async()=>{
+    const mId=document.getElementById('returnModel').value;
+    const color=document.getElementById('returnColor').value;
+    const size=document.getElementById('returnSize').value;
+    if(!mId||!color||!size){alert('Remplissez tous les critères.');return;}
+    const item=stock.find(st=>st.modelId===mId&&st.size===size&&st.color===color);
+    if(item){item.quantity++;await saveToFirebase();showToast('Produit réintégré au stock ! (+1)');}
     else alert('Variante introuvable.');
 });
 
 // ============ COMPTABILITÉ ============
-function setToday() { document.getElementById('dailyDate').value = getTodayString(); window.loadDailySheet(); }
-document.getElementById('setTodayBtn').addEventListener('click', setToday);
-document.getElementById('dailyDate').addEventListener('change', () => window.loadDailySheet());
+function setToday(){document.getElementById('dailyDate').value=getTodayString();window.loadDailySheet();}
+document.getElementById('setTodayBtn').addEventListener('click',setToday);
+document.getElementById('dailyDate').addEventListener('change',()=>window.loadDailySheet());
 
-window.loadDailySheet = function loadDailySheet() {
-    const d = document.getElementById('dailyDate').value; if (!d) return;
-    const s = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0, unexpectedMemo: '' };
-    document.getElementById('adBudget').value = s.adBudget;
-    document.getElementById('exchangeRate').value = s.exchangeRate;
-    document.getElementById('unexpectedExpenses').value = s.unexpectedExpenses;
-    document.getElementById('extraGains').value = s.extraGains;
-    document.getElementById('unexpectedMemo').value = s.unexpectedMemo;
+window.loadDailySheet=function loadDailySheet(){
+    const d=document.getElementById('dailyDate').value;if(!d)return;
+    const s=dailySheets[d]||{adBudget:0,exchangeRate:0,unexpectedExpenses:0,extraGains:0,unexpectedMemo:''};
+    document.getElementById('adBudget').value=s.adBudget;
+    document.getElementById('exchangeRate').value=s.exchangeRate;
+    document.getElementById('unexpectedExpenses').value=s.unexpectedExpenses;
+    document.getElementById('extraGains').value=s.extraGains;
+    document.getElementById('unexpectedMemo').value=s.unexpectedMemo;
     calculateDailySheet();
-}
-
-document.getElementById('saveDailySheetBtn').addEventListener('click', async () => {
-    const d = document.getElementById('dailyDate').value; if (!d) return;
-    dailySheets[d] = {
-        adBudget: parseFloat(document.getElementById('adBudget').value) || 0,
-        exchangeRate: parseFloat(document.getElementById('exchangeRate').value) || 0,
-        unexpectedExpenses: parseFloat(document.getElementById('unexpectedExpenses').value) || 0,
-        extraGains: parseFloat(document.getElementById('extraGains').value) || 0,
-        unexpectedMemo: document.getElementById('unexpectedMemo').value
-    };
-    await saveToFirebase(); showToast('Fiche sauvegardée !');
-});
-
-// RÉINITIALISER LES STATS (ventes du jour)
-window.confirmResetStats = function () {
-    const d = document.getElementById('dailyDate').value;
-    if (!d) { alert('Sélectionnez une date.'); return; }
-    if (!confirm(`⚠️ Réinitialiser les statistiques du ${d} ?\nCela supprimera toutes les ventes enregistrées pour cette journée et réintégrera le stock.`)) return;
-
-    // Récupérer les commandes du jour
-    const dayOrders = orders.filter(o => o.date === d);
-    // Réintégrer le stock pour toutes ces commandes
-    dayOrders.forEach(o => {
-        const si = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
-        if (si) si.quantity++;
-    });
-
-    // Supprimer les commandes du jour
-    orders = orders.filter(o => o.date !== d);
-    // Supprimer l'historique de ventes du jour
-    salesHistory = salesHistory.filter(sh => sh.date !== d);
-
-    saveToFirebase();
-    showToast('Stats du jour réinitialisées !');
 };
 
-function calculateDailySheet() {
-    const d = document.getElementById('dailyDate').value; if (!d) return;
-    const currentSheet = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0 };
-    const daySales = salesHistory.filter(sh => sh.date === d);
-    const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
-    const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
-    const adBudgetInput = parseFloat(document.getElementById('adBudget').value) || currentSheet.adBudget || 0;
-    const exchangeRateInput = parseFloat(document.getElementById('exchangeRate').value) || currentSheet.exchangeRate || 0;
-    const unexp = parseFloat(document.getElementById('unexpectedExpenses').value) || currentSheet.unexpectedExpenses || 0;
-    const extra = parseFloat(document.getElementById('extraGains').value) || currentSheet.extraGains || 0;
-    const adCostDA = adBudgetInput * exchangeRateInput;
-    const totalExp = cost + adCostDA + unexp;
-    const net = ca - totalExp + extra;
+document.getElementById('saveDailySheetBtn').addEventListener('click',async()=>{
+    const d=document.getElementById('dailyDate').value;if(!d)return;
+    dailySheets[d]={
+        adBudget:parseFloat(document.getElementById('adBudget').value)||0,
+        exchangeRate:parseFloat(document.getElementById('exchangeRate').value)||0,
+        unexpectedExpenses:parseFloat(document.getElementById('unexpectedExpenses').value)||0,
+        extraGains:parseFloat(document.getElementById('extraGains').value)||0,
+        unexpectedMemo:document.getElementById('unexpectedMemo').value
+    };
+    await saveToFirebase();showToast('Fiche sauvegardée !');
+});
 
-    const caEl = document.getElementById('statCA');
-    const expEl = document.getElementById('statExpenses');
-    const profitEl = document.getElementById('statProfit');
+window.confirmResetStats=function(){
+    const d=document.getElementById('dailyDate').value;
+    if(!d){alert('Sélectionnez une date.');return;}
+    if(!confirm(`⚠️ Réinitialiser les statistiques du ${d} ?\nCela supprimera toutes les ventes enregistrées pour cette journée et réintégrera le stock.`))return;
+    const dayOrders=orders.filter(o=>o.date===d);
+    dayOrders.forEach(o=>{const si=stock.find(s=>s.modelName===o.modelName&&s.color===o.color&&s.size===o.size);if(si)si.quantity++;});
+    orders=orders.filter(o=>o.date!==d);
+    salesHistory=salesHistory.filter(sh=>sh.date!==d);
+    saveToFirebase();showToast('Stats du jour réinitialisées !');
+};
 
-    caEl.textContent = formatCurrency(ca);
-    caEl.className = 'stat-value amount-ca';
-    expEl.textContent = formatCurrency(totalExp);
-    expEl.className = 'stat-value amount-negative';
-    profitEl.textContent = formatCurrency(net);
-    profitEl.className = net >= 0 ? 'stat-value amount-positive' : 'stat-value amount-negative';
-    document.getElementById('statPairs').textContent = daySales.length;
+function calculateDailySheet(){
+    const d=document.getElementById('dailyDate').value;if(!d)return;
+    const currentSheet=dailySheets[d]||{adBudget:0,exchangeRate:0,unexpectedExpenses:0,extraGains:0};
+    const daySales=salesHistory.filter(sh=>sh.date===d);
+    const ca=daySales.reduce((sum,h)=>sum+h.salePrice,0);
+    const cost=daySales.reduce((sum,h)=>sum+h.costPrice,0);
+    const adBudgetInput=parseFloat(document.getElementById('adBudget').value)||currentSheet.adBudget||0;
+    const exchangeRateInput=parseFloat(document.getElementById('exchangeRate').value)||currentSheet.exchangeRate||0;
+    const unexp=parseFloat(document.getElementById('unexpectedExpenses').value)||currentSheet.unexpectedExpenses||0;
+    const extra=parseFloat(document.getElementById('extraGains').value)||currentSheet.extraGains||0;
+    const adCostDA=adBudgetInput*exchangeRateInput;
+    const totalExp=cost+adCostDA+unexp;
+    const net=ca-totalExp+extra;
 
-    document.getElementById('dailySummaryTable').innerHTML = `
-        <tr><td>Ventes Chaussures (CA)</td><td class="amount-ca">+ ${formatCurrency(ca)} DA</td><td>${daySales.length} paires vendues</td></tr>
+    const caEl=document.getElementById('statCA');
+    const expEl=document.getElementById('statExpenses');
+    const profitEl=document.getElementById('statProfit');
+    caEl.textContent=formatCurrency(ca); caEl.className='stat-value amount-ca';
+    expEl.textContent=formatCurrency(totalExp); expEl.className='stat-value amount-negative';
+    profitEl.textContent=formatCurrency(net); profitEl.className=net>=0?'stat-value amount-positive':'stat-value amount-negative';
+    document.getElementById('statPairs').textContent=daySales.length;
+
+    // Build sold models detail string
+    const soldDetail = getSoldModelsDetail(daySales);
+    const soldHTML = getSoldModelsHTML(daySales);
+
+    document.getElementById('dailySummaryTable').innerHTML=`
+        <tr><td>Ventes Chaussures (CA)</td><td class="amount-ca">+ ${formatCurrency(ca)} DA</td>
+            <td>
+                <div>${daySales.length} paires vendues</div>
+                ${daySales.length>0?`<div class="sold-models-detail">${soldHTML}</div>`:''}
+            </td>
+        </tr>
         <tr><td>Coût d'achat du stock vendu</td><td class="amount-negative">- ${formatCurrency(cost)} DA</td><td>Prix de revient usine</td></tr>
         <tr><td>Budget Publicitaire</td><td class="amount-negative">- ${formatCurrency(adCostDA)} DA</td><td>${adBudgetInput}$ × ${exchangeRateInput} DA/$</td></tr>
-        <tr><td>Dépenses Imprévues</td><td class="amount-negative">- ${formatCurrency(unexp)} DA</td><td>${document.getElementById('unexpectedMemo').value || 'Aucun détail'}</td></tr>
+        <tr><td>Dépenses Imprévues</td><td class="amount-negative">- ${formatCurrency(unexp)} DA</td><td>${document.getElementById('unexpectedMemo').value||'Aucun détail'}</td></tr>
         <tr><td>Gains Supplémentaires</td><td class="amount-positive">+ ${formatCurrency(extra)} DA</td><td>Entrées annexes</td></tr>
         <tr style="border-top:2px solid #e5e7eb;font-weight:700;">
             <td>BÉNÉFICE NET</td>
-            <td class="${net >= 0 ? 'amount-positive' : 'amount-negative'}">${net >= 0 ? '+' : ''}${formatCurrency(net)} DA</td>
-            <td>${net >= 0 ? '✅ Bénéfice' : '❌ Perte'}</td>
+            <td class="${net>=0?'amount-positive':'amount-negative'}">${net>=0?'+':''}${formatCurrency(net)} DA</td>
+            <td>${net>=0?'✅ Bénéfice':'❌ Perte'}</td>
         </tr>`;
 
-    const avgSale = daySales.length > 0 ? (ca / daySales.length) : 0;
-    const avgMargin = daySales.length > 0 ? ((ca - cost) / daySales.length) : 0;
-    const marginRate = ca > 0 ? (((ca - cost) / ca) * 100) : 0;
-
-    document.getElementById('avgSalePrice').textContent = formatCurrency(avgSale) + " DA";
-    document.getElementById('avgMargin').textContent = formatCurrency(avgMargin) + " DA";
-    document.getElementById('marginRate').textContent = marginRate.toFixed(1) + "%";
+    const avgSale=daySales.length>0?(ca/daySales.length):0;
+    const avgMargin=daySales.length>0?((ca-cost)/daySales.length):0;
+    const marginRate=ca>0?(((ca-cost)/ca)*100):0;
+    document.getElementById('avgSalePrice').textContent=formatCurrency(avgSale)+' DA';
+    document.getElementById('avgMargin').textContent=formatCurrency(avgMargin)+' DA';
+    document.getElementById('marginRate').textContent=marginRate.toFixed(1)+'%';
 }
 
-// ============ HISTORIQUE FICHES (toutes variables) ============
-function renderDailyHistory() {
-    const b = document.getElementById('dailyHistoryTable'); b.innerHTML = '';
-    const keys = Object.keys(dailySheets).sort().reverse();
-    if (keys.length === 0) { b.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune fiche enregistrée</td></tr>`; return; }
+// ============ HISTORIQUE FICHES ============
+function renderDailyHistory(){
+    const b=document.getElementById('dailyHistoryTable');b.innerHTML='';
+    const keys=Object.keys(dailySheets).sort().reverse();
+    if(keys.length===0){b.innerHTML=`<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune fiche enregistrée</td></tr>`;return;}
+    keys.forEach(k=>{
+        const sheet=dailySheets[k];
+        const daySales=salesHistory.filter(sh=>sh.date===k);
+        const ca=daySales.reduce((sum,h)=>sum+h.salePrice,0);
+        const cost=daySales.reduce((sum,h)=>sum+h.costPrice,0);
+        const adCostDA=(sheet.adBudget||0)*(sheet.exchangeRate||0);
+        const totalExp=cost+adCostDA+(sheet.unexpectedExpenses||0);
+        const net=ca-totalExp+(sheet.extraGains||0);
+        const soldHTML=getSoldModelsHTML(daySales);
 
-    keys.forEach(k => {
-        const sheet = dailySheets[k];
-        const daySales = salesHistory.filter(sh => sh.date === k);
-        const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
-        const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
-        const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
-        const totalExp = cost + adCostDA + (sheet.unexpectedExpenses || 0);
-        const net = ca - totalExp + (sheet.extraGains || 0);
-
-        b.innerHTML += `
+        b.innerHTML+=`
             <tr>
                 <td><strong>${k}</strong></td>
                 <td class="amount-ca">${formatCurrency(ca)} DA</td>
-                <td class="amount-negative">${sheet.adBudget || 0} $ (${formatCurrency(adCostDA)} DA)</td>
+                <td class="amount-negative">${sheet.adBudget||0} $ (${formatCurrency(adCostDA)} DA)</td>
                 <td class="amount-negative">${formatCurrency(cost)} DA</td>
-                <td class="amount-negative">${formatCurrency(sheet.unexpectedExpenses || 0)} DA</td>
-                <td class="amount-positive">${formatCurrency(sheet.extraGains || 0)} DA</td>
-                <td class="${net >= 0 ? 'amount-positive' : 'amount-negative'}">${net >= 0 ? '+' : ''}${formatCurrency(net)} DA</td>
-                <td>${daySales.length}</td>
+                <td class="amount-negative">${formatCurrency(sheet.unexpectedExpenses||0)} DA</td>
+                <td class="amount-positive">${formatCurrency(sheet.extraGains||0)} DA</td>
+                <td class="${net>=0?'amount-positive':'amount-negative'}">${net>=0?'+':''}${formatCurrency(net)} DA</td>
+                <td>
+                    <div>${daySales.length} paire${daySales.length!==1?'s':''}</div>
+                    ${daySales.length>0?`<div class="sold-models-detail" style="margin-top:3px;">${soldHTML}</div>`:''}
+                </td>
                 <td class="action-cell">
                     <button class="btn btn-sm" onclick="window.exportSingleDayPDF('${k}')" style="background:#7c3aed;color:white;width:auto;">📄 PDF</button>
                     <button class="btn-icon btn-delete" onclick="window.deleteDailySheet('${k}')">🗑️</button>
@@ -1201,274 +1461,222 @@ function renderDailyHistory() {
     });
 }
 
-window.deleteDailySheet = async function (date) {
-    if (!confirm(`Supprimer la fiche du ${date} ?`)) return;
+window.deleteDailySheet=async function(date){
+    if(!confirm(`Supprimer la fiche du ${date} ?`))return;
     delete dailySheets[date];
-    await saveToFirebase(); showToast('Fiche supprimée !');
+    await saveToFirebase();showToast('Fiche supprimée !');
 };
-
-window.confirmResetDailySheet = function () {
-    const d = document.getElementById('dailyDate').value;
-    if (!d) { alert('Sélectionnez une date.'); return; }
-    if (!confirm(`Réinitialiser la fiche du ${d} ?`)) return;
+window.confirmResetDailySheet=function(){
+    const d=document.getElementById('dailyDate').value;
+    if(!d){alert('Sélectionnez une date.');return;}
+    if(!confirm(`Réinitialiser la fiche du ${d} ?`))return;
     delete dailySheets[d];
-    ['adBudget', 'exchangeRate', 'unexpectedExpenses', 'extraGains', 'unexpectedMemo'].forEach(id => document.getElementById(id).value = '');
-    saveToFirebase(); showToast('Fiche réinitialisée !');
+    ['adBudget','exchangeRate','unexpectedExpenses','extraGains','unexpectedMemo'].forEach(id=>document.getElementById(id).value='');
+    saveToFirebase();showToast('Fiche réinitialisée !');
 };
-
-window.confirmResetAllHistory = function () {
-    if (!confirm('⚠️ Supprimer TOUT l\'historique des fiches ?')) return;
-    if (!confirm('Action irréversible. Confirmer ?')) return;
-    dailySheets = {};
-    saveToFirebase(); showToast('Historique supprimé !');
+window.confirmResetAllHistory=function(){
+    if(!confirm("⚠️ Supprimer TOUT l'historique des fiches ?"))return;
+    if(!confirm('Action irréversible. Confirmer ?'))return;
+    dailySheets={};saveToFirebase();showToast('Historique supprimé !');
 };
 
 // ============ PDF HELPERS ============
-function loadJsPDF() {
-    return new Promise((resolve, reject) => {
-        if (window.jspdf && window.jspdf.jsPDF) { resolve(window.jspdf.jsPDF); return; }
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-        script.onload = () => resolve(window.jspdf.jsPDF);
-        script.onerror = () => reject(new Error('Impossible de charger jsPDF'));
+function loadJsPDF(){
+    return new Promise((resolve,reject)=>{
+        if(window.jspdf&&window.jspdf.jsPDF){resolve(window.jspdf.jsPDF);return;}
+        const script=document.createElement('script');
+        script.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+        script.onload=()=>resolve(window.jspdf.jsPDF);
+        script.onerror=()=>reject(new Error('Impossible de charger jsPDF'));
         document.head.appendChild(script);
     });
 }
-
-function loadAutoTable(jsPDF) {
-    return new Promise((resolve, reject) => {
-        if (typeof jsPDF.API.autoTable === 'function') { resolve(); return; }
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js';
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error('Impossible de charger autoTable'));
+function loadAutoTable(jsPDF){
+    return new Promise((resolve,reject)=>{
+        if(typeof jsPDF.API.autoTable==='function'){resolve();return;}
+        const script=document.createElement('script');
+        script.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js';
+        script.onload=()=>resolve();
+        script.onerror=()=>reject(new Error('Impossible de charger autoTable'));
         document.head.appendChild(script);
     });
 }
 
 // ========== PDF FICHE JOURNALIÈRE ==========
-window.exportDailySheetPDF = async function () {
-    const d = document.getElementById('dailyDate').value;
-    if (!d) { alert('Sélectionnez une date d\'abord.'); return; }
-
-    try {
+window.exportDailySheetPDF=async function(){
+    const d=document.getElementById('dailyDate').value;
+    if(!d){alert("Sélectionnez une date d'abord.");return;}
+    try{
         showToast('Génération du PDF en cours...');
-        const JsPDF = await loadJsPDF();
-        const doc = new JsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        const JsPDF=await loadJsPDF();
+        const doc=new JsPDF({orientation:'portrait',unit:'mm',format:'a4'});
         await loadAutoTable(JsPDF);
 
-        const sheet = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0, unexpectedMemo: '' };
-        const daySales = salesHistory.filter(sh => sh.date === d);
-        const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
-        const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
-        const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
-        const unexp = sheet.unexpectedExpenses || 0;
-        const extra = sheet.extraGains || 0;
-        const totalExp = cost + adCostDA + unexp;
-        const net = ca - totalExp + extra;
-        const avgSale = daySales.length > 0 ? ca / daySales.length : 0;
-        const avgMargin = daySales.length > 0 ? (ca - cost) / daySales.length : 0;
-        const marginRate = ca > 0 ? ((ca - cost) / ca * 100) : 0;
+        const sheet=dailySheets[d]||{adBudget:0,exchangeRate:0,unexpectedExpenses:0,extraGains:0,unexpectedMemo:''};
+        const daySales=salesHistory.filter(sh=>sh.date===d);
+        const ca=daySales.reduce((sum,h)=>sum+h.salePrice,0);
+        const cost=daySales.reduce((sum,h)=>sum+h.costPrice,0);
+        const adCostDA=(sheet.adBudget||0)*(sheet.exchangeRate||0);
+        const unexp=sheet.unexpectedExpenses||0;
+        const extra=sheet.extraGains||0;
+        const totalExp=cost+adCostDA+unexp;
+        const net=ca-totalExp+extra;
+        const avgSale=daySales.length>0?ca/daySales.length:0;
+        const avgMargin=daySales.length>0?(ca-cost)/daySales.length:0;
+        const marginRate=ca>0?((ca-cost)/ca*100):0;
+        const soldDetail=getSoldModelsDetail(daySales);
 
-        // En-tête
-        doc.setFillColor(124, 58, 237);
-        doc.rect(0, 0, 210, 28, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(18);
-        doc.setFont('helvetica', 'bold');
-        doc.text('NLS Logistique', 14, 12);
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`Fiche journaliere — ${d} — Généré le ${new Date().toLocaleDateString('fr-FR')}`, 14, 22);
-        doc.setTextColor(40, 40, 40);
+        doc.setFillColor(124,58,237);
+        doc.rect(0,0,210,28,'F');
+        doc.setTextColor(255,255,255);
+        doc.setFontSize(18);doc.setFont('helvetica','bold');
+        doc.text('NLS Logistique',14,12);
+        doc.setFontSize(11);doc.setFont('helvetica','normal');
+        doc.text(`Fiche journaliere — ${d} — Généré le ${new Date().toLocaleDateString('fr-FR')}`,14,22);
+        doc.setTextColor(40,40,40);
 
-        let y = 36;
-
-        // Résumé financier
-        doc.setFontSize(13);
-        doc.setFont('helvetica', 'bold');
-        doc.text('Résumé financier', 14, y);
-        y += 2;
+        let y=36;
+        doc.setFontSize(13);doc.setFont('helvetica','bold');
+        doc.text('Résumé financier',14,y);
 
         doc.autoTable({
-            startY: y + 2,
-            head: [['Poste', 'Montant (DA)', 'Détail']],
-            body: [
-                ['Ventes / Chiffre d\'affaires', `+ ${formatCurrency(ca)} DA`, `${daySales.length} paires vendues`],
-                ['Coût d\'achat du stock vendu', `- ${formatCurrency(cost)} DA`, 'Prix de revient usine'],
-                ['Budget Publicitaire', `- ${formatCurrency(adCostDA)} DA`, `${sheet.adBudget || 0}$ x ${sheet.exchangeRate || 0} DA/$`],
-                ['Dépenses imprévues', `- ${formatCurrency(unexp)} DA`, sheet.unexpectedMemo || 'Aucun détail'],
-                ['Gains supplémentaires', `+ ${formatCurrency(extra)} DA`, 'Entrées annexes'],
-                ['BÉNÉFICE NET', `${net >= 0 ? '+' : ''}${formatCurrency(net)} DA`, net >= 0 ? 'Bénéfice' : 'Perte'],
+            startY:y+4,
+            head:[['Poste','Montant (DA)','Détail']],
+            body:[
+                ["Ventes / Chiffre d'affaires",`+ ${formatCurrency(ca)} DA`,`${daySales.length} paires vendues${soldDetail?'\n'+soldDetail:''}`],
+                ["Coût d'achat du stock vendu",`- ${formatCurrency(cost)} DA`,'Prix de revient usine'],
+                ['Budget Publicitaire',`- ${formatCurrency(adCostDA)} DA`,`${sheet.adBudget||0}$ x ${sheet.exchangeRate||0} DA/$`],
+                ['Dépenses imprévues',`- ${formatCurrency(unexp)} DA`,sheet.unexpectedMemo||'Aucun détail'],
+                ['Gains supplémentaires',`+ ${formatCurrency(extra)} DA`,'Entrées annexes'],
+                ['BÉNÉFICE NET',`${net>=0?'+':''}${formatCurrency(net)} DA`,net>=0?'Bénéfice':'Perte'],
             ],
-            styles: { fontSize: 10, cellPadding: 3 },
-            headStyles: { fillColor: [124, 58, 237], textColor: 255, fontStyle: 'bold' },
-            bodyStyles: { textColor: [40, 40, 40] },
-            didParseCell: (data) => {
-                if (data.row.index === 5) {
-                    data.cell.styles.fontStyle = 'bold';
-                    data.cell.styles.fillColor = net >= 0 ? [209, 250, 229] : [254, 226, 226];
-                    data.cell.styles.textColor = net >= 0 ? [6, 95, 70] : [220, 38, 38];
+            styles:{fontSize:10,cellPadding:3},
+            headStyles:{fillColor:[124,58,237],textColor:255,fontStyle:'bold'},
+            bodyStyles:{textColor:[40,40,40]},
+            didParseCell:(data)=>{
+                if(data.row.index===5){
+                    data.cell.styles.fontStyle='bold';
+                    data.cell.styles.fillColor=net>=0?[209,250,229]:[254,226,226];
+                    data.cell.styles.textColor=net>=0?[6,95,70]:[220,38,38];
                 }
             },
         });
 
-        y = doc.lastAutoTable.finalY + 10;
-
-        // Indicateurs clés
-        doc.setFontSize(13);
-        doc.setFont('helvetica', 'bold');
-        doc.text('Indicateurs clés', 14, y);
-
+        y=doc.lastAutoTable.finalY+10;
+        doc.setFontSize(13);doc.setFont('helvetica','bold');
+        doc.text('Indicateurs clés',14,y);
         doc.autoTable({
-            startY: y + 4,
-            head: [['Indicateur', 'Valeur']],
-            body: [
-                ['Prix moyen de vente', `${formatCurrency(avgSale)} DA`],
-                ['Marge moyenne / paire', `${formatCurrency(avgMargin)} DA`],
-                ['Taux de marge', `${marginRate.toFixed(1)}%`],
-                ['Paires vendues', `${daySales.length} unités`],
+            startY:y+4,
+            head:[['Indicateur','Valeur']],
+            body:[
+                ['Prix moyen de vente',`${formatCurrency(avgSale)} DA`],
+                ['Marge moyenne / paire',`${formatCurrency(avgMargin)} DA`],
+                ['Taux de marge',`${marginRate.toFixed(1)}%`],
+                ['Paires vendues',`${daySales.length} unités`],
             ],
-            styles: { fontSize: 10, cellPadding: 3 },
-            headStyles: { fillColor: [37, 99, 235], textColor: 255, fontStyle: 'bold' },
+            styles:{fontSize:10,cellPadding:3},
+            headStyles:{fillColor:[37,99,235],textColor:255,fontStyle:'bold'},
         });
 
-        // Pied de page
-        const pageCount = doc.internal.getNumberOfPages();
-        for (let i = 1; i <= pageCount; i++) {
-            doc.setPage(i);
-            doc.setFontSize(8);
-            doc.setTextColor(150, 150, 150);
-            doc.text(`NLS Logistique — Fiche du ${d} — developed by Safwann Naït-chabane`, 14, 290);
-            doc.text(`Page ${i}/${pageCount}`, 190, 290, { align: 'right' });
+        const pageCount=doc.internal.getNumberOfPages();
+        for(let i=1;i<=pageCount;i++){
+            doc.setPage(i);doc.setFontSize(8);doc.setTextColor(150,150,150);
+            doc.text(`NLS Logistique — Fiche du ${d} — developed by Safwann Naït-chabane`,14,290);
+            doc.text(`Page ${i}/${pageCount}`,190,290,{align:'right'});
         }
-
         doc.save(`fiche NLS_Logistique by Safwann Naït-chabane.pdf`);
         showToast('PDF de la fiche téléchargé !');
-    } catch (err) {
-        console.error(err);
-        showToast('Erreur lors de la génération du PDF', 'error');
-    }
+    }catch(err){console.error(err);showToast('Erreur lors de la génération du PDF','error');}
 };
 
 // ========== PDF HISTORIQUE COMPLET ==========
-window.exportHistoryPDF = async function () {
-    const keys = Object.keys(dailySheets).sort().reverse();
-    if (keys.length === 0) { alert('Aucune fiche à exporter.'); return; }
-
-    try {
+window.exportHistoryPDF=async function(){
+    const keys=Object.keys(dailySheets).sort().reverse();
+    if(keys.length===0){alert('Aucune fiche à exporter.');return;}
+    try{
         showToast('Génération du PDF historique...');
-        const JsPDF = await loadJsPDF();
-        const doc = new JsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+        const JsPDF=await loadJsPDF();
+        const doc=new JsPDF({orientation:'landscape',unit:'mm',format:'a4'});
         await loadAutoTable(JsPDF);
 
-        // En-tête
-        doc.setFillColor(124, 58, 237);
-        doc.rect(0, 0, 297, 28, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(18);
-        doc.setFont('helvetica', 'bold');
-        doc.text('NLS Logistique', 14, 12);
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`Historique complet — ${keys.length} fiche(s) — Généré le ${new Date().toLocaleDateString('fr-FR')} — developed by Safwann Naït-chabane`, 14, 22);
-        doc.setTextColor(40, 40, 40);
+        doc.setFillColor(124,58,237);
+        doc.rect(0,0,297,28,'F');
+        doc.setTextColor(255,255,255);
+        doc.setFontSize(18);doc.setFont('helvetica','bold');
+        doc.text('NLS Logistique',14,12);
+        doc.setFontSize(11);doc.setFont('helvetica','normal');
+        doc.text(`Historique complet — ${keys.length} fiche(s) — Généré le ${new Date().toLocaleDateString('fr-FR')} — developed by Safwann Naït-chabane`,14,22);
+        doc.setTextColor(40,40,40);
 
-        const rows = keys.map(k => {
-            const sheet = dailySheets[k];
-            const daySales = salesHistory.filter(sh => sh.date === k);
-            const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
-            const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
-            const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
-            const totalExp = cost + adCostDA + (sheet.unexpectedExpenses || 0);
-            const net = ca - totalExp + (sheet.extraGains || 0);
-            // Format date as DD/MM/YYYY
-            const parts = k.split('-');
-            const dateFormatted = parts.length === 3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : k;
-            return [
+        const rows=keys.map(k=>{
+            const sheet=dailySheets[k];
+            const daySales=salesHistory.filter(sh=>sh.date===k);
+            const ca=daySales.reduce((sum,h)=>sum+h.salePrice,0);
+            const cost=daySales.reduce((sum,h)=>sum+h.costPrice,0);
+            const adCostDA=(sheet.adBudget||0)*(sheet.exchangeRate||0);
+            const totalExp=cost+adCostDA+(sheet.unexpectedExpenses||0);
+            const net=ca-totalExp+(sheet.extraGains||0);
+            const parts=k.split('-');
+            const dateFormatted=parts.length===3?`${parts[2]}/${parts[1]}/${parts[0]}`:k;
+            const soldDetail=getSoldModelsDetail(daySales);
+            return[
                 dateFormatted,
                 `${formatCurrency(ca)} DA`,
-                `${sheet.adBudget || 0}$ (${formatCurrency(adCostDA)} DA)`,
+                `${sheet.adBudget||0}$ (${formatCurrency(adCostDA)} DA)`,
                 `${formatCurrency(cost)} DA`,
-                `${formatCurrency(sheet.unexpectedExpenses || 0)} DA`,
-                `${formatCurrency(sheet.extraGains || 0)} DA`,
-                `${net >= 0 ? '+' : ''}${formatCurrency(net)} DA`,
-                `${daySales.length}`,
+                `${formatCurrency(sheet.unexpectedExpenses||0)} DA`,
+                `${formatCurrency(sheet.extraGains||0)} DA`,
+                `${net>=0?'+':''}${formatCurrency(net)} DA`,
+                soldDetail||`${daySales.length} paire${daySales.length!==1?'s':''}`,
             ];
         });
 
         doc.autoTable({
-            startY: 34,
-            head: [['Date', 'CA', 'Budget Pub', 'Coût stock', 'Dép. imprévues', 'Gains supp.', 'Bénéfice net', 'Paires']],
-            body: rows,
-            styles: { fontSize: 9, cellPadding: 3 },
-            headStyles: { fillColor: [124, 58, 237], textColor: 255, fontStyle: 'bold' },
-            didParseCell: (data) => {
-                if (data.section === 'body' && data.column.index === 6) {
-                    const val = data.cell.raw || '';
-                    if (val.startsWith('+')) {
-                        data.cell.styles.textColor = [6, 95, 70];
-                        data.cell.styles.fontStyle = 'bold';
-                    } else if (val.startsWith('-') || (val !== '' && !val.startsWith('+'))) {
-                        // check if negative number (no + sign)
-                        const num = parseFloat(val.replace(/[^0-9.-]/g, ''));
-                        if (!isNaN(num) && num < 0) {
-                            data.cell.styles.textColor = [220, 38, 38];
-                            data.cell.styles.fontStyle = 'bold';
-                        }
-                    }
+            startY:34,
+            head:[['Date','CA','Budget Pub','Coût stock','Dép. imprévues','Gains supp.','Bénéfice net','Paires vendues']],
+            body:rows,
+            styles:{fontSize:8,cellPadding:3},
+            headStyles:{fillColor:[124,58,237],textColor:255,fontStyle:'bold'},
+            columnStyles:{7:{cellWidth:55,fontSize:7}},
+            didParseCell:(data)=>{
+                if(data.section==='body'&&data.column.index===6){
+                    const val=data.cell.raw||'';
+                    if(val.startsWith('+')){data.cell.styles.textColor=[6,95,70];data.cell.styles.fontStyle='bold';}
+                    else{const num=parseFloat(val.replace(/[^0-9.-]/g,''));if(!isNaN(num)&&num<0){data.cell.styles.textColor=[220,38,38];data.cell.styles.fontStyle='bold';}}
                 }
             },
-            alternateRowStyles: { fillColor: [248, 250, 252] },
+            alternateRowStyles:{fillColor:[248,250,252]},
         });
 
-        // Totaux
-        const totalCA = keys.reduce((sum, k) => {
-            const ds = salesHistory.filter(sh => sh.date === k);
-            return sum + ds.reduce((s, h) => s + h.salePrice, 0);
-        }, 0);
-        const totalNet = keys.reduce((sum, k) => {
-            const sheet = dailySheets[k];
-            const ds = salesHistory.filter(sh => sh.date === k);
-            const ca = ds.reduce((s, h) => s + h.salePrice, 0);
-            const cost = ds.reduce((s, h) => s + h.costPrice, 0);
-            const adCostDA = (sheet.adBudget || 0) * (sheet.exchangeRate || 0);
-            const totalExp = cost + adCostDA + (sheet.unexpectedExpenses || 0);
-            return sum + (ca - totalExp + (sheet.extraGains || 0));
-        }, 0);
-        const totalPairs = keys.reduce((sum, k) => sum + salesHistory.filter(sh => sh.date === k).length, 0);
+        const totalCA=keys.reduce((sum,k)=>{const ds=salesHistory.filter(sh=>sh.date===k);return sum+ds.reduce((s,h)=>s+h.salePrice,0);},0);
+        const totalNet=keys.reduce((sum,k)=>{
+            const sheet=dailySheets[k];const ds=salesHistory.filter(sh=>sh.date===k);
+            const ca=ds.reduce((s,h)=>s+h.salePrice,0);const cost=ds.reduce((s,h)=>s+h.costPrice,0);
+            const adCostDA=(sheet.adBudget||0)*(sheet.exchangeRate||0);
+            return sum+(ca-cost-adCostDA-(sheet.unexpectedExpenses||0)+(sheet.extraGains||0));
+        },0);
+        const totalPairs=keys.reduce((sum,k)=>sum+salesHistory.filter(sh=>sh.date===k).length,0);
 
-        let yFinal = doc.lastAutoTable.finalY + 8;
-        doc.setFontSize(10);
-        doc.setFont('helvetica', 'bold');
-        doc.setFillColor(240, 240, 255);
-        doc.rect(14, yFinal - 5, 268, 10, 'F');
-        doc.setTextColor(40, 40, 40);
-        doc.text(`TOTAUX — CA: ${formatCurrency(totalCA)} DA   |   Bénéfice net: ${totalNet >= 0 ? '+' : ''}${formatCurrency(totalNet)} DA   |   Total paires: ${totalPairs}`, 16, yFinal + 1);
+        let yFinal=doc.lastAutoTable.finalY+8;
+        doc.setFontSize(10);doc.setFont('helvetica','bold');
+        doc.setFillColor(240,240,255);
+        doc.rect(14,yFinal-5,268,10,'F');
+        doc.setTextColor(40,40,40);
+        doc.text(`TOTAUX — CA: ${formatCurrency(totalCA)} DA   |   Bénéfice net: ${totalNet>=0?'+':''}${formatCurrency(totalNet)} DA   |   Total paires: ${totalPairs}`,16,yFinal+1);
 
-        // Pied de page
-        const pageCount = doc.internal.getNumberOfPages();
-        for (let i = 1; i <= pageCount; i++) {
-            doc.setPage(i);
-            doc.setFontSize(8);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(150, 150, 150);
-            doc.text(`NLS Logistique — Historique des fiches — developed by Safwann Naït-chabane`, 14, 205);
-            doc.text(`Page ${i}/${pageCount}`, 283, 205, { align: 'right' });
+        const pageCount=doc.internal.getNumberOfPages();
+        for(let i=1;i<=pageCount;i++){
+            doc.setPage(i);doc.setFontSize(8);doc.setFont('helvetica','normal');doc.setTextColor(150,150,150);
+            doc.text(`NLS Logistique — Historique des fiches — developed by Safwann Naït-chabane`,14,205);
+            doc.text(`Page ${i}/${pageCount}`,283,205,{align:'right'});
         }
-
         doc.save(`historique NLS_Logistique by Safwann Naït-chabane.pdf`);
         showToast('PDF historique complet téléchargé !');
-    } catch (err) {
-        console.error(err);
-        showToast('Erreur lors de la génération du PDF', 'error');
-    }
+    }catch(err){console.error(err);showToast('Erreur lors de la génération du PDF','error');}
 };
 
-// ========== PDF D'UNE SEULE JOURNÉE DEPUIS L'HISTORIQUE ==========
-window.exportSingleDayPDF = async function (date) {
-    // Charger la date dans la fiche puis exporter
-    document.getElementById('dailyDate').value = date;
+window.exportSingleDayPDF=async function(date){
+    document.getElementById('dailyDate').value=date;
     window.loadDailySheet();
     await window.exportDailySheetPDF();
 };
