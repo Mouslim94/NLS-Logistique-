@@ -1235,7 +1235,6 @@ document.getElementById('searchProductBtn').addEventListener('click', () => {
             item.quantity--;
             const orderId='or_'+Date.now();
             orders.push({ id:orderId, modelId:mId, modelName:item.modelName, color:item.color, size:item.size, salePrice:negotiatedPrice, standardPrice:item.sellPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, status:'pending', date:getTodayString(), clientRef:orderRef });
-            salesHistory.push({ date:getTodayString(), salePrice:negotiatedPrice, costPrice:item.costPrice, deliveryFee:item.deliveryFee||0, modelName:item.modelName, clientRef:orderRef });
             await saveToFirebase();
             showToast('Commande validée ! Colis à préparer.');
             cont.innerHTML=''; res.classList.add('hidden');
@@ -1315,7 +1314,13 @@ function renderDepositOrders(){
                 <button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')">🗑️</button>
             </div>`;
         c.appendChild(div);
-        document.getElementById(`sell_${o.id}`).addEventListener('click',async()=>{o.status='sold';await saveToFirebase();showToast('Vente confirmée !');});
+        document.getElementById(`sell_${o.id}`).addEventListener('click',async()=>{
+            o.status='sold';
+            o.soldDate=getTodayString();
+            salesHistory.push({ date:o.soldDate, salePrice:o.salePrice, costPrice:o.costPrice, deliveryFee:o.deliveryFee||0, modelName:o.modelName, clientRef:o.clientRef });
+            await saveToFirebase();
+            showToast('Vente confirmée !');
+        });
     });
 }
 window.confirmResetAllDeposit=function(){
@@ -1341,7 +1346,9 @@ window.deleteShippedOrder=async function(orderId){
     if(order){
         const si=stock.find(s=>s.modelName===order.modelName&&s.color===order.color&&s.size===order.size);
         if(si)si.quantity++;
-        salesHistory=salesHistory.filter(sh=>!(sh.date===order.date&&sh.salePrice===order.salePrice&&sh.costPrice===order.costPrice));
+        if(order.status==='sold'){
+            salesHistory=salesHistory.filter(sh=>!(sh.date===order.soldDate&&sh.salePrice===order.salePrice&&sh.costPrice===order.costPrice&&sh.modelName===order.modelName));
+        }
     }
     orders=orders.filter(o=>o.id!==orderId);
     await saveToFirebase();showToast('Expédition annulée, stock réintégré !');
