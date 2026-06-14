@@ -21,7 +21,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         body { background: #f8fafc; color: var(--dark); line-height: 1.6; }
 
-        /* Auth Screen */
+        /* AUTH */
         .auth-screen {
             min-height: 100vh;
             display: flex;
@@ -50,6 +50,8 @@
             transition: border-color 0.2s;
         }
         .form-group input:focus { outline: none; border-color: var(--primary); }
+
+        /* BUTTONS */
         .btn {
             padding: 12px 24px;
             border: none;
@@ -67,8 +69,21 @@
         .btn-primary:hover { background: var(--primary-dark); }
         .btn-success { background: var(--success); color: white; }
         .btn-danger { background: var(--danger); color: white; }
+        .btn-warning { background: var(--warning); color: white; }
         .btn-secondary { background: #e5e7eb; color: var(--dark); }
         .btn-sm { padding: 8px 16px; font-size: 13px; }
+        .btn-icon {
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        .btn-delete { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .btn-delete:hover { background: #dc2626; color: white; }
+        .btn-reset { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+        .btn-reset:hover { background: #c2410c; color: white; }
         .google-btn {
             width: 100%;
             background: var(--white);
@@ -77,6 +92,8 @@
             margin-top: 12px;
         }
         .google-btn:hover { background: #f9fafb; }
+
+        /* AUTH EXTRAS */
         .auth-toggle { text-align: center; margin-top: 16px; font-size: 14px; color: var(--gray); }
         .auth-toggle a { color: var(--primary); cursor: pointer; font-weight: 600; }
         .hidden { display: none !important; }
@@ -90,7 +107,7 @@
             border-left: 3px solid var(--danger);
         }
 
-        /* Main App */
+        /* APP LAYOUT */
         .main-app { min-height: 100vh; }
         .app-header {
             background: var(--white);
@@ -106,7 +123,7 @@
         .app-header h1 { font-size: 20px; color: var(--primary); }
         .user-info { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--gray); }
 
-        /* Tabs */
+        /* TABS */
         .tabs-nav {
             display: flex;
             gap: 4px;
@@ -127,11 +144,10 @@
         }
         .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
         .tab-btn:hover { color: var(--primary-dark); }
-
         .tab-panel { display: none; padding: 24px; max-width: 1200px; margin: 0 auto; }
         .tab-panel.active { display: block; }
 
-        /* Cards */
+        /* CARDS */
         .card {
             background: var(--white);
             border-radius: var(--radius);
@@ -141,7 +157,7 @@
         }
         .card h3 { font-size: 18px; margin-bottom: 16px; color: var(--dark); }
 
-        /* Steps */
+        /* STEPS */
         .steps-indicator {
             display: flex;
             justify-content: center;
@@ -162,7 +178,6 @@
         }
         .step-dot.active { background: var(--primary); color: white; }
         .step-section { margin-bottom: 20px; }
-
         .dynamic-input-item {
             display: flex;
             align-items: center;
@@ -183,17 +198,13 @@
             flex-shrink: 0;
         }
 
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
         th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; }
         th { background: #f9fafb; font-weight: 600; color: var(--gray); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         tr:hover { background: #f9fafb; }
 
-        /* Search & Forms */
+        /* FORMS */
         .search-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -209,7 +220,7 @@
         }
         select:focus, input:focus { outline: none; border-color: var(--primary); }
 
-        /* Orders */
+        /* ORDERS */
         .order-item {
             display: flex;
             justify-content: space-between;
@@ -222,7 +233,7 @@
         .order-info { font-size: 15px; }
         .order-actions { display: flex; gap: 8px; }
 
-        /* Stats */
+        /* STATS */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -236,24 +247,15 @@
             box-shadow: var(--shadow);
             text-align: center;
         }
-        .stat-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 8px 0;
-        }
+        .stat-value { font-size: 28px; font-weight: 700; color: var(--primary); margin: 8px 0; }
         .stat-label { font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 48px 20px;
-            color: var(--gray);
-        }
+        /* EMPTY STATE */
+        .empty-state { text-align: center; padding: 48px 20px; color: var(--gray); }
         .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
         .empty-state h3 { font-size: 18px; margin-bottom: 8px; color: var(--dark); }
 
-        /* Toast */
+        /* TOAST */
         #toastContainer {
             position: fixed;
             top: 20px;
@@ -281,7 +283,7 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Model List */
+        /* MODEL LIST */
         .model-list-item {
             padding: 14px 16px;
             background: var(--light);
@@ -293,7 +295,56 @@
         }
         .model-list-item span { color: var(--gray); font-size: 13px; }
 
-        /* Responsive */
+        /* STOCK ALERTS */
+        .stock-alert-orange { background: #fff7ed !important; color: #c2410c !important; font-weight: 700; }
+        .stock-alert-red { background: #fef2f2 !important; color: #dc2626 !important; font-weight: 700; }
+
+        /* AMOUNTS */
+        .amount-positive { color: #16a34a; font-weight: 700; }
+        .amount-negative { color: #dc2626; font-weight: 700; }
+        .amount-ca { color: #d97706; font-weight: 700; }
+
+        /* ORDER STATUS BADGES */
+        .order-status-pending { background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .order-status-shipped { background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .order-status-sold { background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .action-cell { display: flex; gap: 6px; justify-content: flex-end; }
+
+        /* SEARCH RESULT EXTRAS */
+        .rupture-alert {
+            background: #fef2f2;
+            border: 2px solid #dc2626;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 12px;
+            color: #dc2626;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+        }
+        .alternatives-list { margin-top: 12px; padding: 12px; background: #fffbeb; border-radius: 8px; border: 1px solid #f59e0b; }
+        .alternative-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .alternative-item:last-child { margin-bottom: 0; }
+        .price-negociation {
+            margin-top: 16px;
+            padding: 16px;
+            background: #eff6ff;
+            border-radius: 8px;
+            border: 1px solid #3b82f6;
+        }
+        .price-negociation label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e40af; }
+        .price-negociation input { width: 100%; padding: 10px; border: 2px solid #3b82f6; border-radius: 6px; font-size: 16px; font-weight: 600; }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .tabs-nav { overflow-x: auto; padding: 12px; }
             .tab-btn { white-space: nowrap; padding: 10px 14px; font-size: 13px; }
@@ -306,9 +357,7 @@
 </head>
 <body>
 
-<!-- ============================================ -->
 <!-- AUTH SCREEN -->
-<!-- ============================================ -->
 <div id="authScreen" class="auth-screen">
     <div class="auth-card">
         <h2>🔐 NLS Logistique</h2>
@@ -318,12 +367,10 @@
             <label>Nom complet</label>
             <input type="text" id="authName" placeholder="Votre nom">
         </div>
-
         <div class="form-group">
             <label>Email</label>
             <input type="email" id="authEmail" placeholder="votre@email.com">
         </div>
-
         <div class="form-group">
             <label>Mot de passe</label>
             <input type="password" id="authPassword" placeholder="••••••••">
@@ -338,9 +385,7 @@
     </div>
 </div>
 
-<!-- ============================================ -->
 <!-- MAIN APP -->
-<!-- ============================================ -->
 <div id="mainApp" class="main-app hidden">
 
     <header class="app-header">
@@ -357,15 +402,11 @@
         <button id="tab3Btn" class="tab-btn">📊 Comptabilité</button>
     </nav>
 
-    <!-- ============================================ -->
-    <!-- TAB 1: STOCK & MODELES -->
-    <!-- ============================================ -->
+    <!-- ========== TAB 1: STOCK & MODÈLES ========== -->
     <div id="tab1" class="tab-panel active">
 
-        <!-- Ajouter un modèle -->
         <div class="card">
             <h3>➕ Ajouter un nouveau modèle</h3>
-
             <div class="steps-indicator">
                 <div class="step-dot active" id="dot1">1</div>
                 <div class="step-dot" id="dot2">2</div>
@@ -373,7 +414,7 @@
                 <div class="step-dot" id="dot4">4</div>
             </div>
 
-            <!-- Étape 1: Infos de base -->
+            <!-- Étape 1 -->
             <div id="step1" class="step-section">
                 <div class="form-group">
                     <label>Nom du modèle</label>
@@ -396,7 +437,7 @@
                 <button id="toStep2Btn" class="btn btn-primary">Continuer →</button>
             </div>
 
-            <!-- Étape 2: Couleurs -->
+            <!-- Étape 2 -->
             <div id="step2" class="step-section hidden">
                 <div class="form-group">
                     <label>Nombre de couleurs</label>
@@ -409,7 +450,7 @@
                 </div>
             </div>
 
-            <!-- Étape 3: Pointures -->
+            <!-- Étape 3 -->
             <div id="step3" class="step-section hidden">
                 <div class="form-group">
                     <label>Nombre de pointures</label>
@@ -426,7 +467,7 @@
                 </div>
             </div>
 
-            <!-- Étape 4: Récapitulatif -->
+            <!-- Étape 4 -->
             <div id="step4" class="step-section hidden">
                 <h4 style="margin-bottom:16px;">📋 Récapitulatif</h4>
                 <table>
@@ -445,7 +486,10 @@
 
         <!-- Liste des modèles -->
         <div class="card">
-            <h3>📋 Mes modèles</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="margin-bottom:0;">📋 Mes modèles</h3>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllModels()">🗑️ Tout supprimer</button>
+            </div>
             <div id="modelsListContainer">
                 <div class="empty-state">
                     <div class="icon">📦</div>
@@ -457,7 +501,10 @@
 
         <!-- Détail du stock -->
         <div class="card">
-            <h3>📊 Détail du stock</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="margin-bottom:0;">📊 Détail du stock</h3>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllStock()">🗑️ Tout supprimer</button>
+            </div>
             <div style="overflow-x:auto;">
                 <table>
                     <thead>
@@ -468,19 +515,18 @@
                             <th>Qté</th>
                             <th>Prix achat</th>
                             <th>Prix vente</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="stockDetailBody">
-                        <tr><td colspan="6" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>
+                        <tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- TAB 2: VENTES & RETOURS -->
-    <!-- ============================================ -->
+    <!-- ========== TAB 2: VENTES & RETOURS ========== -->
     <div id="tab2" class="tab-panel">
 
         <!-- Recherche & Vente -->
@@ -502,26 +548,48 @@
             </div>
             <button id="searchProductBtn" class="btn btn-primary">Rechercher</button>
 
-            <div id="searchResult" class="hidden" style="margin-top:20px;padding:20px;background:var(--light);border-radius:8px;">
+            <div id="searchResult" class="hidden" style="margin-top:20px;">
                 <div id="searchResultContent"></div>
+                <div id="alternativesContainer" class="hidden"></div>
             </div>
         </div>
 
         <!-- Commandes en attente -->
         <div class="card">
-            <h3>📭 Commandes en attente d'expédition</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="margin-bottom:0;">📦 Colis à préparer (En attente d'expédition)</h3>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllPending()">🗑️ Tout annuler</button>
+            </div>
             <div id="pendingOrdersContainer">
                 <div class="empty-state">
-                    <div class="icon">📭</div>
+                    <div class="icon">📦</div>
                     <h3>Aucun colis en attente</h3>
                     <p>Les commandes validées apparaîtront ici.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Expéditions -->
+        <!-- Suivi du Dépôt -->
         <div class="card">
-            <h3>🚚 Historique des expéditions</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="margin-bottom:0;">💰 Suivi du Dépôt - Colis Vendus</h3>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllDeposit()">🗑️ Tout annuler</button>
+            </div>
+            <div id="depositContainer">
+                <div class="empty-state">
+                    <div class="icon">💰</div>
+                    <h3>Aucun colis en attente de récupération</h3>
+                    <p>Les colis expédiés en attente de paiement apparaîtront ici.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historique des expéditions -->
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="margin-bottom:0;">🚚 Historique des expéditions</h3>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllShipped()">🗑️ Tout supprimer</button>
+            </div>
             <div style="overflow-x:auto;">
                 <table>
                     <thead>
@@ -533,10 +601,12 @@
                             <th>Prix vente</th>
                             <th>Livraison</th>
                             <th>Total</th>
+                            <th>Statut</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="shippedBody">
-                        <tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucune expédition enregistrée</td></tr>
+                        <tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition enregistrée</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -544,7 +614,7 @@
 
         <!-- Retours -->
         <div class="card">
-            <h3>↩️ Gestion des retours</h3>
+            <h3>↩️ Réintégrer un Retour</h3>
             <div class="search-grid">
                 <div class="form-group">
                     <label>Modèle</label>
@@ -559,16 +629,13 @@
                     <select id="returnSize"><option value="">-- Pointure --</option></select>
                 </div>
             </div>
-            <button id="processReturnBtn" class="btn btn-warning" style="background:var(--warning);color:white;">Réintégrer au stock</button>
+            <button id="processReturnBtn" class="btn btn-warning">Réintégrer au stock (+1)</button>
         </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- TAB 3: COMPTABILITE -->
-    <!-- ============================================ -->
+    <!-- ========== TAB 3: COMPTABILITÉ ========== -->
     <div id="tab3" class="tab-panel">
 
-        <!-- Fiche journalière -->
         <div class="card">
             <h3>📅 Fiche journalière</h3>
             <div class="search-grid">
@@ -605,19 +672,22 @@
                 <input type="text" id="unexpectedMemo" placeholder="Détail des dépenses...">
             </div>
 
-            <button id="saveDailySheetBtn" class="btn btn-success">💾 Sauvegarder la fiche</button>
+            <div style="display:flex;gap:10px;align-items:center;">
+                <button id="saveDailySheetBtn" class="btn btn-success">💾 Sauvegarder la fiche</button>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetDailySheet()">🗑️ Réinitialiser</button>
+            </div>
         </div>
 
-        <!-- Statistiques -->
+        <!-- Stats principales -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Chiffre d'affaires</div>
-                <div class="stat-value" id="statCA">0</div>
+                <div class="stat-value amount-ca" id="statCA">0</div>
                 <div style="font-size:12px;color:var(--gray);">DA</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Dépenses totales</div>
-                <div class="stat-value" id="statExpenses">0</div>
+                <div class="stat-value amount-negative" id="statExpenses">0</div>
                 <div style="font-size:12px;color:var(--gray);">DA</div>
             </div>
             <div class="stat-card">
@@ -636,15 +706,15 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Prix moyen de vente</div>
-                <div class="stat-value" id="avgSalePrice">0 DA</div>
+                <div class="stat-value amount-ca" id="avgSalePrice">0 DA</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Marge moyenne / paire</div>
-                <div class="stat-value" id="avgMargin">0 DA</div>
+                <div class="stat-value amount-positive" id="avgMargin">0 DA</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Taux de marge</div>
-                <div class="stat-value" id="marginRate">0%</div>
+                <div class="stat-value amount-positive" id="marginRate">0%</div>
             </div>
         </div>
 
@@ -667,9 +737,12 @@
             </div>
         </div>
 
-        <!-- Historique -->
+        <!-- Historique des fiches -->
         <div class="card">
-            <h3>🗂️ Historique des fiches</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="margin-bottom:0;">🗂️ Historique des fiches</h3>
+                <button class="btn btn-reset btn-sm" onclick="window.confirmResetAllHistory()">🗑️ Tout supprimer</button>
+            </div>
             <div style="overflow-x:auto;">
                 <table>
                     <thead>
@@ -689,15 +762,11 @@
     </div>
 </div>
 
-<!-- Toast Container -->
 <div id="toastContainer"></div>
 
-<!-- ============================================ -->
-<!-- VOTRE CODE JAVASCRIPT ORIGINAL (INTACT) -->
-<!-- ============================================ -->
 <script type="module">
 // ============================================
-// FIREBASE IMPORTS
+// FIREBASE
 // ============================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
@@ -718,10 +787,34 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 
-let models = []; let stock = []; let orders = []; let dailySheets = {}; let salesHistory = []; let currentUser = null; let isRegisterMode = false;
+let models = [];
+let stock = [];
+let orders = [];
+let dailySheets = {};
+let salesHistory = [];
+let currentUser = null;
+let isRegisterMode = false;
 
-// EXPOSER LES FONCTIONS GLOBALEMENT
-window.toggleAuthMode = function() {
+// ============================================
+// UTILS
+// ============================================
+function showToast(m, type = 'success') {
+    const c = document.getElementById('toastContainer');
+    if (!c) return;
+    const t = document.createElement('div');
+    t.className = `toast toast-${type}`;
+    t.innerHTML = `<span>${type === 'success' ? '✅' : '❌'}</span> ${m}`;
+    c.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+
+function formatCurrency(v) { return new Intl.NumberFormat('fr-FR').format(v || 0); }
+function getTodayString() { return new Date().toISOString().split('T')[0]; }
+
+// ============================================
+// AUTH
+// ============================================
+window.toggleAuthMode = function () {
     isRegisterMode = !isRegisterMode;
     const btn = document.getElementById('authSubmitBtn');
     const toggleText = document.getElementById('authToggleText');
@@ -729,26 +822,22 @@ window.toggleAuthMode = function() {
     document.getElementById('authError').classList.add('hidden');
     if (isRegisterMode) {
         btn.textContent = "S'inscrire";
-        toggleText.innerHTML = "Déjà un compte ? <a onclick=\"window.toggleAuthMode()\">Se connecter</a>";
+        toggleText.innerHTML = `Déjà un compte ? <a onclick="window.toggleAuthMode()">Se connecter</a>`;
         nameGroup.classList.remove('hidden');
     } else {
         btn.textContent = 'Se connecter';
-        toggleText.innerHTML = "Pas encore de compte ? <a onclick=\"window.toggleAuthMode()\">S'inscrire</a>";
+        toggleText.innerHTML = `Pas encore de compte ? <a onclick="window.toggleAuthMode()">S'inscrire</a>`;
         nameGroup.classList.add('hidden');
     }
 };
 
-// CONNEXION AVEC GOOGLE OPTIMISÉE (POPUP)
 document.getElementById('googleSignInBtn').addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
     const errorDiv = document.getElementById('authError');
     errorDiv.classList.add('hidden');
-    
     try {
         const result = await signInWithPopup(auth, provider);
-        if (result.user) {
-            showToast('Connexion Google réussie !');
-        }
+        if (result.user) showToast('Connexion Google réussie !');
     } catch (error) {
         console.error("Erreur Google Auth:", error);
         errorDiv.textContent = "Erreur Google : " + error.message;
@@ -761,14 +850,26 @@ document.getElementById('authSubmitBtn').addEventListener('click', async () => {
     const password = document.getElementById('authPassword').value;
     const errorDiv = document.getElementById('authError');
     errorDiv.classList.add('hidden');
-    if (!email || !password) { errorDiv.textContent = 'Remplissez tous les champs'; errorDiv.classList.remove('hidden'); return; }
+    if (!email || !password) {
+        errorDiv.textContent = 'Remplissez tous les champs';
+        errorDiv.classList.remove('hidden');
+        return;
+    }
     try {
-        if (isRegisterMode) { await createUserWithEmailAndPassword(auth, email, password); showToast('Compte créé !'); }
-        else { await signInWithEmailAndPassword(auth, email, password); showToast('Connecté !'); }
-    } catch (e) { errorDiv.textContent = e.message; errorDiv.classList.remove('hidden'); }
+        if (isRegisterMode) {
+            await createUserWithEmailAndPassword(auth, email, password);
+            showToast('Compte créé !');
+        } else {
+            await signInWithEmailAndPassword(auth, email, password);
+            showToast('Connecté !');
+        }
+    } catch (e) {
+        errorDiv.textContent = e.message;
+        errorDiv.classList.remove('hidden');
+    }
 });
 
-document.getElementById('logoutBtn').addEventListener('click', () => { signOut(auth); });
+document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -784,12 +885,38 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+// ============================================
+// FIREBASE DATA
+// ============================================
 function loadAllData() {
-    onValue(ref(db, 'models'), (snapshot) => { models = snapshot.val() || []; renderModelsList(); updateSearchDropdowns(); updateReturnDropdowns(); });
-    onValue(ref(db, 'stock'), (snapshot) => { stock = snapshot.val() || []; renderStockDetailTable(); updateSearchDropdowns(); updateReturnDropdowns(); });
-    onValue(ref(db, 'orders'), (snapshot) => { orders = snapshot.val() || []; renderPendingOrders(); renderShippedTable(); calculateDailySheet(); });
-    onValue(ref(db, 'dailySheets'), (snapshot) => { dailySheets = snapshot.val() || {}; renderDailyHistory(); calculateDailySheet(); });
-    onValue(ref(db, 'salesHistory'), (snapshot) => { salesHistory = snapshot.val() || []; calculateDailySheet(); });
+    onValue(ref(db, 'models'), (snapshot) => {
+        models = snapshot.val() || [];
+        renderModelsList();
+        updateSearchDropdowns();
+        updateReturnDropdowns();
+    });
+    onValue(ref(db, 'stock'), (snapshot) => {
+        stock = snapshot.val() || [];
+        renderStockDetailTable();
+        updateSearchDropdowns();
+        updateReturnDropdowns();
+    });
+    onValue(ref(db, 'orders'), (snapshot) => {
+        orders = snapshot.val() || [];
+        renderPendingOrders();
+        renderDepositOrders();
+        renderShippedTable();
+        calculateDailySheet();
+    });
+    onValue(ref(db, 'dailySheets'), (snapshot) => {
+        dailySheets = snapshot.val() || {};
+        renderDailyHistory();
+        calculateDailySheet();
+    });
+    onValue(ref(db, 'salesHistory'), (snapshot) => {
+        salesHistory = snapshot.val() || [];
+        calculateDailySheet();
+    });
 }
 
 async function saveToFirebase() {
@@ -800,47 +927,39 @@ async function saveToFirebase() {
     await set(ref(db, 'salesHistory'), salesHistory);
 }
 
-function showToast(m, type = 'success') {
-    const c = document.getElementById('toastContainer');
-    if (!c) return;
-    const t = document.createElement('div'); t.className = `toast toast-${type}`;
-    t.innerHTML = `<span>${type==='success'?'✅':'❌'}</span> ${m}`; c.appendChild(t);
-    setTimeout(() => { t.remove(); }, 3000);
-}
-
-function formatCurrency(v) { return new Intl.NumberFormat('fr-FR').format(v || 0); }
-function getTodayString() { return new Date().toISOString().split('T')[0]; }
-
-// ONGLONS NAV
+// ============================================
+// TABS
+// ============================================
 function switchTab(id) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    document.getElementById(id+'Btn').classList.add('active');
-    if(id === 'tab3') { setToday(); }
+    document.getElementById(id + 'Btn').classList.add('active');
+    if (id === 'tab3') setToday();
 }
 document.getElementById('tab1Btn').addEventListener('click', () => switchTab('tab1'));
 document.getElementById('tab2Btn').addEventListener('click', () => switchTab('tab2'));
 document.getElementById('tab3Btn').addEventListener('click', () => switchTab('tab3'));
 
-// ASSISTANCE ÉTAPES FORMULAIRE STOCK
-window.goToStep = function(step) {
-    if(step === 2 && (!document.getElementById('modelName').value || !document.getElementById('modelCostPrice').value || !document.getElementById('modelSellPrice').value)) {
-        alert('Veuillez remplir tous les champs requis de l\'etape 1.');
+// ============================================
+// ÉTAPES FORMULAIRE MODÈLE
+// ============================================
+window.goToStep = function (step) {
+    if (step === 2 && (!document.getElementById('modelName').value || !document.getElementById('modelCostPrice').value || !document.getElementById('modelSellPrice').value)) {
+        alert("Veuillez remplir tous les champs requis de l'étape 1.");
         return;
     }
     document.querySelectorAll('.step-section').forEach(s => s.classList.add('hidden'));
-    document.getElementById('step'+step).classList.remove('hidden');
-    document.querySelectorAll('.step-dot').forEach((d, i) => { d.classList.remove('active'); if(i+1===step) d.classList.add('active'); });
-    if(step === 4) {
+    document.getElementById('step' + step).classList.remove('hidden');
+    document.querySelectorAll('.step-dot').forEach((d, i) => {
+        d.classList.remove('active');
+        if (i + 1 === step) d.classList.add('active');
+    });
+    if (step === 4) {
         const name = document.getElementById('modelName').value;
-        const cCount = parseInt(document.getElementById('colorCount').value) || 0;
-        const sCount = parseInt(document.getElementById('sizeCount').value) || 0;
         const units = parseInt(document.getElementById('unitsPerVariant').value) || 0;
-        
         const colorsArr = Array.from(document.querySelectorAll('.color-input')).map(i => i.value.trim()).filter(v => v !== "");
         const sizesArr = Array.from(document.querySelectorAll('.size-input')).map(i => i.value.trim()).filter(v => v !== "");
-
         document.getElementById('summaryModel').textContent = name;
         document.getElementById('summaryColors').textContent = colorsArr.join(', ') || '-';
         document.getElementById('summarySizes').textContent = sizesArr.join(', ') || '-';
@@ -848,6 +967,7 @@ window.goToStep = function(step) {
         document.getElementById('summaryTotal').textContent = (colorsArr.length * sizesArr.length * units) + " paires";
     }
 };
+
 document.getElementById('toStep2Btn').addEventListener('click', () => window.goToStep(2));
 document.getElementById('backToStep1Btn').addEventListener('click', () => window.goToStep(1));
 document.getElementById('toStep3Btn').addEventListener('click', () => window.goToStep(3));
@@ -856,17 +976,20 @@ document.getElementById('toStep4Btn').addEventListener('click', () => window.goT
 document.getElementById('backToStep3Btn').addEventListener('click', () => window.goToStep(3));
 
 document.getElementById('colorCount').addEventListener('input', () => {
-    const c = document.getElementById('colorInputsContainer'); c.innerHTML = '';
+    const c = document.getElementById('colorInputsContainer');
+    c.innerHTML = '';
     const val = parseInt(document.getElementById('colorCount').value) || 0;
-    for(let i=0; i<val; i++) {
-        c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i+1}</span><input type="text" class="color-input" placeholder="Couleur"/></div>`;
+    for (let i = 0; i < val; i++) {
+        c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="color-input" placeholder="Couleur"/></div>`;
     }
 });
+
 document.getElementById('sizeCount').addEventListener('input', () => {
-    const c = document.getElementById('sizeInputsContainer'); c.innerHTML = '';
+    const c = document.getElementById('sizeInputsContainer');
+    c.innerHTML = '';
     const val = parseInt(document.getElementById('sizeCount').value) || 0;
-    for(let i=0; i<val; i++) {
-        c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i+1}</span><input type="text" class="size-input" placeholder="Pointure"/></div>`;
+    for (let i = 0; i < val; i++) {
+        c.innerHTML += `<div class="dynamic-input-item"><span class="index-badge">${i + 1}</span><input type="text" class="size-input" placeholder="Pointure"/></div>`;
     }
 });
 
@@ -879,80 +1002,139 @@ document.getElementById('validateModelBtn').addEventListener('click', async () =
     const colors = Array.from(document.querySelectorAll('.color-input')).map(i => i.value.trim()).filter(v => v !== "");
     const sizes = Array.from(document.querySelectorAll('.size-input')).map(i => i.value.trim()).filter(v => v !== "");
     const qty = parseInt(document.getElementById('unitsPerVariant').value) || 0;
-    
-    if(!name || colors.length === 0 || sizes.length === 0 || qty === 0) {
+
+    if (!name || colors.length === 0 || sizes.length === 0 || qty === 0) {
         alert("Données incomplètes.");
         return;
     }
 
     models.push({ id: mId, name, costPrice: cost, sellPrice: sell, colors, sizes });
-    colors.forEach(c => { sizes.forEach(s => {
-        stock.push({ id: 'st_'+Date.now()+'_'+Math.floor(Math.random()*10000), modelId: mId, modelName: name, color: c, size: s, quantity: qty, costPrice: cost, sellPrice: sell, deliveryFee: delivery });
-    });});
-    
-    await saveToFirebase(); 
-    showToast('Stock cree !'); 
-    
-    // Reset Form
-    document.getElementById('modelName').value = '';
-    document.getElementById('modelCostPrice').value = '';
-    document.getElementById('modelSellPrice').value = '';
+    colors.forEach(c => {
+        sizes.forEach(s => {
+            stock.push({
+                id: 'st_' + Date.now() + '_' + Math.floor(Math.random() * 10000),
+                modelId: mId, modelName: name,
+                color: c, size: s, quantity: qty,
+                costPrice: cost, sellPrice: sell, deliveryFee: delivery
+            });
+        });
+    });
+
+    await saveToFirebase();
+    showToast('Stock créé avec succès !');
+
+    // Reset form
+    ['modelName', 'modelCostPrice', 'modelSellPrice', 'colorCount', 'sizeCount', 'unitsPerVariant'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('modelDeliveryFee').value = '0';
-    document.getElementById('colorCount').value = '';
-    document.getElementById('sizeCount').value = '';
-    document.getElementById('unitsPerVariant').value = '';
     document.getElementById('colorInputsContainer').innerHTML = '';
     document.getElementById('sizeInputsContainer').innerHTML = '';
-    
     window.goToStep(1);
 });
 
+// ============================================
+// SUPPRESSION - MODÈLES & STOCK
+// ============================================
+window.deleteModel = async function (modelId) {
+    if (!confirm('Supprimer ce modèle et tout son stock associé ?')) return;
+    models = models.filter(m => m.id !== modelId);
+    stock = stock.filter(s => s.modelId !== modelId);
+    await saveToFirebase();
+    showToast('Modèle supprimé !');
+};
+
+window.deleteStockItem = async function (stockId) {
+    if (!confirm('Supprimer cette variante de stock ?')) return;
+    stock = stock.filter(s => s.id !== stockId);
+    await saveToFirebase();
+    showToast('Variante supprimée !');
+};
+
+window.confirmResetAllModels = function () {
+    if (!confirm('⚠️ Supprimer TOUS les modèles et tout le stock ?')) return;
+    if (!confirm('Action irréversible. Confirmer ?')) return;
+    models = [];
+    stock = [];
+    saveToFirebase();
+    showToast('Tous les modèles supprimés !');
+};
+
+window.confirmResetAllStock = function () {
+    if (!confirm('⚠️ Supprimer TOUT le stock ?')) return;
+    stock = [];
+    saveToFirebase();
+    showToast('Stock supprimé !');
+};
+
+// ============================================
+// RENDER - STOCK & MODÈLES
+// ============================================
 function renderModelsList() {
-    const c = document.getElementById('modelsListContainer'); c.innerHTML = '';
-    if(models.length === 0) {
-        c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun modele enregistre</h3><p>Creez votre premier modele en utilisant le formulaire ci-dessus.</p></div>`;
+    const c = document.getElementById('modelsListContainer');
+    c.innerHTML = '';
+    if (models.length === 0) {
+        c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun modèle enregistré</h3><p>Créez votre premier modèle ci-dessus.</p></div>`;
         return;
     }
-    models.forEach(m => { c.innerHTML += `<div class="model-list-item"><div><strong>${m.name}</strong><span> (Couleurs: ${m.colors.length}, Pointures: ${m.sizes.length})</span></div></div>`; });
-}
-function renderStockDetailTable() {
-    const b = document.getElementById('stockDetailBody'); b.innerHTML = '';
-    if(stock.length === 0) {
-        b.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--gray);">Aucun stock enregistre</td></tr>`;
-        return;
-    }
-    stock.forEach(s => { b.innerHTML += `<tr><td>${s.modelName}</td><td>${s.color}</td><td>${s.size}</td><td>${s.quantity}</td><td>${formatCurrency(s.costPrice)} DA</td><td>${formatCurrency(s.sellPrice)} DA</td></tr>`; });
-}
-function renderShippedTable() {
-    const b = document.getElementById('shippedBody'); b.innerHTML = '';
-    const shipped = orders.filter(o => o.status === 'shipped');
-    if(shipped.length === 0) {
-        b.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucune expedition enregistree</td></tr>`;
-        return;
-    }
-    shipped.forEach(o => { b.innerHTML += `<tr><td>${o.date}</td><td>${o.modelName}</td><td>${o.color}</td><td>${o.size}</td><td>${formatCurrency(o.salePrice)}</td><td>${formatCurrency(o.deliveryFee)}</td><td>${formatCurrency(o.salePrice+o.deliveryFee)}</td></tr>`; });
+    models.forEach(m => {
+        c.innerHTML += `
+            <div class="model-list-item">
+                <div>
+                    <strong>${m.name}</strong>
+                    <span> (${m.colors.length} couleur(s), ${m.sizes.length} pointure(s))</span>
+                </div>
+                <button class="btn-icon btn-delete" onclick="window.deleteModel('${m.id}')" title="Supprimer">🗑️</button>
+            </div>`;
+    });
 }
 
-// MANAGEMENT RECHERCHE / VENTE
+function renderStockDetailTable() {
+    const b = document.getElementById('stockDetailBody');
+    b.innerHTML = '';
+    if (stock.length === 0) {
+        b.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--gray);">Aucun stock enregistré</td></tr>`;
+        return;
+    }
+    stock.forEach(s => {
+        let qtyClass = '';
+        if (s.quantity === 0) qtyClass = 'stock-alert-red';
+        else if (s.quantity <= 3) qtyClass = 'stock-alert-orange';
+        b.innerHTML += `
+            <tr class="${qtyClass}">
+                <td>${s.modelName}</td>
+                <td>${s.color}</td>
+                <td>${s.size}</td>
+                <td><strong>${s.quantity}</strong></td>
+                <td>${formatCurrency(s.costPrice)} DA</td>
+                <td>${formatCurrency(s.sellPrice)} DA</td>
+                <td class="action-cell">
+                    <button class="btn-icon btn-delete" onclick="window.deleteStockItem('${s.id}')" title="Supprimer">🗑️</button>
+                </td>
+            </tr>`;
+    });
+}
+
+// ============================================
+// RECHERCHE & VENTE
+// ============================================
 function updateSearchDropdowns() {
     const m = document.getElementById('searchModel');
     const selected = m.value;
-    m.innerHTML = '<option value="">-- Choisir un modele --</option>';
+    m.innerHTML = '<option value="">-- Choisir un modèle --</option>';
     models.forEach(mod => m.innerHTML += `<option value="${mod.id}">${mod.name}</option>`);
-    if(selected) m.value = selected;
+    if (selected) m.value = selected;
 }
 
 document.getElementById('searchModel').addEventListener('change', () => {
     const mId = document.getElementById('searchModel').value;
-    const col = document.getElementById('searchColor'); col.innerHTML = '<option value="">-- Choisir une couleur --</option>';
-    const s = document.getElementById('searchSize'); s.innerHTML = '<option value="">-- Choisir une pointure --</option>';
-    
+    const col = document.getElementById('searchColor');
+    const s = document.getElementById('searchSize');
+    col.innerHTML = '<option value="">-- Choisir une couleur --</option>';
+    s.innerHTML = '<option value="">-- Choisir une pointure --</option>';
     const addedColors = new Set();
     const addedSizes = new Set();
-    
     stock.filter(st => st.modelId === mId).forEach(st => {
-        if(!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
-        if(!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
+        if (!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
+        if (!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
     });
 });
 
@@ -960,86 +1142,308 @@ document.getElementById('searchProductBtn').addEventListener('click', () => {
     const mId = document.getElementById('searchModel').value;
     const color = document.getElementById('searchColor').value;
     const size = document.getElementById('searchSize').value;
-    const res = document.getElementById('searchResult'); res.classList.remove('hidden');
+    const res = document.getElementById('searchResult');
+    res.classList.remove('hidden');
     const cont = document.getElementById('searchResultContent');
-    
-    if(!mId || !color || !size) { cont.innerHTML = 'Sélectionnez un modèle, une couleur et une pointure.'; return; }
-    
+    const altCont = document.getElementById('alternativesContainer');
+    altCont.classList.add('hidden');
+    altCont.innerHTML = '';
+
+    if (!mId || !color || !size) {
+        cont.innerHTML = '<span style="color:var(--danger);font-weight:bold;">Sélectionnez un modèle, une couleur et une pointure.</span>';
+        return;
+    }
+
     const item = stock.find(st => st.modelId === mId && st.size === size && st.color === color);
-    if(item && item.quantity > 0) {
-        cont.innerHTML = `<h4>Disponible: ${item.quantity} paires</h4><button class="btn btn-success" id="sellBtn" style="margin-top:10px;">Valider Vente</button>`;
+
+    if (item && item.quantity > 0) {
+        cont.innerHTML = `
+            <h4 style="color:var(--success);">✅ Disponible: ${item.quantity} paires</h4>
+            <div class="price-negociation">
+                <label>💰 Prix de vente réel payé par le client (DA)</label>
+                <input type="number" id="negotiatedPrice" value="${item.sellPrice}" placeholder="${item.sellPrice}">
+                <p style="font-size:12px;color:var(--gray);margin-top:4px;">Prix standard: ${formatCurrency(item.sellPrice)} DA — Modifiez si négociation</p>
+            </div>
+            <button class="btn btn-success" id="sellBtn" style="margin-top:10px;">✅ Valider la commande</button>
+        `;
         document.getElementById('sellBtn').addEventListener('click', async () => {
-            item.quantity--; 
-            const orderId = 'or_'+Date.now();
-            orders.push({id: orderId, modelName: item.modelName, color: item.color, size: item.size, salePrice: item.sellPrice, costPrice: item.costPrice, deliveryFee: item.deliveryFee || 0, status:'pending', date:getTodayString()});
-            salesHistory.push({date: getTodayString(), salePrice: item.sellPrice, costPrice: item.costPrice, deliveryFee: item.deliveryFee || 0});
-            await saveToFirebase(); 
-            showToast('Commande mise en attente');
-            cont.innerHTML = `<h4>Disponible: ${item.quantity} paires</h4><button class="btn btn-success" id="sellBtn" style="margin-top:10px;">Valider Vente</button>`;
+            const negotiatedPrice = parseFloat(document.getElementById('negotiatedPrice').value) || item.sellPrice;
+            item.quantity--;
+            const orderId = 'or_' + Date.now();
+            orders.push({
+                id: orderId,
+                modelName: item.modelName,
+                color: item.color,
+                size: item.size,
+                salePrice: negotiatedPrice,
+                standardPrice: item.sellPrice,
+                costPrice: item.costPrice,
+                deliveryFee: item.deliveryFee || 0,
+                status: 'pending',
+                date: getTodayString()
+            });
+            salesHistory.push({
+                date: getTodayString(),
+                salePrice: negotiatedPrice,
+                costPrice: item.costPrice,
+                deliveryFee: item.deliveryFee || 0
+            });
+            await saveToFirebase();
+            showToast('Commande validée ! Colis à préparer.');
+            cont.innerHTML = '';
+            res.classList.add('hidden');
+            document.getElementById('searchModel').value = '';
+            document.getElementById('searchColor').innerHTML = '<option value="">-- Choisir une couleur --</option>';
+            document.getElementById('searchSize').innerHTML = '<option value="">-- Choisir une pointure --</option>';
         });
-    } else { cont.innerHTML = '<span style="color:var(--danger); font-weight:bold;">Rupture de stock !</span>'; }
+    } else {
+        cont.innerHTML = `
+            <div class="rupture-alert">
+                ❌ RUPTURE DE STOCK
+                <p style="font-size:14px;font-weight:normal;margin-top:8px;">Cette variante n'est plus disponible</p>
+            </div>`;
+        const alternatives = stock.filter(st => st.modelId === mId && st.size === size && st.color !== color && st.quantity > 0);
+        altCont.classList.remove('hidden');
+        if (alternatives.length > 0) {
+            altCont.innerHTML = `<h4 style="margin-bottom:12px;color:#d97706;">🎨 Alternatives disponibles pour la pointure ${size}:</h4>`;
+            alternatives.forEach(alt => {
+                const altDiv = document.createElement('div');
+                altDiv.className = 'alternative-item';
+                altDiv.innerHTML = `
+                    <div>
+                        <strong style="color:var(--primary);">${alt.color}</strong>
+                        <span style="color:var(--gray);font-size:13px;"> — ${alt.quantity} paires</span>
+                        <div style="font-size:14px;color:var(--dark);margin-top:4px;">${formatCurrency(alt.sellPrice)} DA</div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" data-alt-id="${alt.id}">Choisir</button>`;
+                altCont.appendChild(altDiv);
+                altDiv.querySelector('button').addEventListener('click', () => {
+                    document.getElementById('searchColor').value = alt.color;
+                    document.getElementById('searchProductBtn').click();
+                });
+            });
+        } else {
+            altCont.innerHTML = `<div style="text-align:center;color:var(--gray);padding:12px;">Aucune alternative disponible pour cette pointure</div>`;
+        }
+    }
 });
 
+// ============================================
+// COMMANDES EN ATTENTE
+// ============================================
 function renderPendingOrders() {
-    const c = document.getElementById('pendingOrdersContainer'); c.innerHTML = '';
+    const c = document.getElementById('pendingOrdersContainer');
+    c.innerHTML = '';
     const pending = orders.filter(o => o.status === 'pending');
-    if(pending.length === 0) {
-        c.innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>Aucun colis en attente</h3><p>Les commandes validees apparaitront ici.</p></div>`;
+    if (pending.length === 0) {
+        c.innerHTML = `<div class="empty-state"><div class="icon">📦</div><h3>Aucun colis en attente</h3><p>Les commandes validées apparaîtront ici.</p></div>`;
         return;
     }
     pending.forEach(o => {
         const div = document.createElement('div');
         div.className = 'order-item';
-        div.innerHTML = `<div class="order-info"><strong>${o.modelName}</strong> - ${o.color} (${o.size})</div><div class="order-actions"><button class="btn btn-success btn-sm" id="ship_${o.id}">Expedier</button></div>`;
+        div.innerHTML = `
+            <div class="order-info">
+                <strong>${o.modelName}</strong> — ${o.color} (${o.size})
+                <div style="font-size:13px;color:var(--gray);margin-top:4px;">
+                    Prix: ${formatCurrency(o.salePrice)} DA
+                    ${o.salePrice !== o.standardPrice ? '<span style="color:var(--warning);margin-left:6px;">(Négocié)</span>' : ''}
+                </div>
+            </div>
+            <div class="order-actions">
+                <button class="btn btn-primary btn-sm" id="ship_${o.id}">📦 Expédier</button>
+                <button class="btn-icon btn-delete" onclick="window.deletePendingOrder('${o.id}')" title="Annuler">🗑️</button>
+            </div>`;
         c.appendChild(div);
         document.getElementById(`ship_${o.id}`).addEventListener('click', async () => {
-            o.status = 'shipped'; 
+            o.status = 'shipped';
             await saveToFirebase();
-            showToast('Colis expédié !');
+            showToast('Colis expédié ! En attente de paiement.');
         });
     });
 }
 
-// RETOURS MANAGEMENT
+window.deletePendingOrder = async function (orderId) {
+    if (!confirm('Annuler cette commande et réintégrer le stock ?')) return;
+    const order = orders.find(o => o.id === orderId);
+    if (order) {
+        const stockItem = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size);
+        if (stockItem) stockItem.quantity++;
+    }
+    orders = orders.filter(o => o.id !== orderId);
+    await saveToFirebase();
+    showToast('Commande annulée, stock réintégré !');
+};
+
+window.confirmResetAllPending = function () {
+    if (!confirm('⚠️ Annuler TOUTES les commandes en attente ? Le stock sera réintégré.')) return;
+    orders.filter(o => o.status === 'pending').forEach(o => {
+        const stockItem = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
+        if (stockItem) stockItem.quantity++;
+    });
+    orders = orders.filter(o => o.status !== 'pending');
+    saveToFirebase();
+    showToast('Toutes les commandes en attente annulées !');
+};
+
+// ============================================
+// DÉPÔT (EN ATTENTE PAIEMENT)
+// ============================================
+function renderDepositOrders() {
+    const c = document.getElementById('depositContainer');
+    c.innerHTML = '';
+    const deposit = orders.filter(o => o.status === 'shipped');
+    if (deposit.length === 0) {
+        c.innerHTML = `<div class="empty-state"><div class="icon">💰</div><h3>Aucun colis en attente de récupération</h3><p>Les colis expédiés apparaîtront ici.</p></div>`;
+        return;
+    }
+    deposit.forEach(o => {
+        const div = document.createElement('div');
+        div.className = 'order-item';
+        div.style.background = '#eff6ff';
+        div.innerHTML = `
+            <div class="order-info">
+                <strong>${o.modelName}</strong> — ${o.color} (${o.size})
+                <div style="font-size:13px;color:var(--gray);margin-top:4px;">
+                    Vente: ${formatCurrency(o.salePrice)} DA | Livraison: ${formatCurrency(o.deliveryFee)} DA
+                </div>
+                <div style="font-size:12px;color:var(--primary);margin-top:4px;">🚚 Expédié le ${o.date}</div>
+            </div>
+            <div class="order-actions">
+                <button class="btn btn-success btn-sm" id="sell_${o.id}">💰 Vendu</button>
+                <button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')" title="Annuler">🗑️</button>
+            </div>`;
+        c.appendChild(div);
+        document.getElementById(`sell_${o.id}`).addEventListener('click', async () => {
+            o.status = 'sold';
+            await saveToFirebase();
+            showToast('Vente confirmée ! Argent récupéré.');
+        });
+    });
+}
+
+window.confirmResetAllDeposit = function () {
+    if (!confirm('⚠️ Annuler TOUTES les commandes en dépôt ? Le stock sera réintégré.')) return;
+    orders.filter(o => o.status === 'shipped').forEach(o => {
+        const stockItem = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
+        if (stockItem) stockItem.quantity++;
+    });
+    orders = orders.filter(o => o.status !== 'shipped');
+    saveToFirebase();
+    showToast('Toutes les commandes en dépôt annulées !');
+};
+
+// ============================================
+// EXPÉDITIONS
+// ============================================
+function renderShippedTable() {
+    const b = document.getElementById('shippedBody');
+    b.innerHTML = '';
+    const shipped = orders.filter(o => o.status === 'shipped' || o.status === 'sold');
+    if (shipped.length === 0) {
+        b.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--gray);">Aucune expédition enregistrée</td></tr>`;
+        return;
+    }
+    shipped.forEach(o => {
+        const statusBadge = o.status === 'sold'
+            ? '<span class="order-status-sold">VENDU</span>'
+            : '<span class="order-status-shipped">EN ATTENTE PAIEMENT</span>';
+        b.innerHTML += `
+            <tr>
+                <td>${o.date}</td>
+                <td>${o.modelName}</td>
+                <td>${o.color}</td>
+                <td>${o.size}</td>
+                <td>${formatCurrency(o.salePrice)} DA</td>
+                <td>${formatCurrency(o.deliveryFee)} DA</td>
+                <td>${formatCurrency(o.salePrice + o.deliveryFee)} DA</td>
+                <td>${statusBadge}</td>
+                <td class="action-cell">
+                    <button class="btn-icon btn-delete" onclick="window.deleteShippedOrder('${o.id}')" title="Annuler">🗑️</button>
+                </td>
+            </tr>`;
+    });
+}
+
+window.deleteShippedOrder = async function (orderId) {
+    if (!confirm('Annuler cette expédition et réintégrer le stock ?')) return;
+    const order = orders.find(o => o.id === orderId);
+    if (order) {
+        const stockItem = stock.find(s => s.modelName === order.modelName && s.color === order.color && s.size === order.size);
+        if (stockItem) stockItem.quantity++;
+        salesHistory = salesHistory.filter(sh => !(sh.date === order.date && sh.salePrice === order.salePrice && sh.costPrice === order.costPrice));
+    }
+    orders = orders.filter(o => o.id !== orderId);
+    await saveToFirebase();
+    showToast('Expédition annulée, stock réintégré !');
+};
+
+window.confirmResetAllShipped = function () {
+    if (!confirm('⚠️ Supprimer TOUTES les expéditions ? Le stock sera réintégré et l\'historique effacé.')) return;
+    orders.filter(o => o.status === 'shipped' || o.status === 'sold').forEach(o => {
+        const stockItem = stock.find(s => s.modelName === o.modelName && s.color === o.color && s.size === o.size);
+        if (stockItem) stockItem.quantity++;
+    });
+    salesHistory = [];
+    orders = orders.filter(o => o.status !== 'shipped' && o.status !== 'sold');
+    saveToFirebase();
+    showToast('Toutes les expéditions supprimées !');
+};
+
+// ============================================
+// RETOURS
+// ============================================
 function updateReturnDropdowns() {
     const m = document.getElementById('returnModel');
     const selected = m.value;
-    m.innerHTML = '<option value="">-- Modele --</option>';
+    m.innerHTML = '<option value="">-- Modèle --</option>';
     models.forEach(mod => m.innerHTML += `<option value="${mod.id}">${mod.name}</option>`);
-    if(selected) m.value = selected;
+    if (selected) m.value = selected;
 }
+
 document.getElementById('returnModel').addEventListener('change', () => {
     const mId = document.getElementById('returnModel').value;
-    const col = document.getElementById('returnColor'); col.innerHTML = '<option value="">-- Couleur --</option>';
-    const s = document.getElementById('returnSize'); s.innerHTML = '<option value="">-- Pointure --</option>';
+    const col = document.getElementById('returnColor');
+    const s = document.getElementById('returnSize');
+    col.innerHTML = '<option value="">-- Couleur --</option>';
+    s.innerHTML = '<option value="">-- Pointure --</option>';
     const addedColors = new Set();
     const addedSizes = new Set();
     stock.filter(st => st.modelId === mId).forEach(st => {
-        if(!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
-        if(!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
+        if (!addedColors.has(st.color)) { addedColors.add(st.color); col.innerHTML += `<option value="${st.color}">${st.color}</option>`; }
+        if (!addedSizes.has(st.size)) { addedSizes.add(st.size); s.innerHTML += `<option value="${st.size}">${st.size}</option>`; }
     });
 });
+
 document.getElementById('processReturnBtn').addEventListener('click', async () => {
     const mId = document.getElementById('returnModel').value;
     const color = document.getElementById('returnColor').value;
     const size = document.getElementById('returnSize').value;
-    if(!mId || !color || !size) { alert('Veuillez remplir tous les critères de retour.'); return; }
+    if (!mId || !color || !size) { alert('Veuillez remplir tous les critères de retour.'); return; }
     const item = stock.find(st => st.modelId === mId && st.size === size && st.color === color);
-    if(item) {
+    if (item) {
         item.quantity++;
         await saveToFirebase();
-        showToast('Produit réintégré au stock avec succès !');
-    } else { alert('Variante introuvable.'); }
+        showToast('Produit réintégré au stock ! (+1)');
+    } else {
+        alert('Variante introuvable.');
+    }
 });
 
-// COMPTABILITÉ / FINANCES DASHBOARD
-function setToday() { document.getElementById('dailyDate').value = getTodayString(); loadDailySheet(); }
+// ============================================
+// COMPTABILITÉ
+// ============================================
+function setToday() {
+    document.getElementById('dailyDate').value = getTodayString();
+    loadDailySheet();
+}
 document.getElementById('setTodayBtn').addEventListener('click', setToday);
 document.getElementById('dailyDate').addEventListener('change', loadDailySheet);
 
 function loadDailySheet() {
-    const d = document.getElementById('dailyDate').value; if(!d) return;
-    const s = dailySheets[d] || { adBudget:0, exchangeRate:0, unexpectedExpenses:0, extraGains:0, unexpectedMemo:'' };
+    const d = document.getElementById('dailyDate').value;
+    if (!d) return;
+    const s = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0, unexpectedMemo: '' };
     document.getElementById('adBudget').value = s.adBudget;
     document.getElementById('exchangeRate').value = s.exchangeRate;
     document.getElementById('unexpectedExpenses').value = s.unexpectedExpenses;
@@ -1049,50 +1453,61 @@ function loadDailySheet() {
 }
 
 document.getElementById('saveDailySheetBtn').addEventListener('click', async () => {
-    const d = document.getElementById('dailyDate').value; if(!d) return;
+    const d = document.getElementById('dailyDate').value;
+    if (!d) return;
     dailySheets[d] = {
-        adBudget: parseFloat(document.getElementById('adBudget').value)||0,
-        exchangeRate: parseFloat(document.getElementById('exchangeRate').value)||0,
-        unexpectedExpenses: parseFloat(document.getElementById('unexpectedExpenses').value)||0,
-        extraGains: parseFloat(document.getElementById('extraGains').value)||0,
+        adBudget: parseFloat(document.getElementById('adBudget').value) || 0,
+        exchangeRate: parseFloat(document.getElementById('exchangeRate').value) || 0,
+        unexpectedExpenses: parseFloat(document.getElementById('unexpectedExpenses').value) || 0,
+        extraGains: parseFloat(document.getElementById('extraGains').value) || 0,
         unexpectedMemo: document.getElementById('unexpectedMemo').value
     };
-    await saveToFirebase(); showToast('Fiche sauvegardee !');
+    await saveToFirebase();
+    showToast('Fiche sauvegardée !');
 });
 
 function calculateDailySheet() {
-    const d = document.getElementById('dailyDate').value; if(!d) return;
-    const currentSheet = dailySheets[d] || { adBudget:0, exchangeRate:0, unexpectedExpenses:0, extraGains:0 };
-    
+    const d = document.getElementById('dailyDate').value;
+    if (!d) return;
+    const currentSheet = dailySheets[d] || { adBudget: 0, exchangeRate: 0, unexpectedExpenses: 0, extraGains: 0 };
+
     const daySales = salesHistory.filter(sh => sh.date === d);
     const ca = daySales.reduce((sum, h) => sum + h.salePrice, 0);
     const cost = daySales.reduce((sum, h) => sum + h.costPrice, 0);
-    
+
     const adBudgetInput = parseFloat(document.getElementById('adBudget').value) || currentSheet.adBudget || 0;
     const exchangeRateInput = parseFloat(document.getElementById('exchangeRate').value) || currentSheet.exchangeRate || 0;
     const unexp = parseFloat(document.getElementById('unexpectedExpenses').value) || currentSheet.unexpectedExpenses || 0;
     const extra = parseFloat(document.getElementById('extraGains').value) || currentSheet.extraGains || 0;
-    
+
     const adCostDA = adBudgetInput * exchangeRateInput;
     const totalExp = cost + adCostDA + unexp;
     const net = ca - totalExp + extra;
-    
-    document.getElementById('statCA').textContent = formatCurrency(ca);
-    document.getElementById('statExpenses').textContent = formatCurrency(totalExp);
-    document.getElementById('statProfit').textContent = formatCurrency(net);
+
+    const caEl = document.getElementById('statCA');
+    const expEl = document.getElementById('statExpenses');
+    const profitEl = document.getElementById('statProfit');
+
+    caEl.textContent = formatCurrency(ca);
+    caEl.className = 'stat-value amount-ca';
+    expEl.textContent = formatCurrency(totalExp);
+    expEl.className = 'stat-value amount-negative';
+    profitEl.textContent = formatCurrency(net);
+    profitEl.className = net >= 0 ? 'stat-value amount-positive' : 'stat-value amount-negative';
     document.getElementById('statPairs').textContent = daySales.length;
 
-    // Remplissage du tableau dynamique de résumé de la ligne
-    const summaryBody = document.getElementById('dailySummaryTable');
-    summaryBody.innerHTML = `
-        <tr><td>Ventes Chaussures (CA)</td><td>+ ${formatCurrency(ca)}</td><td>${daySales.length} paires vendues</td></tr>
-        <tr><td>Coût d'achat du stock vendu</td><td>- ${formatCurrency(cost)}</td><td>Prix de revient usine</td></tr>
-        <tr><td>Budget Publicitaire Facebook/TikTok</td><td>- ${formatCurrency(adCostDA)}</td><td>${adBudgetInput}$ au taux de ${exchangeRateInput}</td></tr>
-        <tr><td>Dépenses Imprévues</td><td>- ${formatCurrency(unexp)}</td><td>${document.getElementById('unexpectedMemo').value || 'Aucun détail'}</td></tr>
-        <tr><td>Gains Supplémentaires</td><td>+ ${formatCurrency(extra)}</td><td>Entrées annexes</td></tr>
-    `;
+    document.getElementById('dailySummaryTable').innerHTML = `
+        <tr><td>Ventes Chaussures (CA)</td><td class="amount-ca">+ ${formatCurrency(ca)} DA</td><td>${daySales.length} paires vendues</td></tr>
+        <tr><td>Coût d'achat du stock vendu</td><td class="amount-negative">- ${formatCurrency(cost)} DA</td><td>Prix de revient usine</td></tr>
+        <tr><td>Budget Publicitaire Facebook/TikTok</td><td class="amount-negative">- ${formatCurrency(adCostDA)} DA</td><td>${adBudgetInput}$ × ${exchangeRateInput} DA/$</td></tr>
+        <tr><td>Dépenses Imprévues</td><td class="amount-negative">- ${formatCurrency(unexp)} DA</td><td>${document.getElementById('unexpectedMemo').value || 'Aucun détail'}</td></tr>
+        <tr><td>Gains Supplémentaires</td><td class="amount-positive">+ ${formatCurrency(extra)} DA</td><td>Entrées annexes</td></tr>
+        <tr style="border-top:2px solid #e5e7eb;font-weight:700;">
+            <td>BÉNÉFICE NET</td>
+            <td class="${net >= 0 ? 'amount-positive' : 'amount-negative'}">${net >= 0 ? '+' : ''}${formatCurrency(net)} DA</td>
+            <td>${net >= 0 ? '✅ Bénéfice' : '❌ Perte'}</td>
+        </tr>`;
 
-    // Calcul des indicateurs clés
     const avgSale = daySales.length > 0 ? (ca / daySales.length) : 0;
     const avgMargin = daySales.length > 0 ? ((ca - cost) / daySales.length) : 0;
     const marginRate = ca > 0 ? (((ca - cost) / ca) * 100) : 0;
@@ -1103,18 +1518,52 @@ function calculateDailySheet() {
 }
 
 function renderDailyHistory() {
-    const b = document.getElementById('dailyHistoryTable'); b.innerHTML = '';
+    const b = document.getElementById('dailyHistoryTable');
+    b.innerHTML = '';
     const keys = Object.keys(dailySheets).sort().reverse();
-    if(keys.length === 0) {
-        b.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--gray);">Aucune fiche enregistree</td></tr>`;
+    if (keys.length === 0) {
+        b.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--gray);">Aucune fiche enregistrée</td></tr>`;
         return;
     }
     keys.forEach(k => {
-        b.innerHTML += `<tr><td>${k}</td><td>${dailySheets[k].adBudget} $</td><td>${formatCurrency(dailySheets[k].unexpectedExpenses)} DA</td><td><button class="btn btn-secondary btn-sm" onclick="document.getElementById('dailyDate').value='${k}'; document.getElementById('dailyDate').dispatchEvent(new Event('change'));">Ouvrir</button></td></tr>`;
+        b.innerHTML += `
+            <tr>
+                <td>${k}</td>
+                <td>${dailySheets[k].adBudget} $</td>
+                <td class="amount-negative">${formatCurrency(dailySheets[k].unexpectedExpenses)} DA</td>
+                <td class="action-cell">
+                    <button class="btn btn-secondary btn-sm" onclick="document.getElementById('dailyDate').value='${k}'; document.getElementById('dailyDate').dispatchEvent(new Event('change'));">Ouvrir</button>
+                    <button class="btn-icon btn-delete" onclick="window.deleteDailySheet('${k}')" title="Supprimer">🗑️</button>
+                </td>
+            </tr>`;
     });
 }
-</script>
 
+window.deleteDailySheet = async function (date) {
+    if (!confirm(`Supprimer la fiche du ${date} ?`)) return;
+    delete dailySheets[date];
+    await saveToFirebase();
+    showToast('Fiche journalière supprimée !');
+};
+
+window.confirmResetDailySheet = function () {
+    const d = document.getElementById('dailyDate').value;
+    if (!d) { alert('Veuillez sélectionner une date.'); return; }
+    if (!confirm(`Réinitialiser la fiche du ${d} ?`)) return;
+    delete dailySheets[d];
+    ['adBudget', 'exchangeRate', 'unexpectedExpenses', 'extraGains', 'unexpectedMemo'].forEach(id => document.getElementById(id).value = '');
+    saveToFirebase();
+    showToast('Fiche réinitialisée !');
+};
+
+window.confirmResetAllHistory = function () {
+    if (!confirm('⚠️ Supprimer TOUT l\'historique des fiches journalières ?')) return;
+    if (!confirm('Êtes-vous vraiment sûr ? Action irréversible.')) return;
+    dailySheets = {};
+    saveToFirebase();
+    showToast('Historique supprimé !');
+};
+</script>
 
 </body>
 </html>
